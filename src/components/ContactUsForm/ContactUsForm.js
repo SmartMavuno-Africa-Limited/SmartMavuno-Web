@@ -23,14 +23,13 @@ const ContactUsForm = () =>{
                 <div className="row">
                     <div className="col-md-4" data-aos='fade-right'>
                         <p className={styles.head}>Address</p>
-                        <p className={styles.content}>1201 New Zealand Metropolis 3452</p>
+                        <p className={styles.content}>00100, Ruiru, Kenya</p>
                     </div>
 
                     <div className="col-md-4" data-aos='fade-up' data-aos-offset='100'>
                         <p className={styles.head}>Contact</p>
-                        <p className={styles.content}>Mobile 	: +00 123 456 78</p> 
-                        <p className={styles.content}>Phone 	: +00 123 678 90</p>
-                        <p className={styles.content}>Email: contact@gmail.com</p>
+                        <p className={styles.content}>Mobile 	: +254707687930</p> 
+                        <p className={styles.content}>Email: info@smartmavuno.africa</p>
                     </div>
 
                     <div className="col-md-4" data-aos='fade-left' data-aos-offset='70'>
