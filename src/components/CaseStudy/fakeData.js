@@ -4,7 +4,6 @@ import img4 from '../../assets/caseStudy/donate.png';
 import img5 from '../../assets/caseStudy/loan.jpg';
 import img6 from '../../assets/caseStudy/weather.jpg';
 import img7 from '../../assets/caseStudy/market.jpg';
-import img8 from '../../assets/caseStudy/consult.jpg';
 
 // New fake data for the real-world initiatives
 const fakeData = [
@@ -58,14 +57,6 @@ const fakeData = [
     },
     {
         id: 7,
-        designation: 'Seed Distribution',
-        title: 'Access to High-Quality Seeds for Farmers',
-        img: img8,
-        category: 'seeds',
-        description: 'Ensuring farmers have access to high-quality, drought-resistant seeds to help them combat climate change and grow better crops.'
-    },
-    {
-        id: 8,
         designation: 'Agricultural Consulting',
         title: 'Customized Strategies for Agri-Businesses',
         img: img2,

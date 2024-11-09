@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { useNavigate } from 'react-router-dom';
 import Slider from "react-slick";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import "slick-carousel/slick/slick.css";        
@@ -43,8 +42,14 @@ const images = [
     buttonLabel: "DONATE FOOD", 
     buttonLink: "/donationbasket" 
   },
+  {
+    src: require('../../assets/weather.jpg'),
+    alt: "Weather",
+    text: "Do Your ForeCast Today",
+    buttonLabel: "FORECAST",
+    buttonLink: "https://smartmvua-forecast.netlify.app/"
+  }  
 ];
-
 
 const PreviousArrow = ({ onClick }) => (
   <div className={styles.prevArrow} onClick={onClick}>
@@ -59,14 +64,7 @@ const NextArrow = ({ onClick }) => (
 );
 
 const Banner = () => {
-  const navigate = useNavigate();
   const [currentSlide, setCurrentSlide] = useState(0);
-
-  const handleButtonClick = (link) => {
-    if (link) {
-      navigate(link);
-    }
-  };
 
   const settings = {
     dots: true,
@@ -92,13 +90,15 @@ const Banner = () => {
       </Slider>
       <div className={`${styles.center}`}>
         <p data-aos='fade-down' className={styles.text}>{images[currentSlide].text}</p>
-        <button
-          data-aos='fade-up'
+        <a 
+          data-aos='fade-up' 
+          href={images[currentSlide].buttonLink} 
+          target="_blank" 
+          rel="noopener noreferrer"
           className={`btn custom_btn ${styles.btn}`}
-          onClick={() => handleButtonClick(images[currentSlide].buttonLink)}
         >
           {images[currentSlide].buttonLabel}
-        </button>
+        </a>
       </div>
     </div>
   );
