@@ -56,6 +56,8 @@ const NavbarMain = () => {
             <Nav style={{ marginLeft: "auto" }}>
               {/* Home with dropdown for Market Place and Community */}
               <NavDropdown
+                as={NavLink} // Make the title clickable (navigate to the home page)
+                to="/" // Link to the home page
                 title={<><FaHome /> Home</>}
                 id="home-dropdown"
                 className={`${styles.nav_text} nav-link`}
@@ -65,6 +67,9 @@ const NavbarMain = () => {
                 onMouseLeave={() => setShowHomeDropdown(false)}
                 style={{ marginTop: "8px" }}
               >
+                <NavDropdown.Item as={NavLink} to="/Services" onClick={() => { handleActiveNav(0); closeNav(); }}>
+                  Services
+                </NavDropdown.Item>
                 <NavDropdown.Item as={NavLink} to="/marketplace" onClick={() => { handleActiveNav(0); closeNav(); }}>
                   Market Place
                 </NavDropdown.Item>
@@ -74,10 +79,12 @@ const NavbarMain = () => {
                 <NavDropdown.Item as="a" href="https://smartmvua-forecast.netlify.app/" target="_blank" rel="noopener noreferrer" onClick={() => { handleActiveNav(0); closeNav(); }}>
                   Weather Forecast
                 </NavDropdown.Item>
-
               </NavDropdown>
-                      {/* Resources dropdown with Projects, Workshops, Modern Farming, Articles/Blogs */}
+
+              {/* Resources dropdown with Projects, Workshops, Modern Farming, Articles/Blogs */}
               <NavDropdown
+                as={NavLink} // Make the title clickable (navigate to /services)
+                to="/services" // Link to the services page
                 title="Resources"
                 id="resources-dropdown"
                 className={`${styles.nav_text} nav-link`}
@@ -138,7 +145,6 @@ const NavbarMain = () => {
                   <FaSignInAlt /> Login
                 </NavDropdown.Item>
               </NavDropdown>
-
             </Nav>
           </Navbar.Collapse>
         </Container>
