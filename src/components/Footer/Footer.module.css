@@ -2,7 +2,7 @@
     font-size: 40px;
     font-family: 'Montserrat';
     font-weight: bold;
-    color: #ff4c0a;
+    color: #000000;
     text-align: left;
 }
 
@@ -40,6 +40,28 @@
     height: 49px;
     padding-top: 12px;
 }
+
+.icon {
+    font-size: 25px;  /* Icon size */
+    margin: 0 10px;
+    color: #fff;
+    transition: color 0.3s ease;
+}
+
+.icon:hover {
+    color: #000000;  /* Hover color */
+}
+
+.email, .phone {
+    color: #fff;
+    text-decoration: none;
+}
+
+.email:hover, .phone:hover {
+    color: #000000;
+    text-decoration: underline;
+}
+
 
 @media screen and (max-width: 992px){
     .text{
