@@ -3,7 +3,7 @@
 @import '~slick-carousel/slick/slick-theme.css';
 
 .imgbox {
-    height: 70vh; /* Reduced height to 70% of viewport height */
+    height: 80vh; /* Reduced height to 70% of viewport height */
     position: relative;
     overflow: hidden; /* To ensure that images stay contained */
 }

@@ -11,15 +11,15 @@ const images = [
   { 
     src: require('../../assets/irrigation.jpg'), 
     alt: "Irrigation Technology", 
-    text: "Smart Irrigation Solutions to Maximize Yield", 
-    buttonLabel: "LEARN MORE", 
+    text: "Smart Irrigation Solutions to Maximize Your Yield", 
+    buttonLabel: "CHECK OUT", 
     buttonLink: "/services" 
   },
   { 
     src: require('../../assets/equipment.jpg'), 
     alt: "Equipment Renatls", 
     text: "Rent or get our affordable farm Labour and Equipments from anywhere", 
-    buttonLabel: "EXPLORE SOLUTIONS", 
+    buttonLabel: "EXPLORE OUR EQUIPMENTS", 
     buttonLink: "/services" 
   },
   { 
@@ -34,14 +34,14 @@ const images = [
     alt: "Agricultural Insured Financing", 
     text: "Get Tailored and Insured Loans from us", 
     buttonLabel: "GET STARTED", 
-    buttonLink: "/contactUs" 
+    buttonLink: "/landleasing" 
   },
   { 
     src: require('../../assets/donations.jpg'), 
     alt: "Food Donation Basket", 
     text: "Donate to Help the vulnerable", 
-    buttonLabel: "DISCOVER INNOVATIONS", 
-    buttonLink: "/aboutUs" 
+    buttonLabel: "DONATE FOOD", 
+    buttonLink: "/donationbasket" 
   },
 ];
 

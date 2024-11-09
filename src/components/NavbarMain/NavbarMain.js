@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Nav, Navbar, Container, NavDropdown } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
-import { FaSignInAlt, FaSignOutAlt, FaUserPlus, FaHome, FaCloudSun } from 'react-icons/fa';
+import { FaSignInAlt, FaUserPlus, FaHome } from 'react-icons/fa';
 import styles from "./NavbarMain.module.css";
 import logo from '../../assets/smart-mavuno-logo-zip-file/logo-color.png';  
 

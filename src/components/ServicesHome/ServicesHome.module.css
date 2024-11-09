@@ -1,3 +1,6 @@
+/* ServicesHome.module.css */
+
+/* Style for the Service Home container */
 .contain {
     margin-top: 130px;
     margin-bottom: 130px;
@@ -5,12 +8,14 @@
     padding-right: 60px !important;
 }
 
+/* Heading styles */
 .heading {
     font-size: 30px;
     color: #000000;
     font-weight: 500;
 }
 
+/* Subheading styles */
 .subHeading {
     font-size: 34px;
     font-weight: bold;
@@ -20,6 +25,57 @@
     text-align: center;
 }
 
+/* Container for individual service items */
+.serviceItem {
+    background-color: #f9f9f9; /* Light gray background */
+    padding: 20px;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+    text-align: center;
+    margin: 15px;
+}
+
+.serviceItem:hover {
+    background-color: #4CAF50; /* Green background on hover */
+}
+
+.iconContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.icon {
+    font-size: 50px;
+    color: #4CAF50; /* Green color for icons */
+}
+
+/* Arrow icon styles */
+.arrowIcon {
+    font-size: 30px;
+    color: #4CAF50; /* Green color for the arrow */
+    transition: color 0.3s ease;
+}
+
+.arrowIcon:hover {
+    color: #ffffff; /* Change color on hover */
+}
+
+.link {
+    display: inline-block;
+    margin-top: 10px;
+    text-decoration: none;
+    font-size: 18px;
+    color: #4CAF50;
+    transition: color 0.3s ease;
+}
+
+.link:hover {
+    color: #ffffff; /* White color on hover */
+}
+
+/* Responsive design */
 @media screen and (max-width: 1200px) {
     .contain {
         margin-top: 80px;
@@ -51,6 +107,7 @@
         margin-bottom: 100px;
     }
 }
+
 @media screen and (max-width: 380px) {
     .contain {
         padding-left: 20px !important;

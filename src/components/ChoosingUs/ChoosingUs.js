@@ -1,5 +1,5 @@
 import React from "react";
-import { FaCogs, FaHeadset, FaHandsHelping, FaShieldAlt, FaLandmark, FaMoneyCheck, FaCloudUploadAlt, FaHandshake } from 'react-icons/fa'; // FontAwesome icons
+import { FaCogs, FaHeadset, FaHandsHelping, FaShieldAlt, FaLandmark,  FaCloudUploadAlt, FaHandshake } from 'react-icons/fa'; 
 
 import styles from './ChoosingUs.module.css';
 
