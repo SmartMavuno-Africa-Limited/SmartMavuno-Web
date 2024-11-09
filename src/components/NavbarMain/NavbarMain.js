@@ -1,21 +1,23 @@
 import React, { useState, useEffect } from "react";
 import { Nav, Navbar, Container, NavDropdown } from "react-bootstrap";
-import styles from "./NavbarMain.module.css";
 import { NavLink } from "react-router-dom";
 import { Link } from 'react-router-dom';
-const NavbarMain = () => {
 
+import logo from '../../assets/smart-mavuno-logo-zip-file/logo-color.png';  
+
+const NavbarMain = () => {
   const [show, setShow] = useState(false);
-  const [activeNav, setActiveNav] = useState([ true, false, false, false ]);
+  const [activeNav, setActiveNav] = useState([true, false, false, false]);
   const [expand, setExpand] = useState(false);
 
-  const closeNav = ()=>{
+  const closeNav = () => {
     setExpand(false);
   }
 
   const showDropdown = (e) => {
     setShow(!show);
   };
+
   const hideDropdown = (e) => {
     setShow(false);
   };
@@ -33,10 +35,7 @@ const NavbarMain = () => {
     temp[i] = true;
     setActiveNav([...temp]);
     sessionStorage.setItem("NavbarMain", JSON.stringify(temp));
-
   };
-
-
 
   return (
     <>
@@ -48,31 +47,39 @@ const NavbarMain = () => {
         variant="light"
         expand="lg"
         sticky="top"
-        onToggle={()=>{setExpand(prevState => !prevState)}}
+        onToggle={() => { setExpand(prevState => !prevState) }}
         expanded={expand}
       >
         <Container>
-          <Navbar.Brand href="/" className={styles.logo}>
-            Miritus
+          {/* Replace the text with an image logo */}
+          <Navbar.Brand href="/" className="logo">
+            <img 
+              src={logo} 
+              alt="SMARTMAVUNO" 
+              style={{
+                height: '80px',  // Adjust the height as needed
+                width: 'auto'    // Maintain aspect ratio
+              }} 
+            />
           </Navbar.Brand>
 
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
-            <Nav style={{marginLeft:'auto'}} >
+            <Nav style={{ marginLeft: 'auto' }}>
               <NavLink
                 to="/"
-                className={`${styles.nav_text} nav-link ${activeNav[0] ? styles.active : ""}`}
-                style={{ marginTop: "8px"}}
-                onClick={() => {handleActiveNav(0); closeNav()}}
+                className={`nav-link ${activeNav[0] ? 'active' : ""}`}
+                style={{ marginTop: "8px" }}
+                onClick={() => { handleActiveNav(0); closeNav() }}
               >
                 Home
               </NavLink>
 
               <NavLink
                 to="/aboutUs"
-                className={`${styles.nav_text} nav-link ${activeNav[1] ? styles.active : ""}`}
+                className={`nav-link ${activeNav[1] ? 'active' : ""}`}
                 style={{ marginTop: "8px" }}
-                onClick={() => {handleActiveNav(1); closeNav()}}
+                onClick={() => { handleActiveNav(1); closeNav() }}
               >
                 About us
               </NavLink>
@@ -81,30 +88,38 @@ const NavbarMain = () => {
                 show={show}
                 onMouseEnter={showDropdown}
                 onMouseLeave={hideDropdown}
-                className={`nav-link ${styles.drop}`}
+                className="nav-link"
                 title={
-                  <Link to="/services" style={{textDecoration:'none'}} className={styles.dropicon} onClick={() => {handleActiveNav(2); closeNav()}}>
-                    <span className={`${styles.nav_text} my-auto ${activeNav[2] ? styles.active : ""}`}>
+                  <Link to="/services" style={{ textDecoration: 'none' }} onClick={() => { handleActiveNav(2); closeNav() }}>
+                    <span className={`nav-text ${activeNav[2] ? 'active' : ""}`}>
                       Services
                     </span>
                   </Link>
                 }
                 id="basic-nav-dropdown"
               >
-                <NavDropdown.Item className={styles.dropdownItem}><NavLink to="/sMediaService" onClick={() => {handleActiveNav(2); closeNav()}} className={styles.dropdownText}>Social Media Marketing</NavLink></NavDropdown.Item>
-                <NavDropdown.Item className={styles.dropdownItem}><NavLink to="/hello" onClick={() => {handleActiveNav(2); closeNav()}} className={styles.dropdownText}>Quality Assurance</NavLink></NavDropdown.Item>
-                <NavDropdown.Item className={styles.dropdownItem}><NavLink to="/hello" onClick={() => {handleActiveNav(2); closeNav()}} className={styles.dropdownText}>Cloud and IoT Based Solutions</NavLink></NavDropdown.Item>
-                <NavDropdown.Item className={styles.dropdownItem}><NavLink to="/hello" onClick={() => {handleActiveNav(2); closeNav()}} className={styles.dropdownText}>IT Consultancy</NavLink></NavDropdown.Item>
-                <NavDropdown.Item className={styles.dropdownItem}><NavLink to="/hello" onClick={() => {handleActiveNav(2); closeNav()}} className={styles.dropdownText}>AI Solutions</NavLink></NavDropdown.Item>
-
+                <NavDropdown.Item>
+                  <NavLink to="/sMediaService" onClick={() => { handleActiveNav(2); closeNav() }}>Social Media Marketing</NavLink>
+                </NavDropdown.Item>
+                <NavDropdown.Item>
+                  <NavLink to="/hello" onClick={() => { handleActiveNav(2); closeNav() }}>Quality Assurance</NavLink>
+                </NavDropdown.Item>
+                <NavDropdown.Item>
+                  <NavLink to="/hello" onClick={() => { handleActiveNav(2); closeNav() }}>Cloud and IoT Based Solutions</NavLink>
+                </NavDropdown.Item>
+                <NavDropdown.Item>
+                  <NavLink to="/hello" onClick={() => { handleActiveNav(2); closeNav() }}>IT Consultancy</NavLink>
+                </NavDropdown.Item>
+                <NavDropdown.Item>
+                  <NavLink to="/hello" onClick={() => { handleActiveNav(2); closeNav() }}>AI Solutions</NavLink>
+                </NavDropdown.Item>
               </NavDropdown>
 
-              
               <NavLink
                 to="/contactUs"
-                className={` ${styles.nav_text} nav-link ${activeNav[3] ? styles.active : ""}`}
+                className={`nav-link ${activeNav[3] ? 'active' : ""}`}
                 style={{ marginTop: "8px" }}
-                onClick={() => {handleActiveNav(3); closeNav()}}
+                onClick={() => { handleActiveNav(3); closeNav() }}
               >
                 Contact Us
               </NavLink>
