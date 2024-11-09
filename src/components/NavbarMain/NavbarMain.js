@@ -8,6 +8,7 @@ import logo from '../../assets/smart-mavuno-logo-zip-file/logo-color.png';
 const NavbarMain = () => {
   const [activeNav, setActiveNav] = useState([true, false, false, false, false, false]);
   const [expand, setExpand] = useState(false);
+  const [showHomeDropdown, setShowHomeDropdown] = useState(false);
   const [showResourcesDropdown, setShowResourcesDropdown] = useState(false);
   const [showMoreInsightsDropdown, setShowMoreInsightsDropdown] = useState(false);
   const [showRegistrationDropdown, setShowRegistrationDropdown] = useState(false);
@@ -53,15 +54,29 @@ const NavbarMain = () => {
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav style={{ marginLeft: "auto" }}>
-              {/* Home without dropdown */}
-              <Nav.Link 
-                as={NavLink} 
-                to="/" 
-                className={`${styles.nav_text} nav-link`} 
-                onClick={() => handleActiveNav(0)}
+              {/* Home with dropdown for Market Place and Community */}
+              <NavDropdown
+                as={NavLink} // Make the title clickable (navigate to the home page)
+                to="/" // Link to the home page
+                title={<><FaHome /> Home</>}
+                id="home-dropdown"
+                className={`${styles.nav_text} nav-link`}
+                align="start"
+                show={showHomeDropdown}
+                onMouseEnter={() => setShowHomeDropdown(true)}
+                onMouseLeave={() => setShowHomeDropdown(false)}
+                style={{ marginTop: "8px" }}
               >
-                <FaHome /> Home
-              </Nav.Link>
+                {/* <NavDropdown.Item as={NavLink} to="/Services" onClick={() => { handleActiveNav(0); closeNav(); }}>
+                  Services
+                </NavDropdown.Item> */}
+                {/* <NavDropdown.Item as={NavLink} to="/community" onClick={() => { handleActiveNav(0); closeNav(); }}>
+                  Community
+                </NavDropdown.Item> */}
+                {/* <NavDropdown.Item as="a" href="https://smartmvua-forecast.netlify.app/" target="_blank" rel="noopener noreferrer" onClick={() => { handleActiveNav(0); closeNav(); }}>
+                  Weather Forecast
+                </NavDropdown.Item> */}
+              </NavDropdown>
 
               {/* Resources dropdown with Projects, Workshops, Modern Farming, Articles/Blogs */}
               <NavDropdown
