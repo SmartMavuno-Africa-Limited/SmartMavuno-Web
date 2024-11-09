@@ -1,70 +1,146 @@
-.nav_text{
-    font-size: 16px;
+/* General styles for navigation links */
+.nav_text {
+    font-size: 18px;
     color: #111111 !important;
-    width: 120px;
-    
+    display: flex;
+    align-items: center;
+    padding: 8px;
+    transition: all 0.3s ease; /* Smooth transition */
 }
-.nav_text:hover{
-    padding-top: 6px;
+
+/* Hover effect for navigation links */
+.nav_text:hover {
     font-size: 18px;
-    color: #ff4c0a !important;
+    color: #4CAF50 !important; /* Greenish color on hover */
     font-weight: bold;
 }
-.active{
+
+/* Icon styling inside the nav links */
+.nav_text svg {
+    transition: color 0.3s ease; /* Smooth transition for icons */
+    color: #4CAF50; /* Icons will be green by default */
+}
+
+/* Hover effect for icons in nav links */
+.nav_text:hover svg {
+    color: #000000 !important; /* Icons turn black when hovered */
+}
+
+/* Styling for active navigation link */
+.active {
+    font-size: 18px !important;
+    color: #000000 !important;
+    font-weight: bold;
     padding-top: 6px !important;
-    font-size: 18px;
-    color: #ff4c0a !important;
-    font-weight: bold;
 }
 
-.drop{
+/* Styling for dropdown items */
+.drop {
     width: 120px;
+    transition: all 0.3s ease;
 }
 
-.drop:hover .nav_text{
-    color: #ff4c0a !important;
+/* Hover effect for dropdown items */
+.drop:hover .nav_text {
+    color: #4CAF50 !important;
     font-weight: bold;
-    cursor: pointer;
     font-size: 18px;
-    /* padding-top: 7px; */
+    cursor: pointer;
 }
-.logo{
-    color: #ff4c0a !important;
+
+/* Styling for logo */
+.logo {
+    color: #c4a38d !important;
     font-weight: bold;
     font-family: 'Montserrat', sans-serif;
     font-size: 40px !important;
-}
-.dropdownText{
-    text-decoration: none;
-    color: #111111;
+    display: flex;
+    align-items: center;
 }
 
-.dropdownItem:hover .dropdownText{
-    color: #ff4c0a;
-}
-.drop a:hover{
-    background-color: white;
+.logo img {
+    height: 60px;
+    width: auto;
+    object-fit: contain;
 }
 
-
-@media screen and (max-width: 991px) {
-    .dropdownItem{
-        text-align: center !important;
-    }
-    .nav_text{
-        width: auto;
-        padding-top: 0px;
-    }
-    .drop{
-        width: auto;
-    }
-    .logo{
-        font-size: 35px !important;
+/* Responsive adjustments for logo image */
+@media screen and (max-width: 768px) {
+    .logo img {
+        height: 50px;
     }
 }
 
 @media screen and (max-width: 600px) {
-    .logo{
+    .logo img {
+        height: 40px;
+    }
+}
+
+/* Dropdown text styles */
+.dropdownText {
+    text-decoration: none;
+    color: #111111;
+}
+
+/* Hover effect for dropdown text */
+.dropdownItem:hover .dropdownText {
+    color: #c4a38d;
+}
+
+/* Hover effect for dropdown links */
+.drop a:hover {
+    background-color: white;
+}
+
+/* Adjustments for screen sizes smaller than 991px */
+@media screen and (max-width: 991px) {
+    .dropdownItem {
+        text-align: center !important;
+    }
+
+    .nav_text {
+        width: auto;
+        padding-top: 0px;
+    }
+
+    .drop {
+        width: auto;
+    }
+
+    .logo {
+        font-size: 35px !important;
+    }
+}
+
+/* Adjustments for screen sizes smaller than 600px */
+@media screen and (max-width: 600px) {
+    .logo {
         font-size: 25px !important;
+    }
+}
+
+/* Adjust spacing for the Registration link with icons */
+.nav_text svg {
+    margin-right: 8px;
+    margin-left: 16px;
+}
+
+.nav_text {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav_text > svg {
+    margin-left: 8px;
+    margin-right: 8px;
+}
+
+/* Responsive behavior for spacing and alignment of icons */
+@media screen and (max-width: 600px) {
+    .nav_text svg {
+        margin-right: 6px;
+        margin-left: 6px;
     }
 }

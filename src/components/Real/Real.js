@@ -1,26 +1,106 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styles from './Real.module.css';
-import improveImg from '../../assets/home/improves.png';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faUsers, faGlobe, faChartLine, faSeedling, faHandHoldingHeart } from '@fortawesome/free-solid-svg-icons';
 
-const Real = () =>{
-    return(
+const impactData = [
+    {
+        title: "Farmers Empowered",
+        value: 10000, // Store the raw value for counting
+        icon: faUsers,
+    },
+    {
+        title: "Counties Reached",
+        value: 46,
+        icon: faGlobe,
+    },
+    {
+        title: "Market Value",
+        value: 50000000, // $50M+ as a raw value
+        icon: faChartLine,
+    },
+    {
+        title: "Seeds Distributed",
+        value: 1000000, // 1M+
+        icon: faSeedling,
+    },
+    {
+        title: "Sustainable Projects",
+        value: 50, // 50+
+        icon: faHandHoldingHeart,
+    },
+];
+
+const Real = () => {
+    // State to hold the animated number values
+    const [countValues, setCountValues] = useState({
+        farmersEmpowered: 0,
+        countiesReached: 0,
+        marketValue: 0,
+        seedsDistributed: 0,
+        sustainableProjects: 0,
+    });
+
+    // Function to animate the numbers using requestAnimationFrame
+    const animateNumbers = () => {
+        const maxValues = {
+            farmersEmpowered: 10000,
+            countiesReached: 46,
+            marketValue: 50000000,
+            seedsDistributed: 1000000,
+            sustainableProjects: 50,
+        };
+
+        // Increment value gradually until max value is reached
+        const animate = () => {
+            setCountValues((prevValues) => {
+                const newValues = {};
+                let allCompleted = true;
+                Object.keys(maxValues).forEach((key) => {
+                    if (prevValues[key] < maxValues[key]) {
+                        allCompleted = false;
+                        newValues[key] = Math.min(prevValues[key] + 50, maxValues[key]);
+                    } else {
+                        newValues[key] = maxValues[key];
+                    }
+                });
+
+                return { ...prevValues, ...newValues };
+            });
+
+            if (!Object.values(countValues).every((val, index) => val === Object.values(maxValues)[index])) {
+                requestAnimationFrame(animate);
+            }
+        };
+
+        animate();
+    };
+
+    // Trigger number animation on component mount
+    useEffect(() => {
+        animateNumbers();
+    }, []);
+
+    return (
         <div className="mb-5 overflow-hidden">
-            <div className="row g-0">
-                <div className={`col-md-6 ${styles.imgDiv}`}>
-                    <img data-aos='slide-right' data-aos-offset="150" src={improveImg} alt="" className={styles.img}/>
-                </div>
-                <div className="col-md-6">
-                    <div className={styles.text}>
-                        <p data-aos='slide-right' data-aos-offset="150"  className={styles.heading}>Real</p>
-                        <p data-aos='slide-left' data-aos-offset="150" className={styles.subHeading}>Improves Customer Experiences</p>
-                        <p data-aos='zoom-in' data-aos-offset="150" className={styles.content}>Responsive web design supply chain crowdfunding agile development analytics technology ownership startup. Network effects social proof user experience prototype buzz product management deployment metrics sales infographic equity holy grail crowdfunding release. </p>
-                        <div data-aos='zoom-in' style={{textAlign:'left'}}>
-                            <button className={`btn custom_btn ${styles.btn}`}>LET&apos;S TALK</button>
-                        </div>
+            {/* Parent container for all the impact items */}
+            <div className={styles.impactWrapper}>
+                <div className={styles.text}>
+                    <p data-aos="slide-right" data-aos-offset="150" className={styles.heading}>Our Impact</p>
+                    {/* Container for the impact items */}
+                    <div className={styles.impactContainer}>
+                        {impactData.map((item, index) => (
+                            <div key={index} className={styles.impactItem}>
+                                <FontAwesomeIcon icon={item.icon} className={styles.impactIcon} />
+                                <h3 className={styles.number}>{countValues[item.title.replace(/\s+/g, '').toLowerCase()]}</h3>
+                                <p className={styles.title}>{item.title}</p>
+                            </div>
+                        ))}
                     </div>
                 </div>
             </div>
         </div>
-    )
-}
+    );
+};
+
 export default Real;

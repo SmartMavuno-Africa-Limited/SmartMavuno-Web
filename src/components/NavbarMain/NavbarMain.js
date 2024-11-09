@@ -1,25 +1,20 @@
 import React, { useState, useEffect } from "react";
 import { Nav, Navbar, Container, NavDropdown } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
-import { Link } from 'react-router-dom';
-
+import { FaSignInAlt, FaSignOutAlt, FaUserPlus, FaHome, FaCloudSun } from 'react-icons/fa';
+import styles from "./NavbarMain.module.css";
 import logo from '../../assets/smart-mavuno-logo-zip-file/logo-color.png';  
 
 const NavbarMain = () => {
-  const [show, setShow] = useState(false);
-  const [activeNav, setActiveNav] = useState([true, false, false, false]);
+  const [activeNav, setActiveNav] = useState([true, false, false, false, false, false]);
   const [expand, setExpand] = useState(false);
+  const [showHomeDropdown, setShowHomeDropdown] = useState(false);
+  const [showResourcesDropdown, setShowResourcesDropdown] = useState(false);
+  const [showMoreInsightsDropdown, setShowMoreInsightsDropdown] = useState(false);
+  const [showRegistrationDropdown, setShowRegistrationDropdown] = useState(false);
 
   const closeNav = () => {
     setExpand(false);
-  }
-
-  const showDropdown = (e) => {
-    setShow(!show);
-  };
-
-  const hideDropdown = (e) => {
-    setShow(false);
   };
 
   useEffect(() => {
@@ -30,8 +25,7 @@ const NavbarMain = () => {
   }, []);
 
   const handleActiveNav = (i) => {
-    let temp = activeNav;
-    temp = temp.map((x) => (x = false));
+    let temp = activeNav.map(() => false);
     temp[i] = true;
     setActiveNav([...temp]);
     sessionStorage.setItem("NavbarMain", JSON.stringify(temp));
@@ -47,82 +41,104 @@ const NavbarMain = () => {
         variant="light"
         expand="lg"
         sticky="top"
-        onToggle={() => { setExpand(prevState => !prevState) }}
+        onToggle={() => {
+          setExpand((prevState) => !prevState);
+        }}
         expanded={expand}
       >
         <Container>
-          {/* Replace the text with an image logo */}
-          <Navbar.Brand href="/" className="logo">
-            <img 
-              src={logo} 
-              alt="SMARTMAVUNO" 
-              style={{
-                height: '80px',  // Adjust the height as needed
-                width: 'auto'    // Maintain aspect ratio
-              }} 
-            />
+          <Navbar.Brand href="/" className={styles.logo}>
+            <img src={logo} alt="Mebiut Logo" style={{ width: '140px', height: 'auto', marginRight: '8px' }} />
           </Navbar.Brand>
 
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
-            <Nav style={{ marginLeft: 'auto' }}>
-              <NavLink
-                to="/"
-                className={`nav-link ${activeNav[0] ? 'active' : ""}`}
-                style={{ marginTop: "8px" }}
-                onClick={() => { handleActiveNav(0); closeNav() }}
-              >
-                Home
-              </NavLink>
-
-              <NavLink
-                to="/aboutUs"
-                className={`nav-link ${activeNav[1] ? 'active' : ""}`}
-                style={{ marginTop: "8px" }}
-                onClick={() => { handleActiveNav(1); closeNav() }}
-              >
-                About us
-              </NavLink>
-
+            <Nav style={{ marginLeft: "auto" }}>
+              {/* Home with dropdown for Market Place and Community */}
               <NavDropdown
-                show={show}
-                onMouseEnter={showDropdown}
-                onMouseLeave={hideDropdown}
-                className="nav-link"
-                title={
-                  <Link to="/services" style={{ textDecoration: 'none' }} onClick={() => { handleActiveNav(2); closeNav() }}>
-                    <span className={`nav-text ${activeNav[2] ? 'active' : ""}`}>
-                      Services
-                    </span>
-                  </Link>
-                }
-                id="basic-nav-dropdown"
+                title={<><FaHome /> Home</>}
+                id="home-dropdown"
+                className={`${styles.nav_text} nav-link`}
+                align="start"
+                show={showHomeDropdown}
+                onMouseEnter={() => setShowHomeDropdown(true)}
+                onMouseLeave={() => setShowHomeDropdown(false)}
+                style={{ marginTop: "8px" }}
               >
-                <NavDropdown.Item>
-                  <NavLink to="/sMediaService" onClick={() => { handleActiveNav(2); closeNav() }}>Social Media Marketing</NavLink>
+                <NavDropdown.Item as={NavLink} to="/marketplace" onClick={() => { handleActiveNav(0); closeNav(); }}>
+                  Market Place
                 </NavDropdown.Item>
-                <NavDropdown.Item>
-                  <NavLink to="/hello" onClick={() => { handleActiveNav(2); closeNav() }}>Quality Assurance</NavLink>
+                <NavDropdown.Item as={NavLink} to="/community" onClick={() => { handleActiveNav(0); closeNav(); }}>
+                  Community
                 </NavDropdown.Item>
-                <NavDropdown.Item>
-                  <NavLink to="/hello" onClick={() => { handleActiveNav(2); closeNav() }}>Cloud and IoT Based Solutions</NavLink>
+                <NavDropdown.Item as="a" href="https://smartmvua-forecast.netlify.app/" target="_blank" rel="noopener noreferrer" onClick={() => { handleActiveNav(0); closeNav(); }}>
+                  Weather Forecast
                 </NavDropdown.Item>
-                <NavDropdown.Item>
-                  <NavLink to="/hello" onClick={() => { handleActiveNav(2); closeNav() }}>IT Consultancy</NavLink>
+
+              </NavDropdown>
+                      {/* Resources dropdown with Projects, Workshops, Modern Farming, Articles/Blogs */}
+              <NavDropdown
+                title="Resources"
+                id="resources-dropdown"
+                className={`${styles.nav_text} nav-link`}
+                align="start"
+                show={showResourcesDropdown}
+                onMouseEnter={() => setShowResourcesDropdown(true)}
+                onMouseLeave={() => setShowResourcesDropdown(false)}
+                style={{ marginTop: "8px" }}
+              >
+                <NavDropdown.Item as={NavLink} to="/projects" onClick={() => { handleActiveNav(3); closeNav(); }}>
+                  Projects
                 </NavDropdown.Item>
-                <NavDropdown.Item>
-                  <NavLink to="/hello" onClick={() => { handleActiveNav(2); closeNav() }}>AI Solutions</NavLink>
+                <NavDropdown.Item as={NavLink} to="/workshops" onClick={() => { handleActiveNav(3); closeNav(); }}>
+                  Workshops
+                </NavDropdown.Item>
+                <NavDropdown.Item as={NavLink} to="/modern-farming" onClick={() => { handleActiveNav(3); closeNav(); }}>
+                  Modern Farming
+                </NavDropdown.Item>
+                <NavDropdown.Item as={NavLink} to="/blogs" onClick={() => { handleActiveNav(3); closeNav(); }}>
+                  Articles/Blogs
                 </NavDropdown.Item>
               </NavDropdown>
 
-              <NavLink
-                to="/contactUs"
-                className={`nav-link ${activeNav[3] ? 'active' : ""}`}
+              {/* More Insights dropdown with About Us and Contact Us */}
+              <NavDropdown
+                title="More Insights"
+                id="more-insights-dropdown"
+                className={`${styles.nav_text} nav-link`}
+                align="start"
+                show={showMoreInsightsDropdown}
+                onMouseEnter={() => setShowMoreInsightsDropdown(true)}
+                onMouseLeave={() => setShowMoreInsightsDropdown(false)}
                 style={{ marginTop: "8px" }}
-                onClick={() => { handleActiveNav(3); closeNav() }}
               >
-                Contact Us
-              </NavLink>
+                <NavDropdown.Item as={NavLink} to="/aboutUs" onClick={() => { handleActiveNav(4); closeNav(); }}>
+                  About Us
+                </NavDropdown.Item>
+                <NavDropdown.Item as={NavLink} to="/contactUs" onClick={() => { handleActiveNav(4); closeNav(); }}>
+                  Contact Us
+                </NavDropdown.Item>
+              </NavDropdown>
+
+              {/* Registration dropdown with SignUp and Login */}
+              <NavDropdown
+                title="Registration"
+                id="registration-dropdown"
+                className={`${styles.nav_text} nav-link`}
+                align="start"
+                show={showRegistrationDropdown}
+                onMouseEnter={() => setShowRegistrationDropdown(true)}
+                onMouseLeave={() => setShowRegistrationDropdown(false)}
+                style={{ marginTop: "8px" }}
+              >
+                <NavDropdown.Item as={NavLink} to="/signup" onClick={() => { handleActiveNav(5); closeNav(); }}>
+                  <FaUserPlus /> Sign Up
+                </NavDropdown.Item>
+                <NavDropdown.Item as={NavLink} to="/login" onClick={() => { handleActiveNav(5); closeNav(); }}>
+                  <FaSignInAlt /> Login
+                </NavDropdown.Item>
+              </NavDropdown>
+
             </Nav>
           </Navbar.Collapse>
         </Container>

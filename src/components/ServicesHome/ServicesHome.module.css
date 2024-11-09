@@ -1,24 +1,27 @@
-.contain{
+.contain {
     margin-top: 130px;
     margin-bottom: 130px;
     padding-left: 60px !important;
     padding-right: 60px !important;
 }
 
-.heading{
+.heading {
     font-size: 30px;
-    color: #ff4c0a;
+    color: #000000;
     font-weight: 500;
 }
-.subHeading{
+
+.subHeading {
     font-size: 34px;
     font-weight: bold;
     color: #222a41;
     width: 645px;
+    margin-top: 30px;
+    text-align: center;
 }
 
 @media screen and (max-width: 1200px) {
-    .contain{
+    .contain {
         margin-top: 80px;
         margin-bottom: 80px;
         padding-left: 40px !important;
@@ -27,29 +30,29 @@
 }
 
 @media screen and (max-width: 770px) {
-    .subHeading{
+    .subHeading {
         font-size: 25px;
         width: auto;
     }
-    .heading{
+    .heading {
         font-size: 20px;
     }
 }
 
 @media screen and (max-width: 430px) {
-    .subHeading{
+    .subHeading {
         font-size: 20px;
     }
-    .heading{
+    .heading {
         font-size: 17px;
     }
-    .contain{
+    .contain {
         margin-top: 80px;
         margin-bottom: 100px;
     }
 }
 @media screen and (max-width: 380px) {
-    .contain{
+    .contain {
         padding-left: 20px !important;
         padding-right: 20px !important;
     }

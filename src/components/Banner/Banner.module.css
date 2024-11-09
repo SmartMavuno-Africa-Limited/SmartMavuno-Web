@@ -3,14 +3,14 @@
 @import '~slick-carousel/slick/slick-theme.css';
 
 .imgbox {
-    height: 94vh;
+    height: 70vh; /* Reduced height to 70% of viewport height */
     position: relative;
     overflow: hidden; /* To ensure that images stay contained */
 }
 
 .slideImage {
-    width: 100%;
-    height: 100%;
+    width: 100%;  /* Maintain full width */
+    height: 90%; /* Maintain full height based on .imgbox */
     object-fit: cover; /* Ensure images fit well */
     display: block; /* Ensure images are visible */
 }
@@ -34,14 +34,14 @@
     max-width: 272px; /* Use max-width for better responsiveness */
     height: 64px;
     font-size: 14px;
-    background-color: #385c6c !important;
+    background-color: #4CAF50 !important;
     border: none;
     cursor: pointer;
     transition: background-color 0.3s; /* Smooth transition */
 }
 
 .btn:hover {
-    background-color: #36020b !important;
+    background-color: #000000 !important;
 }
 
 @media screen and (max-width: 1266px) {
@@ -102,14 +102,15 @@
     }
 }
 
+/* Styling for forward and back arrows */
 .prevArrow, .nextArrow {
     position: absolute;
-    top: 50%; /* Center vertically */
-    transform: translateY(-50%); /* Center vertically */
+    top: 10px; /* Set arrows to the top of the image container */
+    transform: translateY(0); /* Remove vertical centering */
     z-index: 3; /* Ensure arrows are above the images */
     cursor: pointer;
     color: #fff;
-    background-color: rgb(56, 79, 108);
+    background-color: #28a745; /* Default green background */
     padding: 10px;
     border-radius: 50%;
     display: flex;
@@ -117,7 +118,8 @@
     justify-content: center;
     width: 40px; /* Set a width for the arrow buttons */
     height: 40px; /* Set a height for the arrow buttons */
-    transition: background-color 0.3s; /* Smooth transition */
+    transition: background-color 0.3s ease-in-out; /* Smooth transition */
+    margin-top: 350px; /* Add margin-top to bring the arrows down slightly */
 }
 
 .prevArrow {
@@ -128,6 +130,12 @@
     right: 10px; /* Position on the right side */
 }
 
+/* Change background color to black on hover */
 .prevArrow:hover, .nextArrow:hover {
-    background-color: rgba(0, 0, 0, 0.7); /* Darker on hover */
+    background-color: #000; /* Black background on hover */
+}
+
+/* Optional: Change arrow icon color on hover */
+.prevArrow:hover svg, .nextArrow:hover svg {
+    color: white; /* Ensure the arrow icon is visible when background changes */
 }
