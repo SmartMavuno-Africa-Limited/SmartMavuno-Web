@@ -4,11 +4,13 @@ import ContactUs from '../views/contactUs';
 import IndividualService from "../views/individualService";
 import AboutUs from '../views/aboutUs';
 import ProjectDetails from "../views/projectDetails";
-import SMediaService from '../views/sMediaService';
 import SignUp from '../components/Registration/SignUp';
 import Login from '../components/Registration/Login';
 import ForgotPassword from '../components/Registration/ForgotPassword';
 import Blog from "../components/Blog/blog";
+import Projects from "../components/Projects/projects";
+import ModernFarming from "../components/ModernFarming/ModernFarming";
+
 
 const routes = [
     {
@@ -36,8 +38,8 @@ const routes = [
         to: '/projectDetails'
     },
     {
-        components: <SMediaService />,
-        to: '/sMediaService'
+        components: <Projects />,
+        to: '/projects'
     },
     {
         components: <Blog />,
@@ -54,6 +56,10 @@ const routes = [
     {
         components: <ForgotPassword />,
         to: '/forgot-password'
+    },
+    {
+        components: <ModernFarming />,
+        to: '/modernfarming'
     }
 
 ];

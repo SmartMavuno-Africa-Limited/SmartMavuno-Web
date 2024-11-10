@@ -88,7 +88,7 @@ const NavbarMain = () => {
               >
                 <NavDropdown.Item className={styles.dropdownItem}>
                   <NavLink
-                    to="/sMediaService"
+                    to="/projects"
                     onClick={() => {
                       handleActiveNav(3);
                       closeNav();
