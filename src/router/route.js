@@ -11,6 +11,7 @@ import Blog from "../components/Blog/blog";
 import Projects from "../components/Projects/projects";
 import ModernFarming from "../components/ModernFarming/ModernFarming";
 import LandLeasing from "../components/LandLeasing/LandLeasing";
+import FarmLabour from "../components/FarmLabour/FarmLabour";
 
 
 const routes = [
@@ -65,6 +66,10 @@ const routes = [
     {
         components: <LandLeasing />,
         to: '/landleasing'
+    },
+    {
+        components: <FarmLabour />,
+        to: '/farmlabour'
     }
 
 ];

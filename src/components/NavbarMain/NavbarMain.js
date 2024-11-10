@@ -126,7 +126,7 @@ const NavbarMain = () => {
                   </NavDropdown.Item>
                 <NavDropdown.Item className={styles.dropdownItem}>
                   <NavLink
-                    to="/farm-labour"
+                    to="/farmlabour"
                     onClick={() => {
                       handleActiveNav(3);
                       closeNav();
