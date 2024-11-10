@@ -43,6 +43,13 @@ const data = [
         to: 'https://smartmavunoshop.vercel.app/',
         icon: faStoreAlt, // FontAwesome icon
     },
+    {
+        id: 7,
+        heading: 'Land Leasing',
+        content: 'Get Farming Land from any part of Africa at affordable prices through SmartMavuno',
+        to: '/landleasing',
+        icon: faStoreAlt, // FontAwesome icon
+    },
 ];
 
 export default data;

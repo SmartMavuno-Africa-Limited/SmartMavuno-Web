@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import styles from "./ServicesHome.module.css"; // Import CSS module
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'; // FontAwesome Import
 import { faArrowRight } from '@fortawesome/free-solid-svg-icons'; // FontAwesome Icon for "Learn More"
-import data from './data'; // Importing the data
+import data from './data'; 
 
 const ServiceHome = ({ heading, content, to, icon }) => {
     return (
