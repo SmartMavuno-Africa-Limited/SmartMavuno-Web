@@ -120,7 +120,7 @@ const NavbarMain = () => {
                     }}
                     className={styles.dropdownText}
                   >
-                    Farm Labour
+                    Land Leasing
                   </NavLink>
 
                   </NavDropdown.Item>
@@ -133,7 +133,7 @@ const NavbarMain = () => {
                     }}
                     className={styles.dropdownText}
                   >
-                    Land Leasing
+                    Farm Labour 
                   </NavLink>
 
                 </NavDropdown.Item>

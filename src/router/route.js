@@ -10,6 +10,7 @@ import ForgotPassword from '../components/Registration/ForgotPassword';
 import Blog from "../components/Blog/blog";
 import Projects from "../components/Projects/projects";
 import ModernFarming from "../components/ModernFarming/ModernFarming";
+import LandLeasing from "../components/LandLeasing/LandLeasing";
 
 
 const routes = [
@@ -60,6 +61,10 @@ const routes = [
     {
         components: <ModernFarming />,
         to: '/modernfarming'
+    },
+    {
+        components: <LandLeasing />,
+        to: '/landleasing'
     }
 
 ];

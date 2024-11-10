@@ -1,0 +1,190 @@
+/* Container */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    margin-bottom: 30px;
+}
+
+/* Hero Section */
+.heroSection {
+    background-color: #e0f7fa;
+    padding: 40px;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.heroHeading {
+    font-size: 2.5rem;
+    font-weight: bold;
+}
+
+.heroDescription {
+    font-size: 1.2rem;
+    margin-top: 10px;
+}
+
+/* Scroll Button */
+.scrollButton {
+    background-color: #28501C;
+    color: white;
+    font-size: 1rem;
+    padding: 10px 20px;
+    margin-top: 20px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.scrollButton:hover {
+    background-color: #589246;
+}
+
+/* Why Choose To Lease Section */
+.chooseLeaseSection {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 40px;
+    padding: 20px;
+    background-color: #f1f1f1;
+}
+
+.imageContainer {
+    flex: 1;
+    padding: 10px;
+}
+
+.leaseImage {
+    width: 450px;
+    height: auto;
+    border-radius: 8px;
+}
+
+.textContainer {
+    flex: 1;
+    padding: 10px;
+    text-align: left;
+}
+
+.textContainer h2 {
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.leaseDescription {
+    font-size: 1.2rem;
+    margin-top: 10px;
+}
+
+/* Requirements Section */
+.requirementsSection {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 40px;
+    padding: 20px;
+    background-color: #fafafa;
+}
+
+.textContainer {
+    flex: 1;
+    padding: 10px;
+    text-align: left;
+}
+
+.textContainer h2 {
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.requirementList {
+    font-size: 1.2rem;
+    margin-top: 10px;
+    list-style-type: disc;
+    padding-left: 20px;
+}
+.leaseAgreementLink {
+    margin-top: 20px;
+    font-size: 1.2rem;
+}
+
+.leaseAgreementLink a {
+    color: #28501C;
+    text-decoration: none;
+}
+
+.leaseAgreementLink a:hover {
+    text-decoration: underline;
+}
+
+/* Leasing Section */
+.leasingSection {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 40px;
+    padding: 20px;
+    background-color: #f1f1f1;
+}
+
+/* Title with reduced font size */
+.leasingTitle {
+    font-size: 1.4rem; /* Reduced font size */
+    font-weight: bold;
+    margin-bottom: 20px; /* Space below the title */
+    line-height: 1.6;
+}
+
+/* Button Container */
+.buttonContainer {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.buttonContainer button {
+    background-color: #28501C;
+    color: white;
+    font-size: 1rem;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.buttonContainer button:hover {
+    background-color: #589246;
+}
+
+/* Form Container */
+.formContainer {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #fafafa;
+    border-radius: 8px;
+    width: 100%;
+}
+
+.formContainer input,
+.formContainer textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+.formContainer button {
+    background-color: #28501C;
+    color: white;
+    font-size: 1.1rem;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.formContainer button:hover {
+    background-color: #589246;
+}
