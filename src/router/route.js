@@ -8,6 +8,7 @@ import SMediaService from '../views/sMediaService';
 import SignUp from '../components/Registration/SignUp';
 import Login from '../components/Registration/Login';
 import ForgotPassword from '../components/Registration/ForgotPassword';
+import Blog from "../components/Blog/blog";
 
 const routes = [
     {
@@ -37,6 +38,10 @@ const routes = [
     {
         components: <SMediaService />,
         to: '/sMediaService'
+    },
+    {
+        components: <Blog />,
+        to: '/blog'
     },
     {
         components: <SignUp />,
