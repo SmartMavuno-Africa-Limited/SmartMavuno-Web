@@ -1,146 +1,97 @@
-/* General styles for navigation links */
-.nav_text {
-    font-size: 18px;
+.nav_text{
+    font-size: 16px;
     color: #111111 !important;
-    display: flex;
-    align-items: center;
-    padding: 8px;
-    transition: all 0.3s ease; /* Smooth transition */
-}
-
-/* Hover effect for navigation links */
-.nav_text:hover {
-    font-size: 18px;
-    color: #4CAF50 !important; /* Greenish color on hover */
-    font-weight: bold;
-}
-
-/* Icon styling inside the nav links */
-.nav_text svg {
-    transition: color 0.3s ease; /* Smooth transition for icons */
-    color: #4CAF50; /* Icons will be green by default */
-}
-
-/* Hover effect for icons in nav links */
-.nav_text:hover svg {
-    color: #000000 !important; /* Icons turn black when hovered */
-}
-
-/* Styling for active navigation link */
-.active {
-    font-size: 18px !important;
-    color: #000000 !important;
-    font-weight: bold;
-    padding-top: 6px !important;
-}
-
-/* Styling for dropdown items */
-.drop {
     width: 120px;
-    transition: all 0.3s ease;
+    
 }
-
-/* Hover effect for dropdown items */
-.drop:hover .nav_text {
+.nav_text:hover{
+    padding-top: 6px;
+    font-size: 18px;
     color: #4CAF50 !important;
     font-weight: bold;
+}
+.active{
+    padding-top: 6px !important;
     font-size: 18px;
-    cursor: pointer;
+    color: #4CAF50 !important;
+    font-weight: bold;
 }
 
-/* Styling for logo */
-.logo {
-    color: #c4a38d !important;
+.drop{
+    width: 120px;
+}
+
+.drop:hover .nav_text{
+    color: #4CAF50 !important;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 18px;
+    /* padding-top: 7px; */
+}
+.logo{
+    color: #4CAF50 !important;
     font-weight: bold;
     font-family: 'Montserrat', sans-serif;
     font-size: 40px !important;
-    display: flex;
-    align-items: center;
 }
-
-.logo img {
-    height: 60px;
-    width: auto;
-    object-fit: contain;
-}
-
-/* Responsive adjustments for logo image */
-@media screen and (max-width: 768px) {
-    .logo img {
-        height: 50px;
-    }
-}
-
-@media screen and (max-width: 600px) {
-    .logo img {
-        height: 40px;
-    }
-}
-
-/* Dropdown text styles */
-.dropdownText {
+.dropdownText{
     text-decoration: none;
     color: #111111;
 }
 
-/* Hover effect for dropdown text */
-.dropdownItem:hover .dropdownText {
-    color: #c4a38d;
+.dropdownItem:hover .dropdownText{
+    color: #4CAF50;
 }
-
-/* Hover effect for dropdown links */
-.drop a:hover {
+.drop a:hover{
     background-color: white;
 }
 
-/* Adjustments for screen sizes smaller than 991px */
+/* Target the logo container */
+.logo {
+    display: flex;
+    align-items: center;
+  }
+  
+  /* Target the logo image */
+  .logo img {
+    height: 60px; /* Increase the height to enlarge the logo */
+    width: auto;  /* Maintain the aspect ratio */
+    object-fit: contain;
+  }
+  
+  /* Responsive adjustments for the logo image */
+  @media (max-width: 768px) {
+    .logo img {
+      height: 50px; /* Smaller size for smaller screens */
+    }
+  }
+  
+  @media screen and (max-width: 600px) {
+    .logo img {
+      height: 40px; /* Further reduce size for smaller devices */
+    }
+  }
+  
+
+
 @media screen and (max-width: 991px) {
-    .dropdownItem {
+    .dropdownItem{
         text-align: center !important;
     }
-
-    .nav_text {
+    .nav_text{
         width: auto;
         padding-top: 0px;
     }
-
-    .drop {
+    .drop{
         width: auto;
     }
-
-    .logo {
+    .logo{
         font-size: 35px !important;
     }
 }
 
-/* Adjustments for screen sizes smaller than 600px */
 @media screen and (max-width: 600px) {
-    .logo {
+    .logo{
         font-size: 25px !important;
-    }
-}
-
-/* Adjust spacing for the Registration link with icons */
-.nav_text svg {
-    margin-right: 8px;
-    margin-left: 16px;
-}
-
-.nav_text {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.nav_text > svg {
-    margin-left: 8px;
-    margin-right: 8px;
-}
-
-/* Responsive behavior for spacing and alignment of icons */
-@media screen and (max-width: 600px) {
-    .nav_text svg {
-        margin-right: 6px;
-        margin-left: 6px;
     }
 }
