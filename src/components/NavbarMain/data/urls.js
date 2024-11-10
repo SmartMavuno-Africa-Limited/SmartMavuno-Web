@@ -15,6 +15,7 @@ const navUrls = [
     url: "/contact",
     text: "Contact",
   },
+  
 ];
 
 export default navUrls;

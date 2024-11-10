@@ -5,12 +5,13 @@ import IndividualService from "../views/individualService";
 import AboutUs from '../views/aboutUs';
 import ProjectDetails from "../views/projectDetails";
 import SMediaService from '../views/sMediaService';
-import Blog from '../components/Blog/blog';
-
+import SignUp from '../components/Registration/SignUp';
+import Login from '../components/Registration/Login';
+import ForgotPassword from '../components/Registration/ForgotPassword';
 
 const routes = [
     {
-        components: <Home/>,
+        components: <Home />,
         to: '/'
     },
     {
@@ -38,8 +39,16 @@ const routes = [
         to: '/sMediaService'
     },
     {
-        components: <Blog />,
-        to: '/blog'
+        components: <SignUp />,
+        to: '/signup'
+    },
+    {
+        components: <Login />,
+        to: '/login'
+    },
+    {
+        components: <ForgotPassword />,
+        to: '/forgot-password'
     }
 
 ];
