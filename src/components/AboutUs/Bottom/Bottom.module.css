@@ -8,7 +8,7 @@
     font-family: 'Poppins';
     font-size: 30px;
     font-weight: bold;
-    color: #4f4c86;
+    color: #28501C;
     text-align: left;
     margin-top: 135px;
     margin-left: 150px;
@@ -16,28 +16,29 @@
 .content{
     font-family: 'Poppins';
     font-size: 14px;
-    color: #0f0a18;
+    color: #182913;
     opacity: .5;
     text-align: left;
     margin-left: 150px;
 }
 .img{
-    width: 100%;
-    height: auto;
-    margin-left: -150px;
+    width: 450px;
+    height: 550px;
+    margin-left: -30px;
+    border-radius: 20px;
 }
 .head1{
     font-family: 'Poppins';
     font-size: 30px;
     font-weight: bold;
-    color: #4f4c86;
+    color: #182913;
     text-align: left;
     margin-top: 135px;
 }
 .content1{
     font-family: 'Poppins';
     font-size: 14px;
-    color: #0f0a18;
+    color: #213d18;
     opacity: .5;
     text-align: left;
     margin-right: 100px;
@@ -45,7 +46,8 @@
 .img1{
     width: 100%;
     height: auto;
-    margin-left: 90px;
+    margin-left: -90px;
+    border-radius: 20px;
 }
 
 @media screen and (max-width: 992px) {
