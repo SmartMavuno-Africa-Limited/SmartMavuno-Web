@@ -109,19 +109,35 @@ const NavbarMain = () => {
                   >
                     Modern Farming
                   </NavLink>
-                </NavDropdown.Item>
+
+                  </NavDropdown.Item>
                 <NavDropdown.Item className={styles.dropdownItem}>
                   <NavLink
-                    to="/blog"
+                    to="/landleasing"
                     onClick={() => {
                       handleActiveNav(3);
                       closeNav();
                     }}
                     className={styles.dropdownText}
                   >
-                    Articles & Blogs
+                    Farm Labour
                   </NavLink>
+
+                  </NavDropdown.Item>
+                <NavDropdown.Item className={styles.dropdownItem}>
+                  <NavLink
+                    to="/farm-labour"
+                    onClick={() => {
+                      handleActiveNav(3);
+                      closeNav();
+                    }}
+                    className={styles.dropdownText}
+                  >
+                    Land Leasing
+                  </NavLink>
+
                 </NavDropdown.Item>
+              
               </NavDropdown>
 
               {/* More Insights Dropdown with About Us and Contact Us */}
@@ -144,6 +160,20 @@ const NavbarMain = () => {
                   >
                     About Us
                   </NavLink>
+
+                  <NavDropdown.Item className={styles.dropdownItem}>
+                  <NavLink
+                    to="/blog"
+                    onClick={() => {
+                      handleActiveNav(3);
+                      closeNav();
+                    }}
+                    className={styles.dropdownText}
+                  >
+                    Articles & Blogs
+                  </NavLink>
+                </NavDropdown.Item>
+
                 </NavDropdown.Item>
                 <NavDropdown.Item>
                   <NavLink
