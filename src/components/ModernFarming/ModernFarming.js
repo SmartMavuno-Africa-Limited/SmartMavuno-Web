@@ -13,29 +13,29 @@ import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
 ChartJS.register(ArcElement, Tooltip, Legend);
 
 const ModernFarming = () => {
-  // Separate state for each tool to toggle subscription form visibility
-  const [isVerticalFarmingSubscribed, setIsVerticalFarmingSubscribed] = useState(false);
-  const [isHydroponicsSubscribed, setIsHydroponicsSubscribed] = useState(false);
-  const [isPipeFarmingSubscribed, setIsPipeFarmingSubscribed] = useState(false);
-  const [isBagFarmingSubscribed, setIsBagFarmingSubscribed] = useState(false);
-  const [isContainerGardeningSubscribed, setIsContainerGardeningSubscribed] = useState(false);
+  // States to track which tool is subscribed and form visibility
+  const [isVerticalFarmingFormVisible, setIsVerticalFarmingFormVisible] = useState(false);
+  const [isHydroponicsFormVisible, setIsHydroponicsFormVisible] = useState(false);
+  const [isPipeFarmingFormVisible, setIsPipeFarmingFormVisible] = useState(false);
+  const [isBagFarmingFormVisible, setIsBagFarmingFormVisible] = useState(false);
+  const [isContainerGardeningFormVisible, setIsContainerGardeningFormVisible] = useState(false);
 
-  const handleSubscribe = (tool) => {
+  const handleShowForm = (tool) => {
     switch (tool) {
       case 'verticalFarming':
-        setIsVerticalFarmingSubscribed(true);
+        setIsVerticalFarmingFormVisible(true);
         break;
       case 'hydroponics':
-        setIsHydroponicsSubscribed(true);
+        setIsHydroponicsFormVisible(true);
         break;
       case 'pipeFarming':
-        setIsPipeFarmingSubscribed(true);
+        setIsPipeFarmingFormVisible(true);
         break;
       case 'bagFarming':
-        setIsBagFarmingSubscribed(true);
+        setIsBagFarmingFormVisible(true);
         break;
       case 'containerGardening':
-        setIsContainerGardeningSubscribed(true);
+        setIsContainerGardeningFormVisible(true);
         break;
       default:
         break;
@@ -78,13 +78,40 @@ const ModernFarming = () => {
                 <p className={styles.toolDescription}>
                   Vertical farming allows us to grow crops in stacked layers, making the most out of limited space.
                 </p>
-                <button className={styles.toolButton} onClick={() => handleSubscribe('verticalFarming')}>
-                  Get Started
+                <button className={styles.toolButton} onClick={() => handleShowForm('verticalFarming')}>
+                  Get Devices
                 </button>
-                {isVerticalFarmingSubscribed && (
+                {isVerticalFarmingFormVisible && (
                   <div className={styles.subscriptionForm}>
-                    <p>Thank you for showing interest in Vertical Farming!</p>
-                    {/* Subscription form content */}
+                    <h4 className={styles.subscriptionHeading}>Device Leasing or Purchase</h4>
+                    <form className={styles.form}>
+                      <label htmlFor="name" className={styles.formLabel}>Name:</label>
+                      <input type="text" id="name" className={styles.formInput} required />
+
+                      <label htmlFor="email" className={styles.formLabel}>Email:</label>
+                      <input type="email" id="email" className={styles.formInput} required />
+
+                      <label htmlFor="phone" className={styles.formLabel}>Phone Number:</label>
+                      <input type="tel" id="phone" className={styles.formInput} required />
+
+                      <label htmlFor="deviceOption" className={styles.formLabel}>Would you like to Lease or Purchase?</label>
+                      <select id="deviceOption" className={styles.formInput} required>
+                        <option value="">Select Option</option>
+                        <option value="lease">Lease</option>
+                        <option value="purchase">Purchase</option>
+                      </select>
+
+                      <label htmlFor="quantity" className={styles.formLabel}>Quantity:</label>
+                      <input type="number" id="quantity" className={styles.formInput} required />
+
+                      <label htmlFor="deliveryDate" className={styles.formLabel}>Preferred Delivery Date:</label>
+                      <input type="date" id="deliveryDate" className={styles.formInput} required />
+
+                      <button type="submit" className={styles.submitButton}>
+                        Submit
+                      </button>
+                    </form>
+                    <p>Thank you for your interest! We will contact you shortly.</p>
                   </div>
                 )}
               </div>
@@ -98,13 +125,40 @@ const ModernFarming = () => {
                 <p className={styles.toolDescription}>
                   Hydroponics is a soil-less farming method that uses nutrient-rich water to grow plants efficiently.
                 </p>
-                <button className={styles.toolButton} onClick={() => handleSubscribe('hydroponics')}>
-                  Get Started
+                <button className={styles.toolButton} onClick={() => handleShowForm('hydroponics')}>
+                  Get Devices
                 </button>
-                {isHydroponicsSubscribed && (
+                {isHydroponicsFormVisible && (
                   <div className={styles.subscriptionForm}>
-                    <p>Thank you for showing interest in Hydroponics!</p>
-                    {/* Subscription form content */}
+                    <h4 className={styles.subscriptionHeading}>Device Leasing or Purchase</h4>
+                    <form className={styles.form}>
+                      <label htmlFor="name" className={styles.formLabel}>Name:</label>
+                      <input type="text" id="name" className={styles.formInput} required />
+
+                      <label htmlFor="email" className={styles.formLabel}>Email:</label>
+                      <input type="email" id="email" className={styles.formInput} required />
+
+                      <label htmlFor="phone" className={styles.formLabel}>Phone Number:</label>
+                      <input type="tel" id="phone" className={styles.formInput} required />
+
+                      <label htmlFor="deviceOption" className={styles.formLabel}>Would you like to Lease or Purchase?</label>
+                      <select id="deviceOption" className={styles.formInput} required>
+                        <option value="">Select Option</option>
+                        <option value="lease">Lease</option>
+                        <option value="purchase">Purchase</option>
+                      </select>
+
+                      <label htmlFor="quantity" className={styles.formLabel}>Quantity:</label>
+                      <input type="number" id="quantity" className={styles.formInput} required />
+
+                      <label htmlFor="deliveryDate" className={styles.formLabel}>Preferred Delivery Date:</label>
+                      <input type="date" id="deliveryDate" className={styles.formInput} required />
+
+                      <button type="submit" className={styles.submitButton}>
+                        Submit
+                      </button>
+                    </form>
+                    <p>Thank you for your interest! We will contact you shortly.</p>
                   </div>
                 )}
               </div>
@@ -118,13 +172,40 @@ const ModernFarming = () => {
                 <p className={styles.toolDescription}>
                   Pipe farming utilizes PVC pipes to grow plants in an efficient, space-saving manner, perfect for urban spaces.
                 </p>
-                <button className={styles.toolButton} onClick={() => handleSubscribe('pipeFarming')}>
-                  Get Started
+                <button className={styles.toolButton} onClick={() => handleShowForm('pipeFarming')}>
+                  Get Devices
                 </button>
-                {isPipeFarmingSubscribed && (
+                {isPipeFarmingFormVisible && (
                   <div className={styles.subscriptionForm}>
-                    <p>Thank you for showing interest in Pipe Farming!</p>
-                    {/* Subscription form content */}
+                    <h4 className={styles.subscriptionHeading}>Device Leasing or Purchase</h4>
+                    <form className={styles.form}>
+                      <label htmlFor="name" className={styles.formLabel}>Name:</label>
+                      <input type="text" id="name" className={styles.formInput} required />
+
+                      <label htmlFor="email" className={styles.formLabel}>Email:</label>
+                      <input type="email" id="email" className={styles.formInput} required />
+
+                      <label htmlFor="phone" className={styles.formLabel}>Phone Number:</label>
+                      <input type="tel" id="phone" className={styles.formInput} required />
+
+                      <label htmlFor="deviceOption" className={styles.formLabel}>Would you like to Lease or Purchase?</label>
+                      <select id="deviceOption" className={styles.formInput} required>
+                        <option value="">Select Option</option>
+                        <option value="lease">Lease</option>
+                        <option value="purchase">Purchase</option>
+                      </select>
+
+                      <label htmlFor="quantity" className={styles.formLabel}>Quantity:</label>
+                      <input type="number" id="quantity" className={styles.formInput} required />
+
+                      <label htmlFor="deliveryDate" className={styles.formLabel}>Preferred Delivery Date:</label>
+                      <input type="date" id="deliveryDate" className={styles.formInput} required />
+
+                      <button type="submit" className={styles.submitButton}>
+                        Submit
+                      </button>
+                    </form>
+                    <p>Thank you for your interest! We will contact you shortly.</p>
                   </div>
                 )}
               </div>
@@ -140,13 +221,40 @@ const ModernFarming = () => {
                 <p className={styles.toolDescription}>
                   Bag farming is a great option for growing crops in small spaces, using bags filled with soil or compost.
                 </p>
-                <button className={styles.toolButton} onClick={() => handleSubscribe('bagFarming')}>
-                  Get Started
+                <button className={styles.toolButton} onClick={() => handleShowForm('bagFarming')}>
+                  Get Devices
                 </button>
-                {isBagFarmingSubscribed && (
+                {isBagFarmingFormVisible && (
                   <div className={styles.subscriptionForm}>
-                    <p>Thank you for showing interest in Bag Farming!</p>
-                    {/* Subscription form content */}
+                    <h4 className={styles.subscriptionHeading}>Device Leasing or Purchase</h4>
+                    <form className={styles.form}>
+                      <label htmlFor="name" className={styles.formLabel}>Name:</label>
+                      <input type="text" id="name" className={styles.formInput} required />
+
+                      <label htmlFor="email" className={styles.formLabel}>Email:</label>
+                      <input type="email" id="email" className={styles.formInput} required />
+
+                      <label htmlFor="phone" className={styles.formLabel}>Phone Number:</label>
+                      <input type="tel" id="phone" className={styles.formInput} required />
+
+                      <label htmlFor="deviceOption" className={styles.formLabel}>Would you like to Lease or Purchase?</label>
+                      <select id="deviceOption" className={styles.formInput} required>
+                        <option value="">Select Option</option>
+                        <option value="lease">Lease</option>
+                        <option value="purchase">Purchase</option>
+                      </select>
+
+                      <label htmlFor="quantity" className={styles.formLabel}>Quantity:</label>
+                      <input type="number" id="quantity" className={styles.formInput} required />
+
+                      <label htmlFor="deliveryDate" className={styles.formLabel}>Preferred Delivery Date:</label>
+                      <input type="date" id="deliveryDate" className={styles.formInput} required />
+
+                      <button type="submit" className={styles.submitButton}>
+                        Submit
+                      </button>
+                    </form>
+                    <p>Thank you for your interest! We will contact you shortly.</p>
                   </div>
                 )}
               </div>
@@ -160,13 +268,40 @@ const ModernFarming = () => {
                 <p className={styles.toolDescription}>
                   Container gardening involves growing plants in containers, ideal for urban environments with limited space.
                 </p>
-                <button className={styles.toolButton} onClick={() => handleSubscribe('containerGardening')}>
-                  Get Started
+                <button className={styles.toolButton} onClick={() => handleShowForm('containerGardening')}>
+                  Get Devices
                 </button>
-                {isContainerGardeningSubscribed && (
+                {isContainerGardeningFormVisible && (
                   <div className={styles.subscriptionForm}>
-                    <p>Thank you for showing interest in Container Gardening!</p>
-                    {/* Subscription form content */}
+                    <h4 className={styles.subscriptionHeading}>Device Leasing or Purchase</h4>
+                    <form className={styles.form}>
+                      <label htmlFor="name" className={styles.formLabel}>Name:</label>
+                      <input type="text" id="name" className={styles.formInput} required />
+
+                      <label htmlFor="email" className={styles.formLabel}>Email:</label>
+                      <input type="email" id="email" className={styles.formInput} required />
+
+                      <label htmlFor="phone" className={styles.formLabel}>Phone Number:</label>
+                      <input type="tel" id="phone" className={styles.formInput} required />
+
+                      <label htmlFor="deviceOption" className={styles.formLabel}>Would you like to Lease or Purchase?</label>
+                      <select id="deviceOption" className={styles.formInput} required>
+                        <option value="">Select Option</option>
+                        <option value="lease">Lease</option>
+                        <option value="purchase">Purchase</option>
+                      </select>
+
+                      <label htmlFor="quantity" className={styles.formLabel}>Quantity:</label>
+                      <input type="number" id="quantity" className={styles.formInput} required />
+
+                      <label htmlFor="deliveryDate" className={styles.formLabel}>Preferred Delivery Date:</label>
+                      <input type="date" id="deliveryDate" className={styles.formInput} required />
+
+                      <button type="submit" className={styles.submitButton}>
+                        Submit
+                      </button>
+                    </form>
+                    <p>Thank you for your interest! We will contact you shortly.</p>
                   </div>
                 )}
               </div>
@@ -185,7 +320,6 @@ const ModernFarming = () => {
             The chart above shows the benefits of modern farming tools in terms of yield improvement, water efficiency, labor reduction, and sustainability. As we adopt these tools, we are creating a more efficient, sustainable, and profitable future for farming.
           </p>
         </section>
-
       </div>
 
       {/* Footer Section */}
