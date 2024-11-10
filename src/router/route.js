@@ -50,6 +50,7 @@ const routes = [
         components: <ForgotPassword />,
         to: '/forgot-password'
     }
+
 ];
 
 export default routes;

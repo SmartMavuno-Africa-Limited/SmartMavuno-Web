@@ -7,7 +7,7 @@ import { faEnvelope, faPhone } from '@fortawesome/free-solid-svg-icons';
 const Footer = () => {
     return (
         <>
-            <div style={{ backgroundColor: '#4CAF50', paddingTop: '89px', paddingBottom: '90px' }}>
+            <div style={{ backgroundColor: '#28501C', paddingTop: '89px', paddingBottom: '90px' }}>
                 <div className="container">
                     <div className="row">
                         {/* Column 1 - SmartMavuno Information */}

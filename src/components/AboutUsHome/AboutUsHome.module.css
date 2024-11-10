@@ -17,7 +17,7 @@
 }
 
 .content {
-    font-size: 14px;
+    font-size: 16px;
     color: #222a41;
     font-family: 'Poppins';
     text-align: left;
@@ -35,7 +35,7 @@
 }
 
 .impactBox:hover {
-    background-color: #4CAF50; /* Green background on hover */
+    background-color: #589246; /* Green background on hover */
     color: white; /* Text color turns white */
 }
 
@@ -64,7 +64,7 @@
 .joinCommunityBtn {
     display: inline-block;
     padding: 15px 40px;
-    background-color: #4CAF50; /* Green color */
+    background-color: #589246; /* Green color */
     color: white; /* Text color */
     font-size: 18px;
     font-weight: bold;

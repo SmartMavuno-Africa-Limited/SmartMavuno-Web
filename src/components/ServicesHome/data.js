@@ -5,7 +5,7 @@ const data = [
         id: 1,
         heading: 'Real-Time Weather Reports',
         content: 'Get accurate, location-based weather forecasts to help you plan your farming activities and increase productivity.',
-        to: '/weather-reports',
+        to: 'https://smartmvua-forecast.netlify.app/',
         icon: faCloudSun, // FontAwesome icon
     },
     {
@@ -40,7 +40,7 @@ const data = [
         id: 6,
         heading: 'Smart Marketplace',
         content: 'Buy and sell farm products, equipment, and services directly through our marketplace, connecting you to a broader market.',
-        to: '/marketplace',
+        to: 'https://smartmavunoshop.vercel.app/',
         icon: faStoreAlt, // FontAwesome icon
     },
 ];
