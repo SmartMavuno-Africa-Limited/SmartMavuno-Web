@@ -2,9 +2,10 @@ import React from "react";
 import { Link } from "react-router-dom";
 import styles from "./ServiceHome.module.css"; // Import CSS module
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'; // FontAwesome Import
-import data from '../ServicesHome/data'; 
+import data from '../Services/data'; // Import data from Services/data
 
-const ServiceHome = ({ heading, content, to, icon }) => {
+// Create a new component for individual service items
+const ServiceItem = ({ heading, content, to, icon }) => {
     return (
         <div className={styles.serviceItem}>
             {/* Icon container that uses the styles defined above */}
@@ -20,6 +21,7 @@ const ServiceHome = ({ heading, content, to, icon }) => {
     );
 };
 
+// The main component that will render all services
 const ServicesHome = () => {
     return (
         <div className={`container ${styles.contain} overflow-hidden pb-4`}>
@@ -33,9 +35,10 @@ const ServicesHome = () => {
             </div>
 
             <div className="row">
+                {/* Map over the data array and pass each item to the ServiceItem component */}
                 {data.map((item) => (
                     <div key={item.id} className="col-lg-4 col-md-6">
-                        <ServiceHome
+                        <ServiceItem
                             heading={item.heading}
                             content={item.content}
                             to={item.to}

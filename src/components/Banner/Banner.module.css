@@ -34,7 +34,7 @@
     max-width: 272px; /* Use max-width for better responsiveness */
     height: 64px;
     font-size: 14px;
-    background-color: #4CAF50 !important;
+    background-color: #589246 !important;
     border: none;
     cursor: pointer;
     transition: background-color 0.3s; /* Smooth transition */
@@ -110,7 +110,7 @@
     z-index: 3; /* Ensure arrows are above the images */
     cursor: pointer;
     color: #fff;
-    background-color: #28a745; /* Default green background */
+    background-color: #589246; /* Default green background */
     padding: 10px;
     border-radius: 50%;
     display: flex;
