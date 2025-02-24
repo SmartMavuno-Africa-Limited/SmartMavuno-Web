@@ -1,0 +1,92 @@
+/* ServiceHome.module.css */
+
+/* Parent container for all service items */
+.contain {
+    margin-top: 130px;
+    margin-bottom: 130px;
+    padding-left: 60px !important;
+    padding-right: 60px !important;
+}
+
+/* Heading styles */
+.heading {
+    font-size: 30px;
+    color: #000000;
+    font-weight: 500;
+}
+
+/* Subheading */
+.subHeading {
+    font-size: 34px;
+    font-weight: bold;
+    color: #222a41;
+    width: 645px;
+    margin-top: 30px;
+    text-align: center;
+}
+
+/* Each service item container */
+.serviceItem {
+    background-color: #f0f0f0; /* Grey background */
+    padding: 2rem;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+/* Service item hover effect */
+.serviceItem:hover {
+    background-color: #4CAF50; /* Green on hover */
+    transform: scale(1.05); /* Slight zoom on hover */
+}
+
+/* Icon container inside each service item */
+.iconContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+/* Icon styling */
+.iconContainer .fa {
+    font-size: 50px;  /* Control the icon size */
+    color: #4CAF50;   /* Default icon color */
+}
+
+/* Heading inside each service item */
+.serviceItem h3 {
+    font-size: 22px;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+/* Content paragraph */
+.serviceItem p {
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+/* Link (Learn More button) */
+.serviceItem .link {
+    font-size: 14px;
+    color: #fff;
+    text-decoration: none;
+    background-color: #333;
+    padding: 10px 20px;
+    border-radius: 4px;
+}
+
+/* Optional: Responsive Design */
+@media screen and (max-width: 768px) {
+    .contain {
+        padding-left: 30px !important;
+        padding-right: 30px !important;
+    }
+
+    .serviceItem {
+        margin-bottom: 20px;
+    }
+}

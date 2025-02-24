@@ -1,0 +1,151 @@
+/* Project Image Styles */
+.projectImage {
+    width: 100%;
+    height: auto;
+    max-width: 100%; /* Ensure images do not overflow */
+    border-radius: 10px;
+    object-fit: cover;
+  }
+  
+  /* Container and Section Layout */
+  .projectBox {
+    margin-bottom: 30px;
+  }
+  
+  .projectDetails {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  
+  /* Headings and Text */
+  .projectHeading {
+    font-family: 'Poppins', sans-serif;
+    font-size: 28px;
+    font-weight: bold;
+    color: #2e2e2e;
+    margin-bottom: 10px;
+  }
+  
+  .projectDescription {
+    font-family: 'Poppins', sans-serif;
+    font-size: 18px;
+    color: #444;
+    line-height: 1.6;
+    margin-bottom: 20px;
+  }
+  
+  .projectSubText {
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 20px;
+  }
+  
+  /* Button Styling */
+  .waitlistButton {
+    background-color: #28501c; /* Green color */
+    color: white;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .waitlistButton:hover {
+    background-color: #1c3d14;
+  }
+  
+  /* Subscription Form Styling */
+  .subscriptionForm {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #f4f4f4;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .subscriptionHeading {
+    font-family: 'Poppins', sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 15px;
+  }
+  
+  .formLabel {
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    color: #333;
+    margin-bottom: 5px;
+  }
+  
+  .formInput {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    font-size: 14px;
+  }
+  
+  .submitButton {
+    background-color: #28501c;
+    color: white;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .submitButton:hover {
+    background-color: #1d3f14;
+  }
+
+  /* Green Button Styling */
+.greenButton {
+    background-color: #28501c; /* SmartMavuno green */
+    color: white;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .greenButton:hover {
+    background-color: #1c3d14;
+  }
+  
+  
+  /* Responsive Adjustments */
+  @media screen and (max-width: 768px) {
+    .projectBox {
+      margin-bottom: 20px;
+    }
+  
+    .projectHeading {
+      font-size: 24px;
+    }
+  
+    .projectDescription,
+    .projectSubText {
+      font-size: 16px;
+    }
+  
+    .projectDetails {
+      padding-left: 0;
+      padding-right: 0;
+    }
+  
+    .subscriptionForm {
+      margin-top: 20px;
+      padding: 15px;
+    }
+  }
+  
