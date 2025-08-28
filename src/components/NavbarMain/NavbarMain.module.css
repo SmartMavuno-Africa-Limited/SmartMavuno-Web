@@ -1,0 +1,168 @@
+/* NavbarMain.module.css */
+.customNavbar {
+  background-color: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+  padding: 0.5rem 0;
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+}
+
+.customNavbar.scrolled {
+  padding: 0.3rem 0;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+.navbarBrandCustom {
+  padding: 0;
+  margin-right: 1rem;
+}
+
+.navbarLogo {
+  height: 50px;
+  width: auto;
+  transition: all 0.3s ease;
+}
+
+.navbarTogglerCustom {
+  border: none;
+  padding: 0.25rem 0.5rem;
+  font-size: 1.25rem;
+}
+
+.navbarTogglerCustom:focus {
+  box-shadow: none;
+}
+
+.navContainer {
+  margin-left: auto;
+  align-items: center;
+}
+
+.navLinkCustom {
+  color: #2c3e50 !important;
+  font-weight: 500;
+  font-size: 16px;
+  padding: 0.5rem 1rem !important;
+  margin: 0 0.2rem;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+  position: relative;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.navLinkCustom:hover {
+  color: #27ae60 !important;
+  background-color: rgba(39, 174, 96, 0.1);
+}
+
+.navLinkCustom.active {
+  color: #27ae60 !important;
+  font-weight: 600;
+}
+
+.navLinkCustom.active::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 1rem;
+  right: 1rem;
+  height: 3px;
+  background-color: #27ae60;
+  border-radius: 2px;
+}
+
+.navDropdownCustom :global(.dropdown-toggle::after) {
+  margin-left: 0.5rem;
+  transition: transform 0.2s ease;
+}
+
+.navDropdownCustom.show :global(.dropdown-toggle::after) {
+  transform: rotate(180deg);
+}
+
+:global(.dropdown-menu) {
+  border: none;
+  border-radius: 8px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  padding: 0.5rem 0;
+  margin-top: 0.5rem;
+}
+
+.dropdownItemCustom {
+  padding: 0;
+  margin: 0.2rem 0.5rem;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+}
+
+.dropdownItemCustom:hover {
+  background-color: rgba(39, 174, 96, 0.1);
+}
+
+.dropdownLinkCustom {
+  display: block;
+  padding: 0.5rem 1rem;
+  color: #2c3e50;
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.dropdownLinkCustom:hover {
+  color: #27ae60;
+}
+
+.ctaButton {
+  background: linear-gradient(135deg, #27ae60 0%, #219653 100%) !important;
+  border: none !important;
+  border-radius: 6px !important;
+  padding: 0.5rem 1.5rem !important;
+  font-weight: 600 !important;
+  margin-left: 1rem !important;
+  transition: all 0.3s ease !important;
+  box-shadow: 0 4px 6px rgba(39, 174, 96, 0.2) !important;
+}
+
+.ctaButton:hover {
+  background: linear-gradient(135deg, #219653 0%, #1e8449 100%) !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 6px 12px rgba(39, 174, 96, 0.3) !important;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 991px) {
+  .navContainer :global(.navbar-collapse) {
+    padding: 1rem 0;
+  }
+  
+  .navLinkCustom {
+    margin: 0.2rem 0;
+    text-align: center;
+  }
+  
+  .navLinkCustom.active::after {
+    left: 30%;
+    right: 30%;
+  }
+  
+  :global(.dropdown-menu) {
+    text-align: center;
+    box-shadow: none;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    margin: 0.5rem 0;
+  }
+  
+  .ctaButton {
+    margin: 1rem 0 0 0 !important;
+    display: block;
+    text-align: center;
+    width: 100%;
+  }
+}
+
+@media (max-width: 576px) {
+  .navbarLogo {
+    height: 40px;
+  }
+}

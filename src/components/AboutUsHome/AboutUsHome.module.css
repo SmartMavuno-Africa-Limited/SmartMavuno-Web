@@ -1,0 +1,260 @@
+/* Communities Container */
+.communitiesContainer {
+  padding: 80px 20px;
+  max-width: 1600px;
+  margin: 0 auto;
+  font-family: 'Poppins', sans-serif;
+}
+
+.communitiesSection {
+  background: linear-gradient(135deg, #f8fbf8 0%, #f0f7f0 100%);
+  border-radius: 20px;
+  padding: 50px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+.communitiesTitle {
+  font-size: 2.4rem;
+  color: #2d5a2d;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 20px;
+  letter-spacing: -0.5px;
+}
+
+.communitiesSubtitle {
+  font-size: 1.2rem;
+  color: #5a735a;
+  text-align: center;
+  margin-bottom: 50px;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.6;
+  font-weight: 400;
+}
+
+/* Communities Grid */
+.communitiesGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 25px;
+  margin-bottom: 60px;
+}
+
+.regionCard {
+  background-color: white;
+  border-radius: 16px;
+  padding: 30px;
+  text-align: center;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.06);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid #e8efe8;
+}
+
+.regionCard::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 5px;
+  height: 100%;
+  background: linear-gradient(to bottom, #8bc34a, #4caf50);
+  opacity: 0.7;
+  transition: width 0.3s ease;
+}
+
+.regionCard:hover::before {
+  width: 8px;
+}
+
+.regionCardHover {
+  transform: translateY(-7px);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.1);
+}
+
+.regionContent {
+  position: relative;
+  z-index: 1;
+}
+
+.regionName {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #386938;
+  margin-bottom: 8px;
+}
+
+.regionDescription {
+  font-size: 0.95rem;
+  color: #6a846a;
+  margin-bottom: 20px;
+  font-weight: 400;
+}
+
+.regionButton {
+  display: inline-flex;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #6aae6a;
+  color: white;
+  border-radius: 25px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  margin-top: 15px;
+  transition: all 0.3s ease;
+  box-shadow: 0 3px 8px rgba(106, 174, 106, 0.25);
+}
+
+.regionButtonHover {
+  background-color: #5a995a;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 12px rgba(106, 174, 106, 0.35);
+}
+
+.buttonIcon {
+  margin-left: 8px;
+  font-size: 0.9rem;
+}
+
+/* Dropdown Section */
+.dropdownSection {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.dropdownContainer {
+  background-color: white;
+  border-radius: 16px;
+  padding: 35px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.06);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.dropdownTitle {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #386938;
+  margin-bottom: 25px;
+}
+
+.regionDropdown {
+  padding: 14px 22px;
+  font-size: 16px;
+  border: 1px solid #d8e6d8;
+  border-radius: 10px;
+  background-color: #f9fbf9;
+  color: #4a694a;
+  width: 100%;
+  max-width: 400px;
+  cursor: pointer;
+  margin-bottom: 25px;
+  transition: all 0.3s ease;
+  appearance: none;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%234caf50' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 18px center;
+  background-size: 18px;
+}
+
+.regionDropdown:focus {
+  outline: none;
+  border-color: #8bc34a;
+  box-shadow: 0 0 0 3px rgba(139, 195, 74, 0.2);
+}
+
+.joinButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px 40px;
+  background-color: #6aae6a;
+  color: white;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(106, 174, 106, 0.3);
+  border: none;
+  gap: 10px;
+}
+
+.joinButtonActive {
+  background-color: #5a995a;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(90, 153, 90, 0.4);
+}
+
+.joinButton:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: 0 4px 10px rgba(106, 174, 106, 0.3);
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .communitiesGrid {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .communitiesContainer {
+    padding: 60px 15px;
+  }
+  
+  .communitiesSection {
+    padding: 35px 25px;
+  }
+  
+  .communitiesTitle {
+    font-size: 2rem;
+  }
+  
+  .communitiesSubtitle {
+    font-size: 1.1rem;
+  }
+  
+  .communitiesGrid {
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 20px;
+  }
+  
+  .regionCard {
+    padding: 25px 20px;
+  }
+  
+  .dropdownContainer {
+    padding: 25px 20px;
+  }
+}
+
+@media (max-width: 500px) {
+  .communitiesTitle {
+    font-size: 1.8rem;
+  }
+  
+  .communitiesSubtitle {
+    font-size: 1rem;
+    margin-bottom: 40px;
+  }
+  
+  .communitiesGrid {
+    grid-template-columns: 1fr;
+  }
+  
+  .joinButton {
+    padding: 14px 30px;
+    font-size: 1rem;
+  }
+  
+  .regionName {
+    font-size: 1.3rem;
+  }
+}

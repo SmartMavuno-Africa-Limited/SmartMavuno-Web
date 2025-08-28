@@ -1,0 +1,524 @@
+/* General Styles */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #333;
+}
+
+/* Hero Section */
+.heroSection {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    align-items: center;
+    justify-content: space-between;
+    padding: 60px 20px;
+    background: linear-gradient(135deg, #f0f7ee 0%, #e0f0e3 100%);
+    border-radius: 20px;
+    margin-top: 20px;
+    position: relative;
+    overflow: hidden;
+}
+
+.heroSection::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -50%;
+    width: 100%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(76, 175, 80, 0.1) 0%, transparent 70%);
+}
+
+.heroContent {
+    flex: 1;
+    min-width: 300px;
+    position: relative;
+    z-index: 2;
+}
+
+.heroHeading {
+    font-size: 2.8rem;
+    font-weight: 700;
+    color: #28501C;
+    line-height: 1.2;
+    margin-bottom: 20px;
+}
+
+.heroDescription {
+    font-size: 1.2rem;
+    color: #4a4a4a;
+    margin-bottom: 30px;
+    line-height: 1.6;
+}
+
+.heroStats {
+    display: flex;
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+.stat {
+    text-align: center;
+}
+
+.stat h3 {
+    font-size: 1.5rem;
+    color: #28501C;
+    margin-bottom: 5px;
+}
+
+.stat p {
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.scrollButton {
+    background: linear-gradient(135deg, #28501C 0%, #589246 100%);
+    color: white;
+    font-size: 1.1rem;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(40, 80, 28, 0.3);
+}
+
+.scrollButton:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(40, 80, 28, 0.4);
+}
+
+.buttonArrow {
+    font-size: 1.2rem;
+}
+
+.heroVisual {
+    flex: 1;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    min-width: 300px;
+    position: relative;
+    z-index: 2;
+}
+
+.visualCard {
+    background: white;
+    padding: 25px;
+    border-radius: 15px;
+    text-align: center;
+    width: 160px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease;
+}
+
+.visualCard:hover {
+    transform: translateY(-5px);
+}
+
+.cardIcon {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+}
+
+.visualCard h4 {
+    font-size: 1.1rem;
+    color: #28501C;
+    margin-bottom: 8px;
+}
+
+.visualCard p {
+    font-size: 0.9rem;
+    color: #666;
+}
+
+/* Benefits Section */
+.benefitsSection {
+    padding: 80px 20px;
+    text-align: center;
+}
+
+.benefitsSection h2 {
+    font-size: 2.2rem;
+    color: #28501C;
+    margin-bottom: 50px;
+}
+
+.benefitsGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+}
+
+.benefitItem {
+    padding: 30px 20px;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease;
+}
+
+.benefitItem:hover {
+    transform: translateY(-5px);
+}
+
+.benefitIcon {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.benefitItem h4 {
+    font-size: 1.3rem;
+    color: #28501C;
+    margin-bottom: 15px;
+}
+
+.benefitItem p {
+    color: #666;
+    line-height: 1.6;
+}
+
+/* Application Section */
+.applicationSection {
+    padding: 60px 20px;
+    background: #f9faf9;
+    border-radius: 20px;
+    margin: 40px 0;
+}
+
+.sectionHeader {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.sectionHeader h2 {
+    font-size: 2.2rem;
+    color: #28501C;
+    margin-bottom: 10px;
+}
+
+.sectionHeader p {
+    font-size: 1.1rem;
+    color: #666;
+}
+
+/* Form Styles */
+.formWrapper {
+    background: white;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.formContainer {
+    padding: 40px;
+}
+
+.progressBar {
+    height: 6px;
+    background: #eaeaea;
+    border-radius: 3px;
+    margin-bottom: 30px;
+    overflow: hidden;
+}
+
+.progress {
+    height: 100%;
+    background: linear-gradient(135deg, #28501C 0%, #589246 100%);
+    border-radius: 3px;
+    transition: width 0.5s ease;
+}
+
+.formContainer h3 {
+    font-size: 1.8rem;
+    color: #28501C;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.formSubtitle {
+    text-align: center;
+    color: #666;
+    margin-bottom: 30px;
+}
+
+.formStep {
+    animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.formStep h4 {
+    font-size: 1.4rem;
+    color: #28501C;
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+.inputGroup {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.inputGroup input,
+.inputGroup select,
+.inputGroup textarea {
+    width: 100%;
+    padding: 15px 15px 15px 50px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.inputGroup input:focus,
+.inputGroup select:focus,
+.inputGroup textarea:focus {
+    border-color: #589246;
+    box-shadow: 0 0 0 3px rgba(88, 146, 70, 0.2);
+    outline: none;
+}
+
+.inputIcon {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.2rem;
+    color: #589246;
+}
+
+.inputGroup textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+
+.fileUploadSection {
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid #eee;
+}
+
+.fileUploadSection h5 {
+    font-size: 1.1rem;
+    color: #28501C;
+    margin-bottom: 15px;
+}
+
+.fileInputGroup {
+    margin-bottom: 15px;
+}
+
+.fileInputGroup label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: #444;
+}
+
+.fileInput {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.fileInput input[type="file"] {
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: 0;
+    width: 140px;
+    height: 100%;
+    cursor: pointer;
+}
+
+.fileButton {
+    display: inline-block;
+    padding: 10px 15px;
+    background: #e8f0e6;
+    color: #589246;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    margin-right: 15px;
+    transition: background 0.3s ease;
+}
+
+.fileButton:hover {
+    background: #d8e8d4;
+}
+
+.fileName {
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.buttonGroup {
+    display: flex;
+    gap: 15px;
+    justify-content: space-between;
+    margin-top: 30px;
+}
+
+.backButton {
+    padding: 12px 25px;
+    background: #f0f0f0;
+    color: #555;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.backButton:hover {
+    background: #e0e0e0;
+}
+
+.nextButton,
+.submitButton {
+    padding: 12px 25px;
+    background: linear-gradient(135deg, #28501C 0%, #589246 100%);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(40, 80, 28, 0.3);
+}
+
+.nextButton:hover,
+.submitButton:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(40, 80, 28, 0.4);
+}
+
+.buttonIcon {
+    font-size: 1.1rem;
+}
+
+.successMessage {
+    text-align: center;
+    padding: 60px 40px;
+}
+
+.successIcon {
+    font-size: 4rem;
+    color: #589246;
+    margin-bottom: 20px;
+}
+
+.successMessage h3 {
+    font-size: 1.8rem;
+    color: #28501C;
+    margin-bottom: 15px;
+}
+
+.successMessage p {
+    font-size: 1.1rem;
+    color: #666;
+    line-height: 1.6;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+/* FAQ Section */
+.faqSection {
+    padding: 80px 20px;
+}
+
+.faqSection h2 {
+    font-size: 2.2rem;
+    color: #28501C;
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.faqGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.faqItem {
+    background: white;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.faqItem h4 {
+    font-size: 1.2rem;
+    color: #28501C;
+    margin-bottom: 15px;
+}
+
+.faqItem p {
+    color: #666;
+    line-height: 1.6;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .heroHeading {
+        font-size: 2.2rem;
+    }
+    
+    .heroStats {
+        flex-direction: column;
+        gap: 20px;
+    }
+    
+    .benefitsGrid,
+    .faqGrid {
+        grid-template-columns: 1fr;
+    }
+    
+    .formContainer {
+        padding: 25px;
+    }
+    
+    .buttonGroup {
+        flex-direction: column;
+    }
+    
+    .backButton,
+    .nextButton,
+    .submitButton {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .heroHeading {
+        font-size: 1.8rem;
+    }
+    
+    .heroDescription {
+        font-size: 1rem;
+    }
+    
+    .visualCard {
+        width: 100%;
+        max-width: 250px;
+    }
+}

@@ -1,0 +1,120 @@
+/* Container for bottom section */
+.contain {
+    padding-bottom: 130px;
+}
+
+/* Row styling, margin-top to create spacing */
+.row {
+    margin-top: 130px !important;
+}
+
+/* Common styles for the text heading and content */
+.head {
+    font-family: 'Poppins';
+    font-size: 30px;
+    font-weight: bold;
+    color: #000000;
+    text-align: left;
+    margin-top: 135px;
+    margin-left: 150px;
+}
+
+.content {
+    font-family: 'Poppins';
+    font-size: 18px;
+    color: #000000;
+    opacity: .5;
+    text-align: left;
+    margin-left: 150px;
+}
+
+.head1 {
+    font-family: 'Poppins';
+    font-size: 35px;
+    font-weight: bold;
+    color: #182913;
+    text-align: left;
+    margin-top: 135px;
+}
+
+.content1 {
+    font-family: 'Poppins';
+    font-size: 18px;
+    color: #213d18;
+    opacity: .5;
+    text-align: left;
+    margin-right: 100px;
+}
+
+.img {
+    width: 450px;
+    height: 550px;
+    margin-left: -30px;
+    border-radius: 20px;
+}
+
+.img1 {
+    width: 100%;
+    height: auto;
+    margin-left: -90px;
+    border-radius: 20px;
+}
+
+/* New container for Vision and Mission section */
+.vision-mission-container {
+    background-color: #F4F9F3; /* Light greenish background */
+    padding: 40px 20px;
+    border-radius: 15px;
+    margin-top: 40px;
+}
+
+.vision-mission-container p {
+    margin-top: 20px;
+}
+
+@media screen and (max-width: 992px) {
+    .head {
+        margin-left: 0px;
+        margin-top: 90px;
+    }
+    .content {
+        margin-left: 0px;
+    }
+    .img {
+        margin-left: -60px;
+    }
+    .img1 {
+        margin-left: 40px;
+    }
+    .head1 {
+        margin-top: 90px;
+    }
+    .content1 {
+        margin-right: 0px;
+    }
+    .row {
+        margin-top: 80px !important;
+    }
+    .contain {
+        padding-bottom: 80px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .img, .img1 {
+        margin-left: 0px;
+    }
+    .head, .head1 {
+        margin-top: 50px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .head, .head1 {
+        font-size: 22px;
+        margin-top: 30px;
+    }
+    .row {
+        margin-top: 50px !important;
+    }
+}
