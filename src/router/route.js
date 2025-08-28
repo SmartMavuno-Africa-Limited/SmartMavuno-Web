@@ -1,7 +1,6 @@
 import Home from "../views/home";
 import Service from "../views/services";
 import ContactUs from '../views/contactUs';
-import IndividualService from "../views/individualService";
 import AboutUs from '../views/aboutUs';
 import ProjectDetails from "../views/projectDetails";
 import SignUp from '../components/Registration/SignUp';
@@ -28,10 +27,6 @@ const routes = [
     {
         components: <ContactUs />,
         to: '/contactUs'
-    },
-    {
-        components: <IndividualService />,
-        to: '/individualService'
     },
     {
         components: <AboutUs />,

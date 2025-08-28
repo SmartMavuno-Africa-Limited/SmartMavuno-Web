@@ -3,7 +3,7 @@ import styles from './OtherProjects.module.css';
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import './styles.css';
-import { fakeData } from "./fakeData";
+import { fakeData } from "./otherProjectData";
 
 const OtherProjects=()=>{
 

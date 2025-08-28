@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import styles from './CaseStudy.module.css';
 
-// Updated data with better, more relevant images
 const caseStudies = [
   {
     id: 1,

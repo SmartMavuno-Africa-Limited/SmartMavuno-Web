@@ -1,7 +1,7 @@
 import React from "react";
 import styles from './ProjectDetails.module.css';
 import OtherProjects from './OtherProjects';
-import data from './fakeData';
+import data from './index';
 import { useLocation } from "react-router-dom";
 
 const ProjectDetails = () =>{

@@ -7,7 +7,7 @@ const AboutUsHome = () => {
   const [region, setRegion] = useState("");
   const [hoveredRegion, setHoveredRegion] = useState(null);
 
-  // Mapping of regions to WhatsAp group links
+  // Mapping of regions to WhatsApp group links
   const regionLinks = {
     "Nairobi": "https://chat.whatsapp.com/EB9CWE7ViwA5NA0xK7BVtD",
     "North-Eastern": "https://chat.whatsapp.com/FUdagfWuwNO78XaUr9dMna",
