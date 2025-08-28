@@ -3,12 +3,7 @@ import Service from "../views/services";
 import ContactUs from '../views/contactUs';
 import AboutUs from '../views/aboutUs';
 import ProjectDetails from "../views/projectDetails";
-import SignUp from '../components/Registration/SignUp';
-import Login from '../components/Registration/Login';
-import ForgotPassword from '../components/Registration/ForgotPassword';
-import Blog from "../components/Blog/blog";
 import Projects from "../components/Projects/projects";
-import LandLeasing from "../components/LandLeasing/LandLeasing";
 import FarmLabour from "../components/FarmLabour/FarmLabour";
 import Loan from "../components/loans/Loan";
 import Community from "../components/communities/community";
@@ -38,26 +33,6 @@ const routes = [
     {
         components: <Projects />,
         to: '/projects'
-    },
-    {
-        components: <Blog />,
-        to: '/blog'
-    },
-    {
-        components: <SignUp />,
-        to: '/signup'
-    },
-    {
-        components: <Login />,
-        to: '/login'
-    },
-    {
-        components: <ForgotPassword />,
-        to: '/forgot-password'
-    },
-    {
-        components: <LandLeasing />,
-        to: '/landleasing'
     },
     {
         components: <FarmLabour />,
