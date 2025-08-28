@@ -1,120 +1,361 @@
 /* Container for bottom section */
 .contain {
-    padding-bottom: 130px;
+    padding: 80px 0;
 }
 
-/* Row styling, margin-top to create spacing */
-.row {
-    margin-top: 130px !important;
+/* Section container */
+.sectionContainer {
+    margin-bottom: 100px;
+    position: relative;
 }
 
-/* Common styles for the text heading and content */
-.head {
-    font-family: 'Poppins';
-    font-size: 30px;
-    font-weight: bold;
-    color: #000000;
-    text-align: left;
-    margin-top: 135px;
-    margin-left: 150px;
+.sectionContainer:last-child {
+    margin-bottom: 0;
+}
+
+/* Content wrapper */
+.contentWrapper {
+    display: flex;
+    align-items: center;
+    min-height: 400px;
+}
+
+/* Text content styling */
+.textContent {
+    flex: 1;
+    padding: 0 40px;
+    display: flex;
+    align-items: center;
+}
+
+.contentInner {
+    max-width: 500px;
+    position: relative;
+}
+
+/* Icon styling */
+.iconContainer {
+    margin-bottom: 1.5rem;
+}
+
+.icon {
+    font-size: 3rem;
+    color: #4CAF50;
+    background: linear-gradient(135deg, rgba(76, 175, 80, 0.1) 0%, rgba(139, 195, 74, 0.05) 100%);
+    padding: 20px;
+    border-radius: 50%;
+}
+
+.heading {
+    font-family: 'Poppins', sans-serif;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #182913;
+    margin-bottom: 1.5rem;
+    position: relative;
+    line-height: 1.2;
+}
+
+.heading::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 60px;
+    height: 4px;
+    background: linear-gradient(90deg, #4CAF50, #8BC34A);
+    border-radius: 2px;
 }
 
 .content {
-    font-family: 'Poppins';
-    font-size: 18px;
-    color: #000000;
-    opacity: .5;
-    text-align: left;
-    margin-left: 150px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #5a6b5c;
+    margin-bottom: 2rem;
 }
 
-.head1 {
-    font-family: 'Poppins';
-    font-size: 35px;
-    font-weight: bold;
-    color: #182913;
-    text-align: left;
-    margin-top: 135px;
+/* Visual content styling */
+.visualContent {
+    flex: 1;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.content1 {
-    font-family: 'Poppins';
-    font-size: 18px;
-    color: #213d18;
-    opacity: .5;
-    text-align: left;
-    margin-right: 100px;
-}
-
-.img {
-    width: 450px;
-    height: 550px;
-    margin-left: -30px;
-    border-radius: 20px;
-}
-
-.img1 {
+.visualWrapper {
+    position: relative;
     width: 100%;
-    height: auto;
-    margin-left: -90px;
-    border-radius: 20px;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-/* New container for Vision and Mission section */
-.vision-mission-container {
-    background-color: #F4F9F3; /* Light greenish background */
-    padding: 40px 20px;
-    border-radius: 15px;
-    margin-top: 40px;
+.graphicElement {
+    position: relative;
+    width: 200px;
+    height: 200px;
 }
 
-.vision-mission-container p {
-    margin-top: 20px;
+.circle {
+    position: absolute;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, rgba(76, 175, 80, 0.1) 0%, rgba(139, 195, 74, 0.2) 100%);
+    top: 0;
+    left: 0;
+    animation: pulse 4s infinite ease-in-out;
+}
+
+.line {
+    position: absolute;
+    width: 180px;
+    height: 4px;
+    background: linear-gradient(90deg, #4CAF50, #8BC34A);
+    bottom: 40px;
+    right: 0;
+    border-radius: 2px;
+    animation: slideIn 5s infinite ease-in-out;
+}
+
+.square {
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, rgba(76, 175, 80, 0.15) 0%, rgba(139, 195, 74, 0.25) 100%);
+    bottom: 0;
+    right: 60px;
+    border-radius: 10px;
+    animation: rotate 6s infinite linear;
+}
+
+/* Stats container */
+.statsContainer {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    display: flex;
+    gap: 20px;
+}
+
+.stat {
+    text-align: center;
+    padding: 15px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+    min-width: 100px;
+}
+
+.statNumber {
+    display: block;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #4CAF50;
+    margin-bottom: 5px;
+}
+
+.statLabel {
+    display: block;
+    font-size: 0.9rem;
+    color: #5a6b5c;
+}
+
+/* Decorative element */
+.decorativeElement {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath fill='%234CAF50' fill-opacity='0.1' d='M50,0 C77.614,0 100,22.386 100,50 C100,77.614 77.614,100 50,100 C22.386,100 0,77.614 0,50 C0,22.386 22.386,0 50,0 Z'%3E%3C/path%3E%3C/svg%3E") no-repeat center;
+    bottom: -40px;
+    right: -40px;
+    z-index: -1;
+}
+
+/* Even/Odd variations */
+.even .contentWrapper {
+    flex-direction: row;
+}
+
+.odd .contentWrapper {
+    flex-direction: row-reverse;
+}
+
+.odd .heading::after {
+    left: auto;
+    right: 0;
+}
+
+.odd .decorativeElement {
+    right: auto;
+    left: -40px;
+}
+
+.odd .statsContainer {
+    right: auto;
+    left: 0;
+}
+
+.odd .graphicElement {
+    transform: scaleX(-1);
+}
+
+/* Background shapes for visual interest */
+.sectionContainer::before {
+    content: '';
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, rgba(76, 175, 80, 0.05) 0%, rgba(139, 195, 74, 0.1) 100%);
+    z-index: -1;
+}
+
+.even::before {
+    top: -50px;
+    left: -100px;
+}
+
+.odd::before {
+    bottom: -50px;
+    right: -100px;
+}
+
+/* Animations */
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+}
+
+@keyframes slideIn {
+    0%, 100% { transform: translateX(0); opacity: 1; }
+    50% { transform: translateX(-20px); opacity: 0.7; }
+}
+
+@keyframes rotate {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Responsive Design */
+@media screen and (max-width: 1200px) {
+    .heading {
+        font-size: 2.2rem;
+    }
+    
+    .content {
+        font-size: 1rem;
+    }
 }
 
 @media screen and (max-width: 992px) {
-    .head {
-        margin-left: 0px;
-        margin-top: 90px;
+    .contentWrapper {
+        flex-direction: column !important;
+        min-height: auto;
     }
-    .content {
-        margin-left: 0px;
+    
+    .textContent, .visualContent {
+        width: 100%;
+        padding: 0;
     }
-    .img {
-        margin-left: -60px;
+    
+    .textContent {
+        margin-bottom: 40px;
+        order: 2;
     }
-    .img1 {
-        margin-left: 40px;
+    
+    .visualContent {
+        order: 1;
+        margin-bottom: 30px;
+        height: 250px;
     }
-    .head1 {
-        margin-top: 90px;
+    
+    .contentInner {
+        max-width: 100%;
+        text-align: center;
     }
-    .content1 {
-        margin-right: 0px;
+    
+    .heading::after {
+        left: 50%;
+        transform: translateX(-50%);
     }
-    .row {
-        margin-top: 80px !important;
+    
+    .odd .heading::after {
+        left: 50%;
+        right: auto;
+        transform: translateX(-50%);
     }
+    
+    .decorativeElement {
+        display: none;
+    }
+    
+    .sectionContainer::before {
+        display: none;
+    }
+    
+    .statsContainer {
+        position: relative;
+        justify-content: center;
+        margin-top: 20px;
+    }
+}
+
+@media screen and (max-width: 768px) {
     .contain {
-        padding-bottom: 80px;
+        padding: 60px 0;
+    }
+    
+    .sectionContainer {
+        margin-bottom: 70px;
+    }
+    
+    .heading {
+        font-size: 1.8rem;
+    }
+    
+    .content {
+        font-size: 0.95rem;
+    }
+    
+    .visualWrapper {
+        height: 200px;
+    }
+    
+    .graphicElement {
+        transform: scale(0.8);
+    }
+    
+    .odd .graphicElement {
+        transform: scale(0.8) scaleX(-1);
     }
 }
 
-@media screen and (max-width: 768px) {
-    .img, .img1 {
-        margin-left: 0px;
+@media screen and (max-width: 576px) {
+    .heading {
+        font-size: 1.6rem;
     }
-    .head, .head1 {
-        margin-top: 50px;
+    
+    .icon {
+        font-size: 2.5rem;
+        padding: 15px;
     }
-}
-
-@media screen and (max-width: 768px) {
-    .head, .head1 {
-        font-size: 22px;
-        margin-top: 30px;
+    
+    .statsContainer {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
     }
-    .row {
-        margin-top: 50px !important;
+    
+    .stat {
+        min-width: 80px;
+        padding: 10px;
+    }
+    
+    .statNumber {
+        font-size: 1.5rem;
     }
 }

@@ -1,50 +1,114 @@
 import React from "react";
 import styles from './Top.module.css';
-import img1 from '../../../assets/aboutUs/img1.png';
-import img2 from '../../../assets/aboutUs/img2.png';
 
 const Top = () => {
     return (
-        <div className={`container overflow-hidden`}>
-            <p data-aos='slide-right' className={styles.heading}>About SmartMavuno</p>
-            <p data-aos='slide-left' className={styles.subHeading}>Get to know us</p>
-            <p data-aos='fade-up' data-aos-offset='80' className={styles.content}>
-                Smart Mavuno is a leading platform providing innovative agricultural solutions to farmers worldwide.
-                Our mission is to empower farmers with the latest tools and technology to improve productivity and sustainability.
-            </p>
+        <div className={styles.container}>
+            <div className={styles.headerSection}>
+                <div className={styles.titleContainer}>
+                    <p data-aos='fade-down' className={styles.preTitle}>Welcome to</p>
+                    <h1 data-aos='fade-down' data-aos-delay="100" className={styles.mainTitle}>SmartMavuno</h1>
+                    <div data-aos='fade-up' data-aos-delay="200" className={styles.accentLine}></div>
+                </div>
+                
+                <p data-aos='fade-up' data-aos-delay="300" className={styles.subHeading}>
+                    Transforming Agriculture Through Digital Innovation
+                </p>
+                
+                <p data-aos='fade-up' data-aos-delay="400" data-aos-offset='80' className={styles.content}>
+                    Smart Mavuno is a pioneering agritech platform dedicated to empowering African farmers with 
+                    innovative digital solutions that enhance productivity, sustainability, and profitability.
+                </p>
+            </div>
 
             {/* Our Story Box */}
-            <div className={styles.ourStoryBox}>
-                <p data-aos='fade-up' className={styles.about}>Our Story</p>
-                <p data-aos='fade-up' className={styles.creativity}>
-                    Empowering Farmers, Shaping the Future of Agriculture
-                </p>
-                <p data-aos='fade-up' className={styles.contn}>
-                    Founded in 2022, Smart Mavuno is a trailblazing agritech startup with a vision to revolutionize the agricultural landscape.
-                    Our mission is to empower farmers globally by providing them with cutting-edge tools and technology that boost productivity,
-                    enhance sustainability, and improve their overall livelihood.
-                    <br /><br />
-                    At Smart Mavuno, we understand the unique challenges that farmers face daily.
-                    That's why we have developed a comprehensive platform offering solutions that address the core needs of the agricultural community.
-                    Our services include:
-                    <ul>
-                        <li><strong>Land Leasing</strong>: Connecting farmers with land leasers, providing access to quality agricultural land that enables farmers to scale their operations and achieve greater yields.</li>
-                        <li><strong>Agricultural Financing</strong>: Bridging the gap between farmers and financiers, helping farmers access the capital needed to invest in the best resources and technologies for their farms.</li>
-                        <li><strong>Produce Marketplace</strong>: Connecting farmers directly with buyers, ensuring fair trade and improved market access for their produce.</li>
-                        <li><strong>Weather Forecasting</strong>: Equipping farmers with accurate and timely weather information, helping them make informed decisions for planting, harvesting, and protecting their crops.</li>
-                    </ul>
-                    Our innovative approach is reshaping the future of agriculture, creating opportunities for farmers worldwide to thrive in an increasingly complex and demanding world.
-                </p>
-            </div>
-
-            <div data-aos='fade-up' className='row' style={{ textAlign: 'left' }}>
-                <div className={`col-md-6`}>
-                    <img src={img1} alt="" className={styles.img1} />
+            <div data-aos='fade-up' data-aos-delay="500" className={styles.ourStoryBox}>
+                <div className={styles.storyHeader}>
+                    <div className={styles.sectionLabel}>Our Story</div>
+                    <h2 className={styles.storyTitle}>
+                        Empowering Farmers,<br />Shaping the Future of Agriculture
+                    </h2>
+                </div>
+                
+                <div className={styles.storyContent}>
+                    <p className={styles.storyText}>
+                        Founded in 2022, Smart Mavuno is a trailblazing agritech startup with a vision to 
+                        revolutionize the agricultural landscape across Africa. Our mission is to empower 
+                        farmers by providing cutting-edge tools and technology that address their most 
+                        pressing challenges.
+                    </p>
+                    
+                    <div className={styles.servicesSection}>
+                        <h3 className={styles.servicesTitle}>Our Core Solutions</h3>
+                        
+                        <div className={styles.servicesGrid}>
+                            <div className={styles.serviceCard}>
+                                <div className={styles.serviceHeader}>
+                                    <div className={styles.serviceNumber}>01</div>
+                                    <h4 className={styles.serviceName}>Insured Financing</h4>
+                                </div>
+                                <p className={styles.serviceDescription}>
+                                    Connecting farmers with financial institutions for insured agricultural loans with 
+                                    flexible terms and protection against unforeseen circumstances.
+                                </p>
+                            </div>
+                            
+                            <div className={styles.serviceCard}>
+                                <div className={styles.serviceHeader}>
+                                    <div className={styles.serviceNumber}>02</div>
+                                    <h4 className={styles.serviceName}>Digital Marketplace</h4>
+                                </div>
+                                <p className={styles.serviceDescription}>
+                                    Direct connection between farmers and buyers with fair pricing, transparent 
+                                    transactions, and reduced intermediary costs.
+                                </p>
+                            </div>
+                            
+                            <div className={styles.serviceCard}>
+                                <div className={styles.serviceHeader}>
+                                    <div className={styles.serviceNumber}>03</div>
+                                    <h4 className={styles.serviceName}>Weather Intelligence</h4>
+                                </div>
+                                <p className={styles.serviceDescription}>
+                                    Accurate forecasts and climate data to optimize planting, irrigation, and 
+                                    harvesting decisions while mitigating risks.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div data-aos='fade-up' className='row' style={{ textAlign: 'left' }}>
-                <div className={`col-md-6`}>
-                    <img src={img2} alt="" className={styles.img2} />
+
+            {/* Stats Section */}
+            <div data-aos='fade-up' data-aos-delay="600" className={styles.statsSection}>
+                <div className={styles.statItem}>
+                    <span className={styles.statNumber}>2,000+</span>
+                    <span className={styles.statLabel}>Farmers Empowered</span>
+                </div>
+                <div className={styles.statItem}>
+                    <span className={styles.statNumber}>15+</span>
+                    <span className={styles.statLabel}>Regions Served</span>
+                </div>
+                <div className={styles.statItem}>
+                    <span className={styles.statNumber}>98%</span>
+                    <span className={styles.statLabel}>Satisfaction Rate</span>
+                </div>
+                <div className={styles.statItem}>
+                    <span className={styles.statNumber}>$5M+</span>
+                    <span className={styles.statLabel}>Transactions Facilitated</span>
+                </div>
+            </div>
+
+            {/* Mission Statement */}
+            <div data-aos='fade-up' data-aos-delay="700" className={styles.missionSection}>
+                <div className={styles.missionContent}>
+                    <h2 className={styles.missionTitle}>Our Commitment to African Agriculture</h2>
+                    <p className={styles.missionStatement}>
+                        We are dedicated to creating a sustainable agricultural ecosystem where every farmer has 
+                        access to the tools, resources, and markets needed to thrive and prosper. Through innovation, 
+                        partnership, and technology, we're building a brighter future for African agriculture.
+                    </p>
+                    <div className={styles.missionAccent}></div>
                 </div>
             </div>
         </div>

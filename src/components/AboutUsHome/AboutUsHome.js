@@ -1,90 +1,111 @@
-import React, { useState } from "react";
+import React from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faArrowRight, faUsers } from '@fortawesome/free-solid-svg-icons';
-import styles from './AboutUsHome.module.css'; // CSS Module import
+import { faSeedling, faHandHoldingHeart, faUsers, faChartLine } from '@fortawesome/free-solid-svg-icons';
+import styles from './AboutUsHome.module.css';
 
 const AboutUsHome = () => {
-  const [region, setRegion] = useState("");
-  const [hoveredRegion, setHoveredRegion] = useState(null);
-
-  // Mapping of regions to WhatsApp group links
-  const regionLinks = {
-    "Nairobi": "https://chat.whatsapp.com/EB9CWE7ViwA5NA0xK7BVtD",
-    "North-Eastern": "https://chat.whatsapp.com/FUdagfWuwNO78XaUr9dMna",
-    "Eastern": "https://chat.whatsapp.com/GCpLuceiW1wHjMKWAkJfbF",
-    "Coast": "https://chat.whatsapp.com/BpTrf2gE2gM1N8hHavarXJ",
-    "Rift Valley": "https://chat.whatsapp.com/HJfogxzG3ZSGg76Mf8aWL8",
-    "Central Kenya": "https://chat.whatsapp.com/LwJo9FPCQKgKUPknbfEr2K",
-    "Western": "https://chat.whatsapp.com/Eqx48cZ8vat8cbULjqdFlC",
-    "Nyanza": "https://chat.whatsapp.com/L1QnsFvhA5aCVugEPH8At9"
-  };
-
-  // Function to handle community join
-  const handleJoinCommunity = () => {
-    if (region) {
-      window.open(regionLinks[region], "_blank");
-    } else {
-      alert("Please select a region.");
-    }
-  };
-
-  // Function to handle direct region click
-  const handleRegionClick = (regionName) => {
-    window.open(regionLinks[regionName], "_blank");
-  };
-
   return (
-    <div className={styles.communitiesContainer}>
-      <div className={styles.communitiesSection}>
-        <h2 className={styles.communitiesTitle}>Join Your Regional Farming Community</h2>
-        <p className={styles.communitiesSubtitle}>
-          Connect with farmers in your region, share experiences, and access localized resources.
-        </p>
-
-        <div className={styles.communitiesGrid}>
-          {Object.keys(regionLinks).map((regionName) => (
-            <div
-              key={regionName}
-              className={`${styles.regionCard} ${hoveredRegion === regionName ? styles.regionCardHover : ''}`}
-              onMouseEnter={() => setHoveredRegion(regionName)}
-              onMouseLeave={() => setHoveredRegion(null)}
-              onClick={() => handleRegionClick(regionName)}
-            >
-              <div className={styles.regionContent}>
-                <h3 className={styles.regionName}>{regionName}</h3>
-                <p className={styles.regionDescription}>Farmers Community Hub</p>
-                <div className={`${styles.regionButton} ${hoveredRegion === regionName ? styles.regionButtonHover : ''}`}>
-                  Join Now <FontAwesomeIcon icon={faArrowRight} className={styles.buttonIcon} />
-                </div>
-              </div>
-            </div>
-          ))}
+    <div className={styles.introContainer}>
+      <div className={styles.introSection}>
+        <div className={styles.introHeader}>
+          <h2 className={styles.introTitle}>Empowering the Future of African Agriculture</h2>
+          <p className={styles.introSubtitle}>
+            At Smart Mavuno, we're dedicated to transforming agriculture by empowering youths and vulnerable women 
+            with the tools, resources, and opportunities they need to thrive in farming.
+          </p>
         </div>
 
-        <div className={styles.dropdownSection}>
-          <div className={styles.dropdownContainer}>
-            <h3 className={styles.dropdownTitle}>Select your region to join</h3>
-            <select
-              value={region}
-              onChange={(e) => setRegion(e.target.value)}
-              className={styles.regionDropdown}
-            >
-              <option value="">Choose your region</option>
-              {Object.keys(regionLinks).map((regionName) => (
-                <option key={regionName} value={regionName}>
-                  {regionName} Community
-                </option>
-              ))}
-            </select>
-            
-            <button
-              className={`${styles.joinButton} ${region ? styles.joinButtonActive : ''}`}
-              onClick={handleJoinCommunity}
-              disabled={!region}
-            >
-              <FontAwesomeIcon icon={faUsers} className={styles.buttonIcon} />
-              JOIN COMMUNITY
-            </button>
+        <div className={styles.missionGrid}>
+          {/* Youth Empowerment Card */}
+          <div className={styles.missionCard}>
+            <div className={styles.cardIcon}>
+              <FontAwesomeIcon icon={faSeedling} />
+            </div>
+            <h3 className={styles.cardTitle}>Youth in Agriculture</h3>
+            <p className={styles.cardContent}>
+              We're inspiring and supporting the next generation of farmers through innovative programs that 
+              make agriculture attractive, profitable, and sustainable for young people across Africa.
+            </p>
+            <div className={styles.cardFeatures}>
+              <div className={styles.feature}>
+                <FontAwesomeIcon icon={faChartLine} className={styles.featureIcon} />
+                <span>Career development programs</span>
+              </div>
+              <div className={styles.feature}>
+                <FontAwesomeIcon icon={faUsers} className={styles.featureIcon} />
+                <span>Youth farming cooperatives</span>
+              </div>
+            </div>
+          </div>
+
+          {/* Women Empowerment Card */}
+          <div className={styles.missionCard}>
+            <div className={styles.cardIcon}>
+              <FontAwesomeIcon icon={faHandHoldingHeart} />
+            </div>
+            <h3 className={styles.cardTitle}>Women in Farming</h3>
+            <p className={styles.cardContent}>
+              We're committed to empowering vulnerable women by providing access to resources, training, 
+              and support systems that enable them to succeed in agriculture and achieve economic independence.
+            </p>
+            <div className={styles.cardFeatures}>
+              <div className={styles.feature}>
+                <FontAwesomeIcon icon={faUsers} className={styles.featureIcon} />
+                <span>Women-led farming initiatives</span>
+              </div>
+              <div className={styles.feature}>
+                <FontAwesomeIcon icon={faChartLine} className={styles.featureIcon} />
+                <span>Economic empowerment programs</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div className={styles.solutionsSection}>
+          <h3 className={styles.solutionsTitle}>Our Empowerment Solutions</h3>
+          
+          <div className={styles.solutionsGrid}>
+            <div className={styles.solutionItem}>
+              <div className={styles.solutionContent}>
+                <h4 className={styles.solutionName}>Insured Financing</h4>
+                <p className={styles.solutionDescription}>
+                  Access to affordable loans with insurance protection, specifically designed for 
+                  youth and women farmers to mitigate risks and encourage investment in agriculture.
+                </p>
+              </div>
+              <div className={styles.solutionStats}>
+                <span className={styles.statNumber}>65%</span>
+                <span className={styles.statLabel}>Women beneficiaries</span>
+              </div>
+            </div>
+
+            <div className={styles.solutionItem}>
+              <div className={styles.solutionContent}>
+                <h4 className={styles.solutionName}>Digital Marketplace</h4>
+                <p className={styles.solutionDescription}>
+                  A platform that connects young and women farmers directly with buyers, ensuring 
+                  fair prices and eliminating intermediaries that traditionally reduce profits.
+                </p>
+              </div>
+              <div className={styles.solutionStats}>
+                <span className={styles.statNumber}>78%</span>
+                <span className={styles.statLabel}>Youth participation</span>
+              </div>
+            </div>
+
+            <div className={styles.solutionItem}>
+              <div className={styles.solutionContent}>
+                <h4 className={styles.solutionName}>Training & Mentorship</h4>
+                <p className={styles.solutionDescription}>
+                  Comprehensive programs that provide the knowledge and skills needed for successful 
+                  farming, from modern techniques to business management and market access.
+                </p>
+              </div>
+              <div className={styles.solutionStats}>
+                <span className={styles.statNumber}>2,500+</span>
+                <span className={styles.statLabel}>People trained</span>
+              </div>
+            </div>
           </div>
         </div>
       </div>

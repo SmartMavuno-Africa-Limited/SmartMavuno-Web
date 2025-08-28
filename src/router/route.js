@@ -8,7 +8,6 @@ import Login from '../components/Registration/Login';
 import ForgotPassword from '../components/Registration/ForgotPassword';
 import Blog from "../components/Blog/blog";
 import Projects from "../components/Projects/projects";
-import ModernFarming from "../components/ModernFarming/ModernFarming";
 import LandLeasing from "../components/LandLeasing/LandLeasing";
 import FarmLabour from "../components/FarmLabour/FarmLabour";
 import Loan from "../components/loans/Loan";
@@ -55,10 +54,6 @@ const routes = [
     {
         components: <ForgotPassword />,
         to: '/forgot-password'
-    },
-    {
-        components: <ModernFarming />,
-        to: '/modernfarming'
     },
     {
         components: <LandLeasing />,

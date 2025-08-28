@@ -1,188 +1,410 @@
 /* Overall container */
 .container {
     overflow: hidden;
+    padding: 80px 20px;
+    font-family: 'Poppins', sans-serif;
 }
 
-/* Heading styles */
-.heading {
-    font-family: 'Poppins';
-    font-size: 40px;
+/* Header Section */
+.headerSection {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 80px;
+}
+
+.titleContainer {
+    margin-bottom: 30px;
+}
+
+.preTitle {
+    font-size: 1.1rem;
     font-weight: 500;
-    color: #000000;
-    margin-top: 77px;
-    margin-bottom: 0px;
+    color: #5a6b5c;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
 }
 
+.mainTitle {
+    font-size: 3.5rem;
+    font-weight: 700;
+    color: #182913;
+    margin: 0 0 20px 0;
+    line-height: 1.1;
+}
+
+.accentLine {
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(90deg, #4CAF50, #8BC34A);
+    margin: 0 auto;
+    border-radius: 2px;
+}
+
+/* Subheading */
 .subHeading {
-    font-family: 'Poppins';
-    font-size: 34px;
-    font-weight: bold;
-    color: #000000;
-    margin-top: 36px;
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: #4CAF50;
+    margin-bottom: 30px;
+    line-height: 1.3;
 }
 
 /* Content text */
 .content {
-    font-family: 'Poppins';
-    font-size: 18px; /* Increased font size for better readability */
-    color: #194e08;
-    margin-top: 18px;
-    width: 700px;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 70px;
-}
-
-/* Container for text content */
-.contain {
-    padding-left: 100px;
+    font-size: 1.2rem;
+    line-height: 1.7;
+    color: #5a6b5c;
+    margin: 0 auto;
 }
 
 /* 'Our Story' section box */
 .ourStoryBox {
-    background-color: #f8f8f8;
-    padding: 40px;
-    border-radius: 10px;
-    border: 1px solid #ddd;
-    margin-top: 60px;
+    background: #ffffff;
+    padding: 80px 60px;
+    border-radius: 20px;
+    box-shadow: 0 15px 50px rgba(0, 0, 0, 0.08);
+    margin: 80px auto;
+    max-width: 1200px;
 }
 
-.about {
-    font-family: 'Poppins';
-    font-size: 50px;
-    font-weight: bold;
-    color: #000000;
-    text-align: left;
-    margin-bottom: 4px;
-    margin-top: 0px; /* Adjusted margin for better spacing */
+.storyHeader {
+    text-align: center;
+    margin-bottom: 60px;
 }
 
-/* Image container */
-.imgContain {
-    margin-left: -30px;
+.sectionLabel {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #4CAF50;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
 }
 
-.img1 {
-    width: 100%;
-    height: auto;
+.storyTitle {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #182913;
+    line-height: 1.2;
+    margin: 0;
+}
+
+.storyContent {
+    font-family: 'Poppins', sans-serif;
+}
+
+.storyText {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #5a6b5c;
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+/* Services Section */
+.servicesSection {
+    margin: 60px 0;
+}
+
+.servicesTitle {
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: #182913;
+    text-align: center;
+    margin-bottom: 50px;
+    position: relative;
+}
+
+.servicesTitle::after {
+    content: '';
+    position: absolute;
+    bottom: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(90deg, #4CAF50, #8BC34A);
+    border-radius: 2px;
+}
+
+.servicesGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+    margin-bottom: 40px;
+}
+
+.serviceCard {
+    padding: 40px 30px;
+    background: #f8f9fa;
+    border-radius: 16px;
+    border-left: 4px solid #4CAF50;
+    transition: all 0.3s ease;
+}
+
+.serviceCard:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.serviceHeader {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.serviceNumber {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #4CAF50;
+    margin-right: 15px;
+    opacity: 0.7;
+}
+
+.serviceName {
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: #182913;
+    margin: 0;
+}
+
+.serviceDescription {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #5a6b5c;
+    margin: 0;
+}
+
+/* Stats Section */
+.statsSection {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 40px;
+    max-width: 1000px;
+    margin: 80px auto;
+    padding: 60px 40px;
+    background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
     border-radius: 20px;
 }
 
-.img2 {
-    text-align: left;
-    padding-left: 100px;
-    margin-top: 14px;
-    width: 100%;
-    height: auto;
-    margin-bottom: 82px;
+.statItem {
+    text-align: center;
+    padding: 20px;
+}
+
+.statNumber {
+    display: block;
+    font-size: 2.8rem;
+    font-weight: 700;
+    color: #4CAF50;
+    margin-bottom: 10px;
+    line-height: 1;
+}
+
+.statLabel {
+    display: block;
+    font-size: 1rem;
+    font-weight: 500;
+    color: #5a6b5c;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Mission Section */
+.missionSection {
+    background: linear-gradient(135deg, #182913 0%, #2c3e2c 100%);
+    padding: 80px 40px;
     border-radius: 20px;
+    color: white;
+    max-width: 1000px;
+    margin: 80px auto 0;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
 }
 
-/* Creativity subtitle */
-.creativity {
-    font-family: 'Poppins';
-    font-size: 30px;
-    font-weight: bold;
-    color: #000000;
-    text-align: left;
+.missionSection::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -50%;
+    width: 100%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(76, 175, 80, 0.1) 0%, transparent 70%);
 }
 
-/* Main content paragraph in 'Our Story' */
-.contn {
-    font-family: 'Poppins';
-    font-size: 16px; /* Adjusted font size */
-    color: #000000;
-    text-align: left;
+.missionContent {
+    position: relative;
+    z-index: 2;
+}
+
+.missionTitle {
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 30px;
+    color: #ffffff;
+}
+
+.missionStatement {
+    font-size: 1.2rem;
+    line-height: 1.7;
+    margin: 0 auto 30px;
+    max-width: 800px;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.missionAccent {
+    width: 100px;
+    height: 3px;
+    background: linear-gradient(90deg, #4CAF50, #8BC34A);
+    margin: 0 auto;
+    border-radius: 2px;
 }
 
 /* Responsive styles */
-
-/* For devices up to 1200px */
-@media screen and (max-width: 1200px) {
-    .contain {
-        padding-left: 40px;
+@media screen and (max-width: 992px) {
+    .container {
+        padding: 60px 15px;
     }
-
-    .img2 {
-        padding-left: 40px;
+    
+    .mainTitle {
+        font-size: 2.8rem;
     }
-
-    .imgContain {
-        margin-left: -60px;
+    
+    .subHeading {
+        font-size: 1.5rem;
+    }
+    
+    .ourStoryBox {
+        padding: 60px 40px;
+        margin: 60px auto;
+    }
+    
+    .storyTitle {
+        font-size: 2rem;
+    }
+    
+    .servicesGrid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+    
+    .statsSection {
+        grid-template-columns: repeat(2, 1fr);
+        padding: 40px 30px;
+        margin: 60px auto;
+    }
+    
+    .missionSection {
+        padding: 60px 30px;
+    }
+    
+    .missionTitle {
+        font-size: 1.7rem;
     }
 }
 
-/* For devices up to 992px */
-@media screen and (max-width: 992px) {
-    .heading {
-        font-size: 25px;
-        margin-top: 60px;
+@media screen and (max-width: 768px) {
+    .mainTitle {
+        font-size: 2.3rem;
     }
-
-    .subHeading {
-        font-size: 29px;
-        margin-top: 30px;
+    
+    .ourStoryBox {
+        padding: 40px 30px;
     }
-
-    .contain {
-        padding-left: 0px;
+    
+    .storyTitle {
+        font-size: 1.8rem;
     }
+    
+    .servicesTitle {
+        font-size: 1.5rem;
+    }
+    
+    .serviceCard {
+        padding: 30px 20px;
+    }
+    
+    .serviceName {
+        font-size: 1.2rem;
+    }
+    
+    .statsSection {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+    
+    .statNumber {
+        font-size: 2.2rem;
+    }
+    
+    .missionSection {
+        padding: 40px 20px;
+    }
+    
+    .missionTitle {
+        font-size: 1.5rem;
+    }
+    
+    .missionStatement {
+        font-size: 1.1rem;
+    }
+}
 
-    .img2 {
-        padding-left: 0px;
+@media screen and (max-width: 576px) {
+    .headerSection {
         margin-bottom: 60px;
     }
-
-    .imgContain {
-        margin-left: -30px;
+    
+    .mainTitle {
+        font-size: 2rem;
     }
-
-    .about {
-        font-size: 40px;
-    }
-
-    .creativity {
-        font-size: 25px;
-    }
-}
-
-/* For devices up to 768px */
-@media screen and (max-width: 768px) {
-    .content {
-        width: 100%;
-    }
-
-    .about {
-        margin-top: 80px;
-    }
-
-    .imgContain {
-        margin-left: 0px;
-    }
-}
-
-/* For devices up to 650px */
-@media screen and (max-width: 650px) {
-    .heading {
-        font-size: 20px;
-        margin-top: 40px;
-    }
-
+    
     .subHeading {
-        font-size: 24px;
-        margin-top: 20px;
+        font-size: 1.3rem;
     }
-
-    .img2 {
+    
+    .content {
+        font-size: 1.1rem;
+    }
+    
+    .ourStoryBox {
+        padding: 30px 20px;
+        margin: 40px auto;
+    }
+    
+    .storyHeader {
         margin-bottom: 40px;
     }
-
-    .about {
-        font-size: 30px;
-        margin-top: 60px;
+    
+    .sectionLabel {
+        font-size: 0.9rem;
     }
-
-    .creativity {
-        font-size: 20px;
+    
+    .storyTitle {
+        font-size: 1.6rem;
+    }
+    
+    .storyText {
+        font-size: 1rem;
+    }
+    
+    .servicesSection {
+        margin: 40px 0;
+    }
+    
+    .servicesTitle {
+        font-size: 1.3rem;
+        margin-bottom: 40px;
+    }
+    
+    .serviceHeader {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .serviceNumber {
+        margin-bottom: 10px;
     }
 }

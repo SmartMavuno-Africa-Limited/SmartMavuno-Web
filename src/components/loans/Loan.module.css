@@ -3,7 +3,7 @@
     max-width: 1200px;
     margin: 0 auto;
     padding: 20px;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Poppins', sans-serif;
     color: #333;
 }
 
@@ -42,14 +42,14 @@
 .heroHeading {
     font-size: 2.8rem;
     font-weight: 700;
-    color: #28501C;
+    color: #182913;
     line-height: 1.2;
     margin-bottom: 20px;
 }
 
 .heroDescription {
     font-size: 1.2rem;
-    color: #4a4a4a;
+    color: #5a6b5c;
     margin-bottom: 30px;
     line-height: 1.6;
 }
@@ -58,25 +58,32 @@
     display: flex;
     gap: 30px;
     margin-bottom: 40px;
+    flex-wrap: wrap;
 }
 
 .stat {
     text-align: center;
+    padding: 20px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.06);
+    min-width: 150px;
 }
 
 .stat h3 {
     font-size: 1.5rem;
-    color: #28501C;
-    margin-bottom: 5px;
+    color: #4CAF50;
+    margin-bottom: 8px;
+    font-weight: 600;
 }
 
 .stat p {
     font-size: 0.9rem;
-    color: #666;
+    color: #5a6b5c;
 }
 
 .scrollButton {
-    background: linear-gradient(135deg, #28501C 0%, #589246 100%);
+    background: linear-gradient(135deg, #4CAF50 0%, #2E7D32 100%);
     color: white;
     font-size: 1.1rem;
     padding: 15px 30px;
@@ -87,16 +94,16 @@
     align-items: center;
     gap: 10px;
     transition: all 0.3s ease;
-    box-shadow: 0 4px 15px rgba(40, 80, 28, 0.3);
+    box-shadow: 0 4px 15px rgba(76, 175, 80, 0.3);
 }
 
 .scrollButton:hover {
     transform: translateY(-3px);
-    box-shadow: 0 6px 20px rgba(40, 80, 28, 0.4);
+    box-shadow: 0 6px 20px rgba(76, 175, 80, 0.4);
 }
 
 .buttonArrow {
-    font-size: 1.2rem;
+    font-size: 1rem;
 }
 
 .heroVisual {
@@ -124,20 +131,16 @@
     transform: translateY(-5px);
 }
 
-.cardIcon {
-    font-size: 2.5rem;
-    margin-bottom: 15px;
-}
-
 .visualCard h4 {
     font-size: 1.1rem;
-    color: #28501C;
+    color: #182913;
     margin-bottom: 8px;
+    font-weight: 600;
 }
 
 .visualCard p {
     font-size: 0.9rem;
-    color: #666;
+    color: #5a6b5c;
 }
 
 /* Benefits Section */
@@ -148,8 +151,9 @@
 
 .benefitsSection h2 {
     font-size: 2.2rem;
-    color: #28501C;
+    color: #182913;
     margin-bottom: 50px;
+    font-weight: 700;
 }
 
 .benefitsGrid {
@@ -170,19 +174,15 @@
     transform: translateY(-5px);
 }
 
-.benefitIcon {
-    font-size: 2.5rem;
-    margin-bottom: 20px;
-}
-
 .benefitItem h4 {
     font-size: 1.3rem;
-    color: #28501C;
+    color: #182913;
     margin-bottom: 15px;
+    font-weight: 600;
 }
 
 .benefitItem p {
-    color: #666;
+    color: #5a6b5c;
     line-height: 1.6;
 }
 
@@ -201,13 +201,14 @@
 
 .sectionHeader h2 {
     font-size: 2.2rem;
-    color: #28501C;
+    color: #182913;
     margin-bottom: 10px;
+    font-weight: 700;
 }
 
 .sectionHeader p {
     font-size: 1.1rem;
-    color: #666;
+    color: #5a6b5c;
 }
 
 /* Form Styles */
@@ -234,21 +235,25 @@
 
 .progress {
     height: 100%;
-    background: linear-gradient(135deg, #28501C 0%, #589246 100%);
+    background: linear-gradient(135deg, #4CAF50 0%, #2E7D32 100%);
     border-radius: 3px;
     transition: width 0.5s ease;
 }
 
-.formContainer h3 {
-    font-size: 1.8rem;
-    color: #28501C;
+.formHeader {
     text-align: center;
+    margin-bottom: 30px;
+}
+
+.formHeader h3 {
+    font-size: 1.8rem;
+    color: #182913;
     margin-bottom: 10px;
+    font-weight: 600;
 }
 
 .formSubtitle {
-    text-align: center;
-    color: #666;
+    color: #5a6b5c;
     margin-bottom: 30px;
 }
 
@@ -263,13 +268,13 @@
 
 .formStep h4 {
     font-size: 1.4rem;
-    color: #28501C;
+    color: #182913;
     margin-bottom: 25px;
     text-align: center;
+    font-weight: 600;
 }
 
 .inputGroup {
-    position: relative;
     margin-bottom: 20px;
 }
 
@@ -277,28 +282,20 @@
 .inputGroup select,
 .inputGroup textarea {
     width: 100%;
-    padding: 15px 15px 15px 50px;
-    border: 1px solid #ddd;
+    padding: 15px;
+    border: 2px solid #e9ecef;
     border-radius: 10px;
     font-size: 1rem;
     transition: all 0.3s ease;
+    font-family: 'Poppins', sans-serif;
 }
 
 .inputGroup input:focus,
 .inputGroup select:focus,
 .inputGroup textarea:focus {
-    border-color: #589246;
-    box-shadow: 0 0 0 3px rgba(88, 146, 70, 0.2);
+    border-color: #4CAF50;
+    box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.1);
     outline: none;
-}
-
-.inputIcon {
-    position: absolute;
-    left: 15px;
-    top: 50%;
-    transform: translateY(-50%);
-    font-size: 1.2rem;
-    color: #589246;
 }
 
 .inputGroup textarea {
@@ -314,8 +311,9 @@
 
 .fileUploadSection h5 {
     font-size: 1.1rem;
-    color: #28501C;
+    color: #182913;
     margin-bottom: 15px;
+    font-weight: 600;
 }
 
 .fileInputGroup {
@@ -326,7 +324,7 @@
     display: block;
     margin-bottom: 8px;
     font-weight: 500;
-    color: #444;
+    color: #182913;
 }
 
 .fileInput {
@@ -349,7 +347,7 @@
     display: inline-block;
     padding: 10px 15px;
     background: #e8f0e6;
-    color: #589246;
+    color: #4CAF50;
     border-radius: 8px;
     font-size: 0.9rem;
     font-weight: 500;
@@ -364,7 +362,7 @@
 
 .fileName {
     font-size: 0.9rem;
-    color: #666;
+    color: #5a6b5c;
 }
 
 .buttonGroup {
@@ -377,12 +375,13 @@
 .backButton {
     padding: 12px 25px;
     background: #f0f0f0;
-    color: #555;
+    color: #5a6b5c;
     border: none;
     border-radius: 8px;
     font-size: 1rem;
     cursor: pointer;
     transition: all 0.3s ease;
+    font-weight: 500;
 }
 
 .backButton:hover {
@@ -392,7 +391,7 @@
 .nextButton,
 .submitButton {
     padding: 12px 25px;
-    background: linear-gradient(135deg, #28501C 0%, #589246 100%);
+    background: linear-gradient(135deg, #4CAF50 0%, #2E7D32 100%);
     color: white;
     border: none;
     border-radius: 8px;
@@ -402,17 +401,18 @@
     align-items: center;
     gap: 8px;
     transition: all 0.3s ease;
-    box-shadow: 0 4px 10px rgba(40, 80, 28, 0.3);
+    box-shadow: 0 4px 10px rgba(76, 175, 80, 0.3);
+    font-weight: 500;
 }
 
 .nextButton:hover,
 .submitButton:hover {
     transform: translateY(-2px);
-    box-shadow: 0 6px 15px rgba(40, 80, 28, 0.4);
+    box-shadow: 0 6px 15px rgba(76, 175, 80, 0.4);
 }
 
 .buttonIcon {
-    font-size: 1.1rem;
+    font-size: 1rem;
 }
 
 .successMessage {
@@ -421,20 +421,21 @@
 }
 
 .successIcon {
-    font-size: 4rem;
-    color: #589246;
+    font-size: 3rem;
+    color: #4CAF50;
     margin-bottom: 20px;
 }
 
 .successMessage h3 {
     font-size: 1.8rem;
-    color: #28501C;
+    color: #182913;
     margin-bottom: 15px;
+    font-weight: 600;
 }
 
 .successMessage p {
     font-size: 1.1rem;
-    color: #666;
+    color: #5a6b5c;
     line-height: 1.6;
     max-width: 500px;
     margin: 0 auto;
@@ -447,9 +448,10 @@
 
 .faqSection h2 {
     font-size: 2.2rem;
-    color: #28501C;
+    color: #182913;
     text-align: center;
     margin-bottom: 50px;
+    font-weight: 700;
 }
 
 .faqGrid {
@@ -467,12 +469,13 @@
 
 .faqItem h4 {
     font-size: 1.2rem;
-    color: #28501C;
+    color: #182913;
     margin-bottom: 15px;
+    font-weight: 600;
 }
 
 .faqItem p {
-    color: #666;
+    color: #5a6b5c;
     line-height: 1.6;
 }
 

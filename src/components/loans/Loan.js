@@ -1,6 +1,7 @@
 import React, { useState, useRef } from 'react';
 import Footer from '../Footer';
 import styles from './Loan.module.css';
+import { FaCheckCircle, FaArrowRight, FaArrowDown } from 'react-icons/fa';
 
 const LoanForm = () => {
     const [formData, setFormData] = useState({
@@ -54,7 +55,7 @@ const LoanForm = () => {
         <div className={styles.formWrapper}>
             {submitted ? (
                 <div className={styles.successMessage}>
-                    <div className={styles.successIcon}>✓</div>
+                    <FaCheckCircle className={styles.successIcon} />
                     <h3>Application Submitted Successfully!</h3>
                     <p>Thank you for applying for a loan with SmartMavuno. We will review your application and contact you within 2 business days.</p>
                 </div>
@@ -64,8 +65,10 @@ const LoanForm = () => {
                         <div className={styles.progress} style={{ width: `${(currentStep / 3) * 100}%` }}></div>
                     </div>
                     
-                    <h3>SmartMavuno Loan Application</h3>
-                    <p className={styles.formSubtitle}>Complete your application in just a few steps</p>
+                    <div className={styles.formHeader}>
+                        <h3>SmartMavuno Loan Application</h3>
+                        <p className={styles.formSubtitle}>Complete your application in just a few steps</p>
+                    </div>
                     
                     {currentStep === 1 && (
                         <div className={styles.formStep}>
@@ -79,7 +82,6 @@ const LoanForm = () => {
                                     placeholder="Full Name"
                                     required
                                 />
-                                <span className={styles.inputIcon}>👤</span>
                             </div>
                             <div className={styles.inputGroup}>
                                 <input
@@ -90,7 +92,6 @@ const LoanForm = () => {
                                     placeholder="Phone Number & Email"
                                     required
                                 />
-                                <span className={styles.inputIcon}>📞</span>
                             </div>
                             <div className={styles.inputGroup}>
                                 <input
@@ -101,11 +102,10 @@ const LoanForm = () => {
                                     placeholder="Loan Amount (KES)"
                                     required
                                 />
-                                <span className={styles.inputIcon}>₿</span>
                             </div>
                             <button type="button" className={styles.nextButton} onClick={nextStep}>
                                 Continue
-                                <span className={styles.buttonIcon}>→</span>
+                                <FaArrowRight className={styles.buttonIcon} />
                             </button>
                         </div>
                     )}
@@ -127,7 +127,6 @@ const LoanForm = () => {
                                     <option value="Irrigation">Irrigation Systems</option>
                                     <option value="Other">Other</option>
                                 </select>
-                                <span className={styles.inputIcon}>🎯</span>
                             </div>
                             <div className={styles.inputGroup}>
                                 <select
@@ -142,7 +141,6 @@ const LoanForm = () => {
                                     <option value="12">12 Months</option>
                                     <option value="24">24 Months</option>
                                 </select>
-                                <span className={styles.inputIcon}>📅</span>
                             </div>
                             <div className={styles.inputGroup}>
                                 <textarea
@@ -152,14 +150,14 @@ const LoanForm = () => {
                                     placeholder="Primary Source of Income"
                                     required
                                 />
-                                <span className={styles.inputIcon}>💰</span>
                             </div>
                             <div className={styles.buttonGroup}>
                                 <button type="button" className={styles.backButton} onClick={prevStep}>
-                                    ← Back
+                                    Back
                                 </button>
                                 <button type="button" className={styles.nextButton} onClick={nextStep}>
-                                    Continue →
+                                    Continue
+                                    <FaArrowRight className={styles.buttonIcon} />
                                 </button>
                             </div>
                         </div>
@@ -175,7 +173,6 @@ const LoanForm = () => {
                                     onChange={handleInputChange}
                                     placeholder="Collateral Details (if any)"
                                 />
-                                <span className={styles.inputIcon}>🏠</span>
                             </div>
                             <div className={styles.inputGroup}>
                                 <textarea
@@ -184,7 +181,6 @@ const LoanForm = () => {
                                     onChange={handleInputChange}
                                     placeholder="Additional Notes"
                                 />
-                                <span className={styles.inputIcon}>📝</span>
                             </div>
                             
                             <div className={styles.fileUploadSection}>
@@ -234,7 +230,7 @@ const LoanForm = () => {
                             
                             <div className={styles.buttonGroup}>
                                 <button type="button" className={styles.backButton} onClick={prevStep}>
-                                    ← Back
+                                    Back
                                 </button>
                                 <button type="submit" className={styles.submitButton}>
                                     Submit Application
@@ -281,24 +277,21 @@ const Loan = () => {
                         </div>
                         <button className={styles.scrollButton} onClick={scrollToApplicationSection}>
                             Apply Now
-                            <span className={styles.buttonArrow}>↓</span>
+                            <FaArrowDown className={styles.buttonArrow} />
                         </button>
                     </div>
                     <div className={styles.heroVisual}>
                         <div className={styles.visualCard}>
-                            <div className={styles.cardIcon}>🌱</div>
                             <h4>Seeds & Inputs</h4>
                             <p>Finance your planting season</p>
                         </div>
                         <div className={styles.visualCard}>
-                            <div className={styles.cardIcon}>🚜</div>
                             <h4>Equipment</h4>
-                            <p>Rentals and Labor</p>
+                            <p>Modern farming tools</p>
                         </div>
                         <div className={styles.visualCard}>
-                            <div className={styles.cardIcon}>💧</div>
                             <h4>Irrigation</h4>
-                            <p>farm Irigation</p>
+                            <p>Water management systems</p>
                         </div>
                     </div>
                 </div>
@@ -308,22 +301,18 @@ const Loan = () => {
                     <h2>Why Choose SmartMavuno Loans?</h2>
                     <div className={styles.benefitsGrid}>
                         <div className={styles.benefitItem}>
-                            <div className={styles.benefitIcon}>⚡</div>
                             <h4>Quick Approval</h4>
                             <p>Get a decision within 48 hours of application submission</p>
                         </div>
                         <div className={styles.benefitItem}>
-                            <div className={styles.benefitIcon}>🌾</div>
                             <h4>Farmer-Friendly</h4>
                             <p>Terms designed around harvesting cycles and seasonal income</p>
                         </div>
                         <div className={styles.benefitItem}>
-                            <div className={styles.benefitIcon}>📱</div>
                             <h4>Digital Process</h4>
                             <p>Apply from your phone, minimal paperwork required</p>
                         </div>
                         <div className={styles.benefitItem}>
-                            <div className={styles.benefitIcon}>👨‍🌾</div>
                             <h4>Expert Support</h4>
                             <p>Agricultural specialists to help you grow</p>
                         </div>
