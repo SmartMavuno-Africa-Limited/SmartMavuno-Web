@@ -1,6 +1,15 @@
 import React, { useState, useEffect } from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faChevronLeft, faChevronRight, faShieldAlt, faStore, faTractor, faSeedling, faShoppingCart } from '@fortawesome/free-solid-svg-icons';
+import { 
+  faChevronLeft, 
+  faChevronRight, 
+  faShieldAlt, 
+  faStore, 
+  faSeedling, 
+  faShoppingCart,
+  faUsers,
+  faTools
+} from '@fortawesome/free-solid-svg-icons';
 
 const Banner = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -32,13 +41,23 @@ const Banner = () => {
       alt: "Equipment Rentals", 
       title: "Equipment Sharing",
       text: "Access affordable farm equipment and labor services", 
-      icon: faTractor,
+      icon: faTools,
       buttonLabel: "Browse Equipment", 
       buttonLink: "https://marketplace.smartmavuno.com/",
       accentColor: "#7B1FA2"
     },
     { 
-      src: "https://images.unsplash.com/photo-1625246333195-78d9c38ad449?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80", 
+      src: require('../../assets/community.jpg'),  
+      alt: "Communities", 
+      title: "Join Our Regional Communities",
+      text: "Connect with local farmers, share insights, and access region-specific resources", 
+      icon: faUsers,
+      buttonLabel: "Community Hub", 
+      buttonLink: "/community",
+      accentColor: "#0d4b40"
+    },
+    { 
+      src: require('../../assets/inputs.jpg'), 
       alt: "Farm Inputs", 
       title: "Quality Farm Inputs",
       text: "Get access to high-quality seeds, fertilizers, and farming supplies", 
@@ -47,16 +66,6 @@ const Banner = () => {
       buttonLink: "https://marketplace.smartmavuno.com/",
       accentColor: "#FF9800"
     },
-    // { 
-    //   src: "https://images.unsplash.com/photo-1625246333195-78d9c38ad449?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80", 
-    //   alt: "Community", 
-    //   title: "Join Our Regional Communities",
-    //   text: "Join Our Community: Connect with local farmers, share insights, and access region-specific resources", 
-    //   icon: faSeedling,
-    //   buttonLabel: "Community Hub", 
-    //   buttonLink: "/community",
-    //   accentColor: "#FF9800"
-    // },
   ];
 
   useEffect(() => {
@@ -102,7 +111,7 @@ const Banner = () => {
       position: "relative",
       overflow: "hidden",
       margin: "20px auto",
-      maxWidth: "95%", // Almost full width
+      maxWidth: "95%", 
       width: "100%",
       borderRadius: "16px",
       boxShadow: "0 15px 35px rgba(0, 0, 0, 0.2)",

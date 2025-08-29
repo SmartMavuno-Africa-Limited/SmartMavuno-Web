@@ -139,6 +139,20 @@ const NavbarMain = () => {
                     Contact Us
                   </NavLink>
                 </NavDropdown.Item>
+
+                <NavDropdown.Item className={styles.dropdownItemCustom}>
+                  <NavLink
+                    to="/community"
+                    className={styles.dropdownLinkCustom}
+                    onClick={() => {
+                      handleActiveNav(4);
+                      closeNav();
+                    }}
+                  >
+                    Community
+                  </NavLink>
+                </NavDropdown.Item>
+
               </NavDropdown>
               
               {/* GET STARTED Button */}

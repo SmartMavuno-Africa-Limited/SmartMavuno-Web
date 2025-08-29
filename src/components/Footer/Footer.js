@@ -88,6 +88,7 @@ const Footer = () => {
                             <ul className={styles.footerList}>
                                 <li><a href="/loans">Agricultural Financing</a></li>
                                 <li><a href="https://marketplace.smartmavuno.com/">Produce Marketplace</a></li>
+                                <li><a href="/community">Community Hubs</a></li>
                             </ul>
                         </div>
 

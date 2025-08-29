@@ -1,12 +1,12 @@
 import React from "react";
 import Banner from '../../components/Banner';
-import ChoosingUs from "../../components/ChoosingUs";
 import ServicesHome from "../../components/ServicesHome";
 import CaseStudy from "../../components/CaseStudy";
 import Footer from "../../components/Footer";
 import AboutUsHome from "../../components/AboutUsHome";
 import Testimonial from "../../components/Testimonial";
 import Impact from "../../components/Impact";
+import Productshowcase from "../../components/ProductShpwcase";
 
 
 const Home = () => {
@@ -17,14 +17,13 @@ const Home = () => {
         <Banner />
       </section>
 
-      About Us Section
       <section>
         <AboutUsHome />
       </section>
 
       {/* Why Choosing Us Section  */}
       <section>
-        <ChoosingUs />
+        <Productshowcase />
       </section>
       
       {/* Services Section  */}
