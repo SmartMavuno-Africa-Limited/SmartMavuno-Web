@@ -1,6 +1,6 @@
 .caseStudySection {
   padding: 5rem 0;
-  background: linear-gradient(to bottom, #f8f9fa 0%, #ffffff 100%);
+  background: linear-gradient(to bottom, #f5f7f3 0%, #ffffff 100%);
   position: relative;
 }
 
@@ -51,7 +51,7 @@
 
 .subtitle {
   font-size: 1.1rem;
-  color: #6c757d;
+  color: #5a6c5d;
   max-width: 700px;
   margin: 0 auto;
   line-height: 1.6;
@@ -113,6 +113,7 @@
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
   transition: all 0.4s ease;
   height: 100%;
+  cursor: pointer;
 }
 
 .card:hover {
@@ -186,18 +187,22 @@
 .stat {
   text-align: center;
   color: white;
+  background: rgba(76, 175, 80, 0.85);
+  padding: 0.5rem 0.8rem;
+  border-radius: 8px;
+  min-width: 80px;
 }
 
 .statNumber {
   display: block;
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   font-weight: 700;
   margin-bottom: 0.2rem;
 }
 
 .statLabel {
   display: block;
-  font-size: 0.75rem;
+  font-size: 0.7rem;
   opacity: 0.9;
   text-transform: uppercase;
   letter-spacing: 0.5px;
@@ -228,23 +233,41 @@
 }
 
 .cardDescription {
-  color: #6c757d;
+  color: #5a6c5d;
   line-height: 1.6;
   margin-bottom: 1.5rem;
   flex-grow: 1;
 }
 
-.cardLink {
+.cardAction {
+  margin-top: auto;
+}
+
+.weatherActionBtn {
+  display: inline-flex;
+  align-items: center;
+  font-weight: 600;
+  color: #3498db;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: inherit;
+  padding: 0;
+}
+
+.weatherActionBtn:hover {
+  color: #2980b9;
+}
+
+.exploreText {
   display: inline-flex;
   align-items: center;
   font-weight: 600;
   color: #4CAF50;
-  text-decoration: none;
   transition: all 0.3s ease;
-}
-
-.cardLink:hover {
-  color: #2E7D32;
 }
 
 .arrow {
@@ -252,7 +275,7 @@
   transition: transform 0.3s ease;
 }
 
-.cardLink:hover .arrow {
+.weatherActionBtn:hover .arrow {
   transform: translateX(5px);
 }
 
@@ -270,6 +293,89 @@
 
 .noResults p {
   color: #6c757d;
+}
+
+/* Weather Options Modal */
+.weatherOptionsModal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.weatherOptionsContent {
+  background: white;
+  padding: 2rem;
+  border-radius: 16px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+  max-width: 400px;
+  width: 90%;
+  text-align: center;
+  background: linear-gradient(135deg, #f5f7fa 0%, #ffffff 100%);
+}
+
+.weatherOptionsContent h3 {
+  color: #2c3e50;
+  margin-bottom: 1.5rem;
+  font-size: 1.5rem;
+}
+
+.weatherOptionsButtons {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.weatherOptionBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 1rem;
+  background: #f8f9fa;
+  border: 2px solid #e9ecef;
+  border-radius: 12px;
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #2c3e50;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.weatherOptionBtn:hover {
+  background: #3498db;
+  color: white;
+  border-color: #3498db;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(52, 152, 219, 0.3);
+}
+
+.weatherOptionIcon {
+  font-size: 1.2rem;
+}
+
+.closeOptionsBtn {
+  padding: 0.75rem 1.5rem;
+  background: #95a5a6;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-family: inherit;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.closeOptionsBtn:hover {
+  background: #7f8c8d;
 }
 
 /* Responsive Design */
@@ -338,5 +444,14 @@
   
   .cardTitle {
     font-size: 1.2rem;
+  }
+  
+  .weatherOptionsButtons {
+    gap: 0.8rem;
+  }
+  
+  .weatherOptionBtn {
+    padding: 0.8rem;
+    font-size: 0.9rem;
   }
 }

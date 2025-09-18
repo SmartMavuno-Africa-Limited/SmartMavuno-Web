@@ -17,7 +17,7 @@ const Banner = () => {
 
   const images = [
     { 
-      src: require('../../assets/donations.jpg'),
+      src: require('../../assets/farmerpic1.jpg'),
       alt: "Marketplace", 
       title: "Agricultural Marketplace",
       text: "Connect with buyers and sellers in our trusted farming marketplace", 

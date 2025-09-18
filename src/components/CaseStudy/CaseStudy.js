@@ -7,34 +7,44 @@ const caseStudies = [
     id: 1,
     designation: 'Financial Solutions',
     title: 'Insured Agricultural Loans',
-    img: 'https://images.unsplash.com/photo-1554224155-6726b3ff858f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fGZhcm0lMjBsb2FufGVufDB8fDB8fHww&auto=format&fit=crop&w=800&q=80',
+    img: 'https://res.cloudinary.com/dfexj3grb/image/upload/v1758229511/medium-shot-farmers-with-smartphone_wj5dly.jpg',
     category: 'loans',
-    description: 'Collateral-free insured financing with flexible repayment terms helps farmers access capital for equipment, seeds, and expansion while mitigating production risks.'
+    description: 'Collateral-free insured financing with flexible repayment terms helps farmers access capital for equipment, seeds, and expansion while mitigating production risks.',
+    stats: {
+      adoptionRate: '78%',
+      benefit: '35% lower interest rates'
+    }
   },
   {
     id: 2,
     designation: 'Market Access',
     title: 'Digital Agricultural Marketplace',
-    img: 'https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8ZmFybSUyMG1hcmtldHBsYWNlfGVufDB8fDB8fHww&auto=format&fit=crop&w=800&q=80',
+    img: 'https://res.cloudinary.com/dfexj3grb/image/upload/v1758228736/medium-shot-man-holding-vegetables_nolgg5.jpg',
     category: 'marketplace',
-    description: 'A secure digital platform connecting farmers directly with buyers, eliminating intermediaries and ensuring fair prices for both producers and consumers.'
+    description: 'A secure digital platform connecting farmers directly with buyers, eliminating intermediaries and ensuring fair prices for both producers and consumers.',
+    stats: {
+      adoptionRate: '85%',
+      benefit: '40% higher profits'
+    }
   },
-   {
+  {
     id: 3,
     designation: 'Weather Intelligence',
-    title: 'Real-time Weather Monitoring for Farmers',
-    img:'https://images.unsplash.com/photo-1502134249126-9f3755a50d78?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fHdlYXRoZXIlMjBmYXJtfGVufDB8fDB8fHww&auto=format&fit=crop&w=800&q=80',
+    title: 'Advanced Weather Analytics Platform',
+    img: 'https://res.cloudinary.com/dfexj3grb/image/upload/v1758228299/weather_xkk21w.jpg',
     category: 'weather',
-    description: 'Farmers receive accurate, localized weather forecasts to optimize planting, irrigation, and harvesting schedules while protecting crops from adverse conditions.'
+    description: 'Comprehensive weather monitoring with real-time data, forecasts, and historical analysis to help farmers make informed decisions about planting, irrigation, and harvesting.'
   }
 ];
 
 const CaseStudy = () => {
   const [activeFilter, setActiveFilter] = useState('all');
   const [hoveredCard, setHoveredCard] = useState(null);
+  const [showWeatherOptions, setShowWeatherOptions] = useState(false);
 
   const filterData = (category) => {
     setActiveFilter(category);
+    setShowWeatherOptions(false);
   }
 
   const filteredStudies = activeFilter === 'all' 
@@ -47,6 +57,25 @@ const CaseStudy = () => {
     { id: 'marketplace', name: 'Digital Marketplace', icon: '🛒' },
     { id: 'weather', name: 'Weather Insights', icon: '🌦️' }
   ];
+
+  const handleWeatherOptionClick = (option) => {
+    if (option === 'current') {
+      window.open('https://harvest-hq-webjs.vercel.app/weatherwebsite/currentLocationW/weather.html', '_blank');
+    } else if (option === 'search') {
+      window.open('https://harvest-hq-webjs.vercel.app/weatherwebsite/generalweather.html', '_blank');
+    }
+    setShowWeatherOptions(false);
+  };
+
+  const handleCardClick = (item) => {
+    if (item.category === 'loans') {
+      window.location.href = '/loans';
+    } else if (item.category === 'marketplace') {
+      window.open('https://marketplace.smartmavuno.com/', '_blank');
+    } else if (item.category === 'weather') {
+      setShowWeatherOptions(true);
+    }
+  };
 
   return (
     <section className={styles.caseStudySection}>
@@ -74,6 +103,37 @@ const CaseStudy = () => {
           ))}
         </div>
 
+        {/* Weather Options Modal */}
+        {showWeatherOptions && (
+          <div className={styles.weatherOptionsModal}>
+            <div className={styles.weatherOptionsContent}>
+              <h3>Choose Weather Option</h3>
+              <div className={styles.weatherOptionsButtons}>
+                <button 
+                  className={styles.weatherOptionBtn}
+                  onClick={() => handleWeatherOptionClick('current')}
+                >
+                  <span className={styles.weatherOptionIcon}>📍</span>
+                  Current Location Weather
+                </button>
+                <button 
+                  className={styles.weatherOptionBtn}
+                  onClick={() => handleWeatherOptionClick('search')}
+                >
+                  <span className={styles.weatherOptionIcon}>🔍</span>
+                  Search by Location
+                </button>
+              </div>
+              <button 
+                className={styles.closeOptionsBtn}
+                onClick={() => setShowWeatherOptions(false)}
+              >
+                Close
+              </button>
+            </div>
+          </div>
+        )}
+
         {/* Case study cards */}
         <div className={styles.grid}>
           {filteredStudies.map((item) => (
@@ -82,6 +142,7 @@ const CaseStudy = () => {
               className={styles.card}
               onMouseEnter={() => setHoveredCard(item.id)}
               onMouseLeave={() => setHoveredCard(null)}
+              onClick={() => handleCardClick(item)}
             >
               <div className={styles.cardInner}>
                 <div 
@@ -94,16 +155,18 @@ const CaseStudy = () => {
                   </div>
                   
                   {/* Quick stats that appear on hover */}
-                  <div className={`${styles.cardStats} ${hoveredCard === item.id ? styles.visible : ''}`}>
-                    <div className={styles.stat}>
-                      <span className={styles.statNumber}>89%</span>
-                      <span className={styles.statLabel}>Adoption Rate</span>
+                  {item.category !== 'weather' && (
+                    <div className={`${styles.cardStats} ${hoveredCard === item.id ? styles.visible : ''}`}>
+                      <div className={styles.stat}>
+                        <span className={styles.statNumber}>{item.stats.adoptionRate}</span>
+                        <span className={styles.statLabel}>Adoption Rate</span>
+                      </div>
+                      <div className={styles.stat}>
+                        <span className={styles.statNumber}>{item.stats.benefit}</span>
+                        <span className={styles.statLabel}>Farmer Benefit</span>
+                      </div>
                     </div>
-                    <div className={styles.stat}>
-                      <span className={styles.statNumber}>42%</span>
-                      <span className={styles.statLabel}>Yield Increase</span>
-                    </div>
-                  </div>
+                  )}
                 </div>
                 
                 <div className={styles.cardContent}>
@@ -111,13 +174,18 @@ const CaseStudy = () => {
                   <h3 className={styles.cardTitle}>{item.title}</h3>
                   <p className={styles.cardDescription}>{item.description}</p>
                   
-                  <Link 
-                    to={`/projectDetails?id=${item.id}`} 
-                    className={styles.cardLink}
-                  >
-                    View Case Study
-                    <span className={styles.arrow}>→</span>
-                  </Link>
+                  <div className={styles.cardAction}>
+                    {item.category === 'weather' ? (
+                      <button className={styles.weatherActionBtn}>
+                        View Weather Options
+                        <span className={styles.arrow}>→</span>
+                      </button>
+                    ) : (
+                      <span className={styles.exploreText}>
+                        Click to explore →
+                      </span>
+                    )}
+                  </div>
                 </div>
               </div>
             </div>
