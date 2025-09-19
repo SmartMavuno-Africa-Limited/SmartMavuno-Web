@@ -27,7 +27,7 @@ const Banner = () => {
       accentColor: "#2E7D32"
     },
     { 
-      src: require('../../assets/financing.jpg'), 
+      src: require('../../assets/farmer.jpg'), 
       alt: "Insured Financing", 
       title: "Insured Financing",
       text: "Secure your farming future with our insured loan programs", 
@@ -107,7 +107,7 @@ const Banner = () => {
   // Inline styles
   const styles = {
     bannerContainer: {
-      height: "550px",
+      height: "650px",
       position: "relative",
       overflow: "hidden",
       margin: "20px auto",

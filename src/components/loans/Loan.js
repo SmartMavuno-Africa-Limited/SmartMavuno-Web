@@ -20,6 +20,32 @@ const LoanForm = () => {
 
     const [currentStep, setCurrentStep] = useState(1);
     const [submitted, setSubmitted] = useState(false);
+    const [errors, setErrors] = useState({});
+
+    const validateStep = (step) => {
+        const newErrors = {};
+        
+        if (step === 1) {
+            if (!formData.applicantName.trim()) newErrors.applicantName = 'Full name is required';
+            if (!formData.contactInfo.trim()) newErrors.contactInfo = 'Contact information is required';
+            if (!formData.loanAmount || formData.loanAmount <= 0) newErrors.loanAmount = 'Valid loan amount is required';
+        }
+        
+        if (step === 2) {
+            if (!formData.loanPurpose) newErrors.loanPurpose = 'Please select a loan purpose';
+            if (!formData.repaymentPeriod) newErrors.repaymentPeriod = 'Please select a repayment period';
+            if (!formData.incomeSource.trim()) newErrors.incomeSource = 'Income source is required';
+        }
+        
+        if (step === 3) {
+            if (!formData.mpesaStatements) newErrors.mpesaStatements = 'M-Pesa statements are required';
+            if (!formData.bankStatements) newErrors.bankStatements = 'Bank statements are required';
+            if (!formData.farmingHistory) newErrors.farmingHistory = 'Farming history document is required';
+        }
+        
+        setErrors(newErrors);
+        return Object.keys(newErrors).length === 0;
+    };
 
     const handleInputChange = (e) => {
         const { name, value } = e.target;
@@ -27,6 +53,14 @@ const LoanForm = () => {
             ...formData,
             [name]: value,
         });
+        
+        // Clear error when user starts typing
+        if (errors[name]) {
+            setErrors({
+                ...errors,
+                [name]: ''
+            });
+        }
     };
 
     const handleFileChange = (e) => {
@@ -35,16 +69,28 @@ const LoanForm = () => {
             ...formData,
             [name]: files[0],
         });
+        
+        // Clear error when user selects a file
+        if (errors[name]) {
+            setErrors({
+                ...errors,
+                [name]: ''
+            });
+        }
     };
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log('Loan Application Submitted', formData);
-        setSubmitted(true);
+        if (validateStep(3)) {
+            console.log('Loan Application Submitted', formData);
+            setSubmitted(true);
+        }
     };
 
     const nextStep = () => {
-        setCurrentStep(currentStep + 1);
+        if (validateStep(currentStep)) {
+            setCurrentStep(currentStep + 1);
+        }
     };
 
     const prevStep = () => {
@@ -57,7 +103,17 @@ const LoanForm = () => {
                 <div className={styles.successMessage}>
                     <FaCheckCircle className={styles.successIcon} />
                     <h3>Application Submitted Successfully!</h3>
-                    <p>Thank you for applying for a loan with SmartMavuno. We will review your application and contact you within 2 business days.</p>
+                    <p>Thank you for applying for a loan with SmartMavuno. We have received your application and our team will review it carefully.</p>
+                    <div className={styles.successDetails}>
+                        <p><strong>What happens next?</strong></p>
+                        <ul>
+                            <li>We will verify your documents within 24-48 hours</li>
+                            <li>Our loan officer will contact you at {formData.contactInfo}</li>
+                            <li>You may be asked for additional information if needed</li>
+                            <li>Final approval decision within 3 business days</li>
+                        </ul>
+                    </div>
+                    <p className={styles.contactInfo}>For immediate questions, call us at +254707687930 or email loans@smartmavuno.com</p>
                 </div>
             ) : (
                 <form onSubmit={handleSubmit} className={styles.formContainer}>
@@ -80,8 +136,9 @@ const LoanForm = () => {
                                     value={formData.applicantName}
                                     onChange={handleInputChange}
                                     placeholder="Full Name"
-                                    required
+                                    className={errors.applicantName ? styles.errorInput : ''}
                                 />
+                                {errors.applicantName && <span className={styles.errorText}>{errors.applicantName}</span>}
                             </div>
                             <div className={styles.inputGroup}>
                                 <input
@@ -90,8 +147,9 @@ const LoanForm = () => {
                                     value={formData.contactInfo}
                                     onChange={handleInputChange}
                                     placeholder="Phone Number & Email"
-                                    required
+                                    className={errors.contactInfo ? styles.errorInput : ''}
                                 />
+                                {errors.contactInfo && <span className={styles.errorText}>{errors.contactInfo}</span>}
                             </div>
                             <div className={styles.inputGroup}>
                                 <input
@@ -100,8 +158,9 @@ const LoanForm = () => {
                                     value={formData.loanAmount}
                                     onChange={handleInputChange}
                                     placeholder="Loan Amount (KES)"
-                                    required
+                                    className={errors.loanAmount ? styles.errorInput : ''}
                                 />
+                                {errors.loanAmount && <span className={styles.errorText}>{errors.loanAmount}</span>}
                             </div>
                             <button type="button" className={styles.nextButton} onClick={nextStep}>
                                 Continue
@@ -118,7 +177,7 @@ const LoanForm = () => {
                                     name="loanPurpose"
                                     value={formData.loanPurpose}
                                     onChange={handleInputChange}
-                                    required
+                                    className={errors.loanPurpose ? styles.errorInput : ''}
                                 >
                                     <option value="">Select Loan Purpose</option>
                                     <option value="Seeds & Inputs">Seeds & Inputs</option>
@@ -127,13 +186,14 @@ const LoanForm = () => {
                                     <option value="Irrigation">Irrigation Systems</option>
                                     <option value="Other">Other</option>
                                 </select>
+                                {errors.loanPurpose && <span className={styles.errorText}>{errors.loanPurpose}</span>}
                             </div>
                             <div className={styles.inputGroup}>
                                 <select
                                     name="repaymentPeriod"
                                     value={formData.repaymentPeriod}
                                     onChange={handleInputChange}
-                                    required
+                                    className={errors.repaymentPeriod ? styles.errorInput : ''}
                                 >
                                     <option value="">Select Repayment Period</option>
                                     <option value="3">3 Months</option>
@@ -141,6 +201,7 @@ const LoanForm = () => {
                                     <option value="12">12 Months</option>
                                     <option value="24">24 Months</option>
                                 </select>
+                                {errors.repaymentPeriod && <span className={styles.errorText}>{errors.repaymentPeriod}</span>}
                             </div>
                             <div className={styles.inputGroup}>
                                 <textarea
@@ -148,8 +209,9 @@ const LoanForm = () => {
                                     value={formData.incomeSource}
                                     onChange={handleInputChange}
                                     placeholder="Primary Source of Income"
-                                    required
+                                    className={errors.incomeSource ? styles.errorInput : ''}
                                 />
+                                {errors.incomeSource && <span className={styles.errorText}>{errors.incomeSource}</span>}
                             </div>
                             <div className={styles.buttonGroup}>
                                 <button type="button" className={styles.backButton} onClick={prevStep}>
@@ -186,45 +248,51 @@ const LoanForm = () => {
                             <div className={styles.fileUploadSection}>
                                 <h5>Upload Required Documents</h5>
                                 <div className={styles.fileInputGroup}>
-                                    <label>M-Pesa Statements (PDF)</label>
+                                    <label>M-Pesa Statements (PDF) <span className={styles.required}>*</span></label>
                                     <div className={styles.fileInput}>
                                         <input
                                             type="file"
                                             name="mpesaStatements"
                                             accept=".pdf"
                                             onChange={handleFileChange}
+                                            className={errors.mpesaStatements ? styles.errorInput : ''}
                                         />
                                         <span className={styles.fileButton}>Choose File</span>
                                         <span className={styles.fileName}>{formData.mpesaStatements ? formData.mpesaStatements.name : 'No file chosen'}</span>
                                     </div>
+                                    {errors.mpesaStatements && <span className={styles.errorText}>{errors.mpesaStatements}</span>}
                                 </div>
                                 
                                 <div className={styles.fileInputGroup}>
-                                    <label>Bank Statements (PDF)</label>
+                                    <label>Bank Statements (PDF) <span className={styles.required}>*</span></label>
                                     <div className={styles.fileInput}>
                                         <input
                                             type="file"
                                             name="bankStatements"
                                             accept=".pdf"
                                             onChange={handleFileChange}
+                                            className={errors.bankStatements ? styles.errorInput : ''}
                                         />
                                         <span className={styles.fileButton}>Choose File</span>
                                         <span className={styles.fileName}>{formData.bankStatements ? formData.bankStatements.name : 'No file chosen'}</span>
                                     </div>
+                                    {errors.bankStatements && <span className={styles.errorText}>{errors.bankStatements}</span>}
                                 </div>
                                 
                                 <div className={styles.fileInputGroup}>
-                                    <label>Farming History (PDF)</label>
+                                    <label>Farming History (PDF) <span className={styles.required}>*</span></label>
                                     <div className={styles.fileInput}>
                                         <input
                                             type="file"
                                             name="farmingHistory"
                                             accept=".pdf"
                                             onChange={handleFileChange}
+                                            className={errors.farmingHistory ? styles.errorInput : ''}
                                         />
                                         <span className={styles.fileButton}>Choose File</span>
                                         <span className={styles.fileName}>{formData.farmingHistory ? formData.farmingHistory.name : 'No file chosen'}</span>
                                     </div>
+                                    {errors.farmingHistory && <span className={styles.errorText}>{errors.farmingHistory}</span>}
                                 </div>
                             </div>
                             

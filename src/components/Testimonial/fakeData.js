@@ -2,44 +2,47 @@ import mazetu from '../../assets/home/mazetu.png';
 import mebiut from '../../assets/home/mebiut.png';
 import fspn from '../../assets/home/fspn.jpeg';
 import alx from '../../assets/home/alx.jpeg';
-
 import CMETrust from '../../assets/home/cme.png';
 
 export const fakeData = [
-
     {
         id: 1,
         img: mebiut,
         name: 'Mebiut Limited',
         profession: 'Sauce Company, Kenya',
-        message: "SmartMavuno has been integral in the development of mebiut, at Mebiut, we manufacture Sauces Ranging from Kenyan Taste Sauce to Mayonnaise, all the ingredients are susally supplied by SmartMavuno"
+        message:
+            "SmartMavuno has been a key partner in our growth at Mebiut. They supply us with fresh, quality ingredients for our sauces — from Kenyan Taste Sauce to Mayonnaise — ensuring consistency and reliability in our production."
     },
     {
         id: 2,
         img: CMETrust,
         name: 'Canada Mathare Education Trust',
-        profession: 'Scholarships(HighSchool and University)',
-        message: "Founding Team of SmartMavuno are our Scholars, we have nartured em and happy to say, future of Agriculture is SmartMavuno"
+        profession: 'Scholarships (High School & University)',
+        message:
+            "We’ve partnered with SmartMavuno through their founding team, who are among our scholars. We are proud to see them transform agriculture and empower farmers across Kenya."
     },
     {
         id: 3,
         img: alx,
         name: 'ALX Founder Academy',
         profession: 'ALX Ventures',
-        message: "We worked closer to SmartMavuno Founding Team and Guided them through every step that they made, we are confident that SmartMavuno will have gfreat impact on the landscape of Agriculture"
+        message:
+            "We have worked closely with the SmartMavuno founding team, guiding them through their entrepreneurial journey. We are confident in their vision and the positive impact they are creating in agriculture."
     },
     {
         id: 4,
         img: mazetu,
         name: 'Mazetu Africa',
-        profession: 'Agricultural Storage Provide',
-        message: "We have Worked with SmartMavuno to provide storage servivces to Farmers that they bring onboard, all the farmers are satisfied with their servcies."
+        profession: 'Agricultural Storage Provider',
+        message:
+            "SmartMavuno collaborates with us to provide reliable storage solutions for farmers. Together, we ensure that farmers preserve their produce efficiently and reduce post-harvest losses."
     },
     {
         id: 5,
         img: fspn,
         name: 'HD4A & FSPN',
-        profession: 'Agri Business Organizations',
-        message: "We incubated SmarttMavuno and we're aware of their capabilities to drive change in the Agriculture sector using technology."
+        profession: 'Agri-Business Organizations',
+        message:
+            "We incubated SmartMavuno and continue to support their mission. Their innovative use of technology is driving real change in the agriculture sector."
     },
-]
+];

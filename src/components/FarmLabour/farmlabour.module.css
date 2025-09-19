@@ -141,8 +141,10 @@
   transform: translateX(5px);
 }
 
-/* Benefits Section */
-.benefitsSection {
+/* Section Styles */
+.benefitsSection,
+.processSection,
+.labourSection {
   padding: 5rem 0;
 }
 
@@ -164,6 +166,7 @@
   margin-right: auto;
 }
 
+/* Benefits Section */
 .benefitsGrid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -227,7 +230,6 @@
 
 /* Process Section */
 .processSection {
-  padding: 5rem 0;
   background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
   border-radius: 20px;
   margin: 2.5rem 0;
@@ -277,10 +279,6 @@
 }
 
 /* Labour Section */
-.labourSection {
-  padding: 5rem 0;
-}
-
 .tabContainer {
   background: white;
   border-radius: 20px;
@@ -294,6 +292,9 @@
   display: flex;
   background: #f8f9fa;
   border-bottom: 1px solid #e9ecef;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
 }
 
 .tabButton {
@@ -310,17 +311,20 @@
   justify-content: center;
   gap: 0.8rem;
   color: #5a6b5c;
+  border: 2px solid #e9ecef;
+  border-radius: 8px;
 }
 
 .tabButton:hover {
   background: rgba(76, 175, 80, 0.05);
   color: #4CAF50;
+  border-color: #4CAF50;
 }
 
 .tabButton.activeTab {
-  background: white;
-  color: #4CAF50;
-  border-bottom: 3px solid #4CAF50;
+  background: #4CAF50;
+  border-color: #4CAF50;
+  color: white;
 }
 
 .tabIcon {
@@ -334,6 +338,10 @@
 .formSection {
   max-width: 800px;
   margin: 0 auto;
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
 
 .formTitle {
@@ -407,6 +415,60 @@
   box-shadow: 0 8px 25px rgba(76, 175, 80, 0.4);
 }
 
+/* Error Styles */
+.errorInput {
+  border-color: #e74c3c !important;
+  box-shadow: 0 0 0 2px rgba(231, 76, 60, 0.2) !important;
+}
+
+.errorText {
+  color: #e74c3c;
+  font-size: 0.8rem;
+  margin-top: 0.3rem;
+  display: block;
+}
+
+/* Success Message Styles */
+.successMessage {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  z-index: 1000;
+  max-width: 500px;
+  width: 90%;
+}
+
+.successIcon {
+  font-size: 3rem;
+  color: #27ae60;
+  margin-bottom: 1rem;
+}
+
+.successMessage h3 {
+  color: #2c3e50;
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+}
+
+.successMessage p {
+  color: #5a6c5d;
+  margin-bottom: 1rem;
+  line-height: 1.6;
+}
+
+.contactInfo {
+  font-style: italic;
+  color: #7f8c8d;
+  font-size: 0.9rem;
+  margin-top: 1rem;
+}
+
 /* Responsive Design */
 @media (max-width: 1024px) {
   .heroHeading {
@@ -458,10 +520,7 @@
     font-size: 2rem;
   }
   
-  .benefitsGrid {
-    grid-template-columns: 1fr;
-  }
-  
+  .benefitsGrid,
   .processSteps {
     grid-template-columns: 1fr;
   }
@@ -476,6 +535,14 @@
   
   .formGrid {
     grid-template-columns: 1fr;
+  }
+  
+  .successMessage {
+    padding: 1.5rem;
+  }
+  
+  .successIcon {
+    font-size: 2.5rem;
   }
 }
 
