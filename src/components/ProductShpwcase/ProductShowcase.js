@@ -1,31 +1,26 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { FaStar, FaArrowRight, FaArrowLeft, FaFilter, FaSort } from 'react-icons/fa';
 import styles from './Productshowcase.module.css';
 
-// Importing product images
 import cassavaImage from '../../assets/products/Cassava.jpeg';
-import potatoesImage from '../../assets/products/sweetpotatoes.jpeg';
 import beansImage from '../../assets/products/beans.jpeg';
 import tomatoesImage from '../../assets/products/tomatoes.jpeg';
 import onionsImage from '../../assets/products/onions.jpeg';
 import carrotsImage from'../../assets/products/carrots.jpeg';
-import cornImage from '../../assets/products/corns.jpeg';
 import cabbageImage from '../../assets/products/cabbage.jpeg';
 import spinachImage from '../../assets/products/spinach.jpeg';
 import pumpkinImage from '../../assets/products/pumpkin.jpeg';
 
-// Product data
-const products = [
+// Base products with USD prices (we'll convert to KSH)
+const baseProducts = [
   { id: 1, name: "Cassava", price: 10, unit: "kg", rating: 4.8, imageUrl: cassavaImage, category: "vegetables" },
-  { id: 2, name: "Fresh Potatoes", price: 8, unit: "kg", rating: 4.5, imageUrl: potatoesImage, category: "vegetables" },
-  { id: 3, name: "Green Beans", price: 12, unit: "kg", rating: 4.6, imageUrl: beansImage, category: "vegetables" },
-  { id: 4, name: "Tomatoes", price: 6, unit: "kg", rating: 4.7, imageUrl: tomatoesImage, category: "vegetables" },
-  { id: 5, name: "Onions", price: 4, unit: "kg", rating: 4.2, imageUrl: onionsImage, category: "vegetables" },
-  { id: 6, name: "Carrots", price: 5, unit: "kg", rating: 4.3, imageUrl: carrotsImage, category: "vegetables" },
-  { id: 7, name: "Sweet Corn", price: 7, unit: "kg", rating: 4.4, imageUrl: cornImage, category: "grains" },
-  { id: 8, name: "Cabbage", price: 3, unit: "kg", rating: 4.1, imageUrl: cabbageImage, category: "vegetables" },
-  { id: 9, name: "Spinach", price: 2, unit: "bunch", rating: 4.3, imageUrl: spinachImage, category: "greens" },
-  { id: 10, name: "Pumpkin", price: 9, unit: "kg", rating: 4.9, imageUrl: pumpkinImage, category: "vegetables" },
+  { id: 2, name: "Green Beans", price: 12, unit: "kg", rating: 4.6, imageUrl: beansImage, category: "vegetables" },
+  { id: 3, name: "Tomatoes", price: 6, unit: "kg", rating: 4.7, imageUrl: tomatoesImage, category: "vegetables" },
+  { id: 4, name: "Onions", price: 4, unit: "kg", rating: 4.2, imageUrl: onionsImage, category: "vegetables" },
+  { id: 5, name: "Carrots", price: 5, unit: "kg", rating: 4.3, imageUrl: carrotsImage, category: "vegetables" },
+  { id: 6, name: "Cabbage", price: 3, unit: "kg", rating: 4.1, imageUrl: cabbageImage, category: "vegetables" },
+  { id: 7, name: "Spinach", price: 2, unit: "bunch", rating: 4.3, imageUrl: spinachImage, category: "greens" },
+  { id: 8, name: "Pumpkin", price: 9, unit: "kg", rating: 4.9, imageUrl: pumpkinImage, category: "vegetables" },
 ];
 
 const ChoosingUs = () => {
@@ -33,7 +28,54 @@ const ChoosingUs = () => {
   const [sortOption, setSortOption] = useState('default');
   const [showFilters, setShowFilters] = useState(false);
   const [selectedCategory, setSelectedCategory] = useState('all');
+  const [exchangeRate, setExchangeRate] = useState(160); // Default rate (1 USD = 160 KSH)
+  const [products, setProducts] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
   const itemsPerPage = 3;
+
+  // Fetch real-time exchange rate
+  useEffect(() => {
+    const fetchExchangeRate = async () => {
+      try {
+        setIsLoading(true);
+        // Using a free currency API (you might need to get a free API key)
+        const response = await fetch('https://api.exchangerate-api.com/v4/latest/USD');
+        const data = await response.json();
+        const kshRate = data.rates.KES || 160; // Fallback to 160 if KES not available
+        
+        setExchangeRate(kshRate);
+        
+        // Convert products to KSH
+        const convertedProducts = baseProducts.map(product => ({
+          ...product,
+          priceKSH: Math.round(product.price * kshRate),
+          originalPrice: product.price // Keep original for reference
+        }));
+        
+        setProducts(convertedProducts);
+      } catch (error) {
+        console.error('Error fetching exchange rate:', error);
+        // Fallback: convert using default rate
+        const convertedProducts = baseProducts.map(product => ({
+          ...product,
+          priceKSH: Math.round(product.price * 160),
+          originalPrice: product.price
+        }));
+        setProducts(convertedProducts);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    fetchExchangeRate();
+
+    // Optional: Refresh exchange rate every 5 minutes
+    const interval = setInterval(fetchExchangeRate, 5 * 60 * 1000);
+    
+    return () => clearInterval(interval);
+  }, []);
+
+  
 
   // Get unique categories
   const categories = ['all', ...new Set(products.map(product => product.category))];
@@ -44,9 +86,9 @@ const ChoosingUs = () => {
     : products.filter(product => product.category === selectedCategory);
 
   if (sortOption === 'price-low') {
-    filteredProducts.sort((a, b) => a.price - b.price);
+    filteredProducts.sort((a, b) => a.priceKSH - b.priceKSH);
   } else if (sortOption === 'price-high') {
-    filteredProducts.sort((a, b) => b.price - a.price);
+    filteredProducts.sort((a, b) => b.priceKSH - a.priceKSH);
   } else if (sortOption === 'rating') {
     filteredProducts.sort((a, b) => b.rating - a.rating);
   }
@@ -82,12 +124,32 @@ const ChoosingUs = () => {
     setShowFilters(false);
   };
 
+  // Format KSH price with commas
+  const formatKSH = (price) => {
+    return `KSh ${price.toLocaleString()}`;
+  };
+
+  if (isLoading) {
+    return (
+      <div className={styles.container}>
+        <div className={styles.loading}>
+          <p>Loading current market prices...</p>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className={styles.container}>
       <div className={styles.header}>
         <h2 className={styles.heading}>Farm Fresh Marketplace</h2>
         <p className={styles.sub_text}>
-          Browse our fresh farm products and agricultural inputs for all your needs.
+          Browse our fresh farm products with real-time Kenyan Shilling pricing.
+          {exchangeRate && (
+            <span className={styles.exchangeRate}>
+              Current rate: 1 USD = {exchangeRate.toFixed(2)} KSH
+            </span>
+          )}
         </p>
       </div>
 
@@ -153,7 +215,12 @@ const ChoosingUs = () => {
                   ))}
                   <span>({product.rating})</span>
                 </div>
-                <p className={styles.productPrice}>${product.price}/{product.unit}</p>
+                <p className={styles.productPrice}>
+                  {formatKSH(product.priceKSH)}/{product.unit}
+                </p>
+                <p className={styles.usdPrice}>
+                  (${product.originalPrice} USD)
+                </p>
                 <a
                   href="https://marketplace.smartmavuno.com"
                   target="_blank"

@@ -15,8 +15,59 @@ const Community = () => {
     "Nyanza": "https://chat.whatsapp.com/L1QnsFvhA5aCVugEPH8At9"
   };
 
+  const GOOGLE_MAPS_API_KEY = "AIzaSyBzB829TQoQfsT0Pf254OQRMF6S2snExSw";
+
+  const highlightedCounties = [
+    { 
+      name: "Machakos", 
+      color: "#FF6B6B",
+      lat: -1.5177, 
+      lng: 37.2634 
+    },
+    { 
+      name: "Nyeri", 
+      color: "#4ECDC4",
+      lat: -0.4201, 
+      lng: 36.9476 
+    },
+    { 
+      name: "Muranga", 
+      color: "#45B7D1",
+      lat: -0.7248, 
+      lng: 37.1525 
+    },
+    { 
+      name: "Kisumu", 
+      color: "#96CEB4",
+      lat: -0.1022, 
+      lng: 34.7617 
+    },
+    { 
+      name: "Homabay", 
+      color: "#FFEAA7",
+      lat: -0.5273, 
+      lng: 34.4571 
+    }
+  ];
+
   const handleJoinCommunity = (url) => {
     window.open(url, '_blank');
+  };
+
+  // Generate Google Static Maps URL with markers
+  const getStaticMapUrl = () => {
+    const baseUrl = "https://maps.googleapis.com/maps/api/staticmap";
+    const center = "Kenya";
+    const size = "600x400";
+    const zoom = 7;
+    const mapType = "roadmap";
+    
+    // Create markers string
+    const markers = highlightedCounties.map(county => 
+      `markers=color:${county.color.replace('#', '0x')}%7Clabel:${county.name.charAt(0)}%7C${county.lat},${county.lng}`
+    ).join('&');
+    
+    return `${baseUrl}?center=${center}&zoom=${zoom}&size=${size}&maptype=${mapType}&${markers}&key=${GOOGLE_MAPS_API_KEY}`;
   };
 
   return (
@@ -25,75 +76,76 @@ const Community = () => {
         {/* Hero Section */}
         <div className={styles.heroSection}>
           <div className={styles.heroContent}>
-            <h1 className={styles.heroHeading}>Join the SmartMavuno Farmers Community</h1>
-            <p className={styles.heroDescription}>
-              Connect with fellow farmers in your region. Share knowledge, get expert advice, and stay updated on the latest agricultural practices through our WhatsApp communities.
-            </p>
+            <h1>Join SmartMavuno Farmers Community</h1>
+            <p>Connect with farmers, share knowledge, and get expert advice through WhatsApp communities</p>
             <div className={styles.heroStats}>
               <div className={styles.stat}>
-                <FaUsers className={styles.statIcon} />
-                <h3>5000+ Farmers</h3>
-                <p>Active Community Members</p>
-              </div>
-              <div className={styles.stat}>
-                <FaComments className={styles.statIcon} />
-                <h3>8 Regions</h3>
-                <p>Across Kenya</p>
-              </div>
-              <div className={styles.stat}>
-                <FaSeedling className={styles.statIcon} />
-                <h3>24/7 Support</h3>
-                <p>Expert Advice Available</p>
-              </div>
-            </div>
-          </div>
-          <div className={styles.heroVisual}>
-            <div className={styles.visualCard}>
-              <div className={styles.cardIcon}>
-                <FaWhatsapp />
-              </div>
-              <h4>Instant Updates</h4>
-              <p>Get timely information about weather, markets, and more</p>
-            </div>
-            <div className={styles.visualCard}>
-              <div className={styles.cardIcon}>
                 <FaUsers />
+                <h3>5000</h3>
+                <p>Farmers</p>
               </div>
-              <h4>Knowledge Sharing</h4>
-              <p>Learn from other farmers' experiences</p>
-            </div>
-            <div className={styles.visualCard}>
-              <div className={styles.cardIcon}>
+              <div className={styles.stat}>
+                <FaComments />
+                <h3>5</h3>
+                <p>Regions</p>
+              </div>
+              <div className={styles.stat}>
                 <FaSeedling />
+                <h3>24/7</h3>
+                <p>Support</p>
               </div>
-              <h4>Exclusive Content</h4>
-              <p>Access farming tips from agricultural experts</p>
             </div>
           </div>
         </div>
 
-        {/* Regions Section */}
-        <div className={styles.regionsSection}>
-          <div className={styles.sectionHeader}>
-            <h2>Join Your Regional Community</h2>
-            <p>Select your region to join the WhatsApp group for farmers in your area</p>
+        {/* Map & Regions Combined Section */}
+        <div className={styles.combinedSection}>
+          <div className={styles.mapSide}>
+            <h2>Our Coverage Areas</h2>
+            <div className={styles.mapContainer}>
+              <img 
+                src={getStaticMapUrl()} 
+                alt="Kenya map showing SmartMavuno coverage areas in Machakos, Nyeri, Muranga, Kisumu, and Homabay"
+                className={styles.kenyaMap}
+                onError={(e) => {
+                  console.error('Failed to load map image');
+                  e.target.style.display = 'none';
+                }}
+              />
+              <div className={styles.mapOverlay}>
+                <p>Active counties highlighted in color</p>
+              </div>
+            </div>
+            <div className={styles.legend}>
+              <h4>Active Counties:</h4>
+              <div className={styles.legendItems}>
+                {highlightedCounties.map(county => (
+                  <div key={county.name} className={styles.legendItem}>
+                    <div 
+                      className={styles.legendColor} 
+                      style={{ backgroundColor: county.color }}
+                    ></div>
+                    <span>{county.name}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
-          <div className={styles.regionsGrid}>
-            {Object.entries(regionLinks).map(([region, url]) => (
-              <div key={region} className={styles.regionCard}>
-                <div className={styles.regionContent}>
-                  <h3>{region}</h3>
-                  <p>Connect with farmers in the {region} region</p>
-                </div>
+
+          <div className={styles.regionsSide}>
+            <h2>Join Your Region</h2>
+            <div className={styles.regionsList}>
+              {Object.entries(regionLinks).map(([region, url]) => (
                 <button 
-                  className={styles.joinButton}
+                  key={region}
+                  className={styles.regionButton}
                   onClick={() => handleJoinCommunity(url)}
                 >
-                  Join Group
-                  <FaWhatsapp className={styles.buttonIcon} />
+                  <FaWhatsapp />
+                  <span>{region}</span>
                 </button>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
 
@@ -101,68 +153,25 @@ const Community = () => {
         <div className={styles.benefitsSection}>
           <h2>Why Join Our Community?</h2>
           <div className={styles.benefitsGrid}>
-            <div className={styles.benefitItem}>
-              <div className={styles.benefitIcon}>
-                <FaComments />
-              </div>
-              <h4>Real-time Discussions</h4>
-              <p>Participate in conversations about farming challenges and solutions with peers in your region</p>
+            <div className={styles.benefitCard}>
+              <FaComments />
+              <h4>Real-time Chat</h4>
+              <p>Instant discussions with farmers in your area</p>
             </div>
-            <div className={styles.benefitItem}>
-              <div className={styles.benefitIcon}>
-                <FaSeedling />
-              </div>
-              <h4>Expert Guidance</h4>
-              <p>Get advice from agricultural specialists and experienced farmers</p>
+            <div className={styles.benefitCard}>
+              <FaSeedling />
+              <h4>Expert Advice</h4>
+              <p>Get guidance from agricultural specialists</p>
             </div>
-            <div className={styles.benefitItem}>
-              <div className={styles.benefitIcon}>
-                <FaUsers />
-              </div>
-              <h4>Networking Opportunities</h4>
-              <p>Connect with potential buyers, suppliers, and farming partners</p>
+            <div className={styles.benefitCard}>
+              <FaUsers />
+              <h4>Networking</h4>
+              <p>Connect with buyers and suppliers</p>
             </div>
-            <div className={styles.benefitItem}>
-              <div className={styles.benefitIcon}>
-                <FaWhatsapp />
-              </div>
-              <h4>Instant Updates</h4>
-              <p>Receive timely information about market prices, weather alerts, and training opportunities</p>
-            </div>
-          </div>
-        </div>
-
-        {/* Guidelines Section */}
-        <div className={styles.guidelinesSection}>
-          <h2>Community Guidelines</h2>
-          <div className={styles.guidelinesList}>
-            <div className={styles.guidelineItem}>
-              <div className={styles.guidelineNumber}>1</div>
-              <div className={styles.guidelineContent}>
-                <h4>Be Respectful</h4>
-                <p>Treat all community members with respect and courtesy</p>
-              </div>
-            </div>
-            <div className={styles.guidelineItem}>
-              <div className={styles.guidelineNumber}>2</div>
-              <div className={styles.guidelineContent}>
-                <h4>Stay On Topic</h4>
-                <p>Keep discussions focused on farming and related subjects</p>
-              </div>
-            </div>
-            <div className={styles.guidelineItem}>
-              <div className={styles.guidelineNumber}>3</div>
-              <div className={styles.guidelineContent}>
-                <h4>No Spamming</h4>
-                <p>Avoid excessive self-promotion or irrelevant messages</p>
-              </div>
-            </div>
-            <div className={styles.guidelineItem}>
-              <div className={styles.guidelineNumber}>4</div>
-              <div className={styles.guidelineContent}>
-                <h4>Share Knowledge</h4>
-                <p>Contribute your experiences and expertise to help others</p>
-              </div>
+            <div className={styles.benefitCard}>
+              <FaWhatsapp />
+              <h4>Quick Updates</h4>
+              <p>Market prices & weather alerts</p>
             </div>
           </div>
         </div>

@@ -101,16 +101,17 @@ const Top = () => {
 
             {/* Mission Statement */}
             <div data-aos='fade-up' data-aos-delay="700" className={styles.missionSection}>
-                <div className={styles.missionContent}>
-                    <h2 className={styles.missionTitle}>Our Commitment to African Agriculture</h2>
-                    <p className={styles.missionStatement}>
-                        We are dedicated to creating a sustainable agricultural ecosystem where every farmer has 
-                        access to the tools, resources, and markets needed to thrive and prosper. Through innovation, 
-                        partnership, and technology, we're building a brighter future for African agriculture.
-                    </p>
-                    <div className={styles.missionAccent}></div>
-                </div>
-            </div>
+    <div className={styles.missionContent}>
+        <h2 className={styles.missionTitle}>Our Commitment to Kenyan Agriculture</h2>
+        <p className={styles.missionStatement}>
+            We are dedicated to transforming Kenya’s agricultural landscape by empowering farmers with 
+            access to the right tools, resources, and markets to achieve sustainable growth. Through innovation, 
+            collaboration, and technology, we’re building a resilient and prosperous future for Kenyan agriculture.
+        </p>
+        <div className={styles.missionAccent}></div>
+    </div>
+</div>
+
         </div>
     )
 }

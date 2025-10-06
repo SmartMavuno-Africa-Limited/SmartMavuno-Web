@@ -5,37 +5,35 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { 
   faUsers, 
   faGlobe, 
-  faHandHoldingHeart 
 } from '@fortawesome/free-solid-svg-icons';
 
 const impactData = [
     {
         title: "Farmers Empowered",
-        value: 10000,
+        value: 5000,
         icon: faUsers,
-        formattedValue: "10,000+",
-        description: "Smallholder farmers connected to digital solutions",
+        formattedValue: "5000",
+        description: "Smallholder farmers currently using smartmavuno platform",
         color: "#4CAF50"
     },
     {
         title: "Counties Reached",
-        value: 46,
+        value: 5,
         icon: faGlobe,
-        formattedValue: "46",
-        description: "Across multiple African countries",
+        formattedValue: "5",
+        description: "Across Kenya ",
         color: "#2196F3"
     },
     {
-        title: "Sustainable Projects",
-        value: 50,
-        icon: faHandHoldingHeart,
-        formattedValue: "50+",
-        description: "Community-focused agricultural initiatives",
-        color: "#E91E63"
+        title: "Farmers Trained",
+        value: 1500,
+        icon: faGlobe,
+        formattedValue: "1500",
+        description: "Farmers Trained on climate-smart farming practices",
+        color: "#FF9800"
     },
 ];
 
-// Counter component for animated numbers
 const Counter = ({ end, duration }) => {
   const [count, setCount] = useState(0);
   const countRef = useRef(null);
@@ -83,7 +81,7 @@ const Counter = ({ end, duration }) => {
     };
   }, [startCounter]);
 
-  return <span ref={countRef}>{count.toLocaleString()}+</span>;
+  return <span ref={countRef}>{count.toLocaleString()}</span>;
 };
 
 const Impact = () => {
@@ -127,7 +125,7 @@ const Impact = () => {
                                 <div className={styles.numberContainer}>
                                     <h3 className={styles.number}>
                                         {item.title === "Market Value" ? "$" : ""}
-                                        {item.title !== "Farmers Empowered" && item.title !== "Seeds Distributed" ? 
+                                        {item.title !== "Farmers Empowered" && item.title !== "Farmers Trained" ? 
                                             item.formattedValue : 
                                             <Counter end={item.value} duration={2} />
                                         }

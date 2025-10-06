@@ -39,7 +39,7 @@ const Banner = () => {
     { 
       src: require('../../assets/equipment.jpg'),  
       alt: "Equipment Rentals", 
-      title: "Equipment Sharing",
+      title: "Equipment Leasing",
       text: "Access affordable farm equipment and labor services", 
       icon: faTools,
       buttonLabel: "Browse Equipment", 
