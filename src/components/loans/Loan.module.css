@@ -8,75 +8,81 @@
 
 /* Hero Section */
 .heroSection {
-    display: flex;
-    flex-direction: column;
-    gap: 30px;
     padding: 40px 20px;
     background: linear-gradient(135deg, #f0f7ee 0%, #e0f0e3 100%);
     border-radius: 16px;
     margin-top: 15px;
-    position: relative;
-    overflow: hidden;
-}
-
-.heroSection::before {
-    content: '';
-    position: absolute;
-    top: -30%;
-    right: -30%;
-    width: 100%;
-    height: 160%;
-    background: radial-gradient(circle, rgba(76, 175, 80, 0.08) 0%, transparent 70%);
-}
-
-.heroContent {
-    position: relative;
-    z-index: 2;
     text-align: center;
 }
 
+.heroContent {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
 .heroHeading {
-    font-size: 2rem;
+    font-size: 2.2rem;
     font-weight: 700;
     color: #182913;
     line-height: 1.2;
-    margin-bottom: 15px;
+    margin-bottom: 10px;
 }
 
 .heroDescription {
     font-size: 1.1rem;
     color: #5a6b5c;
-    margin-bottom: 25px;
-    line-height: 1.5;
+    margin-bottom: 30px;
 }
 
-.heroStats {
+/* Stats Row - ALL IN ONE LINE ON MOBILE */
+.statsRow {
     display: flex;
     justify-content: center;
-    gap: 20px;
+    gap: 15px;
     margin-bottom: 30px;
-    flex-wrap: wrap;
+    flex-wrap: nowrap; /* Never wrap */
+    overflow-x: auto; /* Allow horizontal scroll if needed */
+    padding: 10px 0;
+    -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+}
+
+/* Hide scrollbar but keep functionality */
+.statsRow::-webkit-scrollbar {
+    display: none;
+}
+.statsRow {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
 }
 
 .stat {
-    text-align: center;
-    padding: 15px;
     background: white;
-    border-radius: 10px;
+    padding: 20px 15px;
+    border-radius: 12px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
-    min-width: 110px;
+    text-align: center;
+    flex: 0 0 auto; /* Don't grow or shrink, stay at auto size */
+    min-width: 110px; /* Minimum width for readability */
+    width: calc(33.333% - 10px); /* Each card takes 1/3 of space minus gap */
+    max-width: 140px; /* Maximum width */
 }
 
 .stat h3 {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     color: #4CAF50;
     margin-bottom: 5px;
     font-weight: 600;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .stat p {
-    font-size: 0.85rem;
+    font-size: 0.8rem;
     color: #5a6b5c;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .scrollButton {
@@ -92,7 +98,6 @@
     gap: 10px;
     transition: all 0.3s ease;
     box-shadow: 0 4px 12px rgba(76, 175, 80, 0.3);
-    margin-top: 10px;
 }
 
 .scrollButton:hover {
@@ -104,99 +109,58 @@
     font-size: 0.9rem;
 }
 
-.heroVisual {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-    flex-wrap: wrap;
-    position: relative;
-    z-index: 2;
+/* Benefits Section - Bullet Points */
+.benefitsSection {
+    padding: 50px 20px;
 }
 
-.visualCard {
-    background: white;
-    padding: 20px 15px;
-    border-radius: 12px;
-    text-align: center;
-    flex: 1;
-    min-width: 110px;
-    max-width: 140px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-    transition: transform 0.3s ease;
-}
-
-.visualCard:hover {
-    transform: translateY(-3px);
-}
-
-.visualCard h4 {
-    font-size: 1rem;
-    color: #182913;
-    margin-bottom: 6px;
-    font-weight: 600;
-}
-
-.visualCard p {
-    font-size: 0.85rem;
-    color: #5a6b5c;
-    line-height: 1.3;
-}
-
-/* Benefits & FAQ Sections */
-.benefitsSection, 
-.faqSection {
-    padding: 60px 15px;
-}
-
-.benefitsSection h2,
-.faqSection h2 {
+.benefitsSection h2 {
     font-size: 1.8rem;
     color: #182913;
-    margin-bottom: 35px;
+    margin-bottom: 25px;
     font-weight: 700;
     text-align: center;
 }
 
-.benefitsGrid,
-.faqGrid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-    gap: 20px;
+.bulletList {
+    max-width: 500px;
+    margin: 0 auto;
 }
 
-.benefitItem,
-.faqItem {
-    padding: 20px 15px;
-    background: white;
-    border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-    transition: transform 0.3s ease;
-    text-align: center;
+.bulletItem {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 12px 0;
+    border-bottom: 1px solid #eee;
 }
 
-.benefitItem:hover,
-.faqItem:hover {
-    transform: translateY(-3px);
+.bulletItem:last-child {
+    border-bottom: none;
 }
 
-.benefitItem h4,
-.faqItem h4 {
-    font-size: 1.1rem;
-    color: #182913;
-    margin-bottom: 10px;
-    font-weight: 600;
+.bulletIcon {
+    width: 24px;
+    height: 24px;
+    background: #4CAF50;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    flex-shrink: 0;
 }
 
-.benefitItem p,
-.faqItem p {
+.bulletItem p {
     color: #5a6b5c;
-    line-height: 1.5;
-    font-size: 0.9rem;
+    font-size: 1rem;
+    margin: 0;
 }
 
 /* Application Section */
 .applicationSection {
-    padding: 50px 15px;
+    padding: 50px 20px;
     background: #f9faf9;
     border-radius: 16px;
     margin: 30px 0;
@@ -214,18 +178,13 @@
     font-weight: 700;
 }
 
-.sectionHeader p {
-    font-size: 1rem;
-    color: #5a6b5c;
-}
-
 /* Form Styles */
 .formWrapper {
     background: white;
     border-radius: 16px;
     overflow: hidden;
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
-    max-width: 100%;
+    max-width: 500px;
     margin: 0 auto;
 }
 
@@ -275,21 +234,12 @@
     to { opacity: 1; transform: translateY(0); }
 }
 
-.formStep h4 {
-    font-size: 1.2rem;
-    color: #182913;
-    margin-bottom: 20px;
-    text-align: center;
-    font-weight: 600;
-}
-
 .inputGroup {
     margin-bottom: 18px;
 }
 
 .inputGroup input,
-.inputGroup select,
-.inputGroup textarea {
+.inputGroup select {
     width: 100%;
     padding: 14px;
     border: 2px solid #e9ecef;
@@ -300,48 +250,24 @@
 }
 
 .inputGroup input:focus,
-.inputGroup select:focus,
-.inputGroup textarea:focus {
+.inputGroup select:focus {
     border-color: #4CAF50;
     box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.1);
     outline: none;
 }
 
-.inputGroup textarea {
-    min-height: 80px;
-    resize: vertical;
-}
-
 .fileUploadSection {
     margin-top: 25px;
-    padding-top: 20px;
-    border-top: 1px solid #eee;
-}
-
-.fileUploadSection h5 {
-    font-size: 1rem;
-    color: #182913;
-    margin-bottom: 15px;
-    font-weight: 600;
 }
 
 .fileInputGroup {
     margin-bottom: 15px;
 }
 
-.fileInputGroup label {
-    display: block;
-    margin-bottom: 8px;
-    font-weight: 500;
-    color: #182913;
-    font-size: 0.9rem;
-}
-
 .fileInput {
     position: relative;
     display: flex;
     align-items: center;
-    flex-wrap: wrap;
     gap: 10px;
 }
 
@@ -350,23 +276,24 @@
     left: 0;
     top: 0;
     opacity: 0;
-    width: 100px;
+    width: 100%;
     height: 100%;
     cursor: pointer;
 }
 
 .fileButton {
     display: inline-block;
-    padding: 10px 15px;
+    padding: 12px 20px;
     background: #e8f0e6;
     color: #4CAF50;
     border-radius: 8px;
-    font-size: 0.85rem;
+    font-size: 0.9rem;
     font-weight: 500;
     cursor: pointer;
     transition: background 0.3s ease;
-    min-width: 80px;
+    flex: 1;
     text-align: center;
+    border: 2px dashed #4CAF50;
 }
 
 .fileButton:hover {
@@ -388,7 +315,7 @@
 }
 
 .backButton {
-    padding: 12px 20px;
+    padding: 14px 20px;
     background: #f0f0f0;
     color: #5a6b5c;
     border: none;
@@ -406,7 +333,7 @@
 
 .nextButton,
 .submitButton {
-    padding: 12px 20px;
+    padding: 14px 20px;
     background: linear-gradient(135deg, #4CAF50 0%, #2E7D32 100%);
     color: white;
     border: none;
@@ -446,10 +373,6 @@
     display: block;
 }
 
-.required {
-    color: #e74c3c;
-}
-
 /* Success Message */
 .successMessage {
     text-align: center;
@@ -474,35 +397,9 @@
 
 .successMessage p {
     color: #5a6c5d;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem;
     line-height: 1.5;
     font-size: 0.95rem;
-}
-
-.successDetails {
-    background: #f8f9fa;
-    padding: 1.2rem;
-    border-radius: 8px;
-    margin: 1.2rem 0;
-    text-align: left;
-}
-
-.successDetails p {
-    font-weight: 600;
-    margin-bottom: 0.8rem;
-    font-size: 0.9rem;
-}
-
-.successDetails ul {
-    padding-left: 1.2rem;
-    margin-bottom: 0;
-}
-
-.successDetails li {
-    margin-bottom: 0.4rem;
-    color: #5a6c5d;
-    font-size: 0.85rem;
-    line-height: 1.4;
 }
 
 .contactInfo {
@@ -512,121 +409,167 @@
     font-size: 0.85rem;
 }
 
-/* Tablet Styles */
-@media (min-width: 481px) and (max-width: 768px) {
+/* Mobile Responsive - Cards stay in one line */
+@media (max-width: 768px) {
     .heroHeading {
-        font-size: 2.2rem;
+        font-size: 1.8rem;
     }
     
-    .heroDescription {
-        font-size: 1.15rem;
-    }
-    
-    .heroStats {
-        gap: 25px;
+    /* Cards stay in one line horizontally */
+    .statsRow {
+        gap: 12px;
+        justify-content: flex-start; /* Align left for better mobile view */
+        padding: 5px 0 15px 0;
+        margin-left: -8px;
+        margin-right: -8px;
+        padding-left: 8px;
+        padding-right: 8px;
     }
     
     .stat {
-        min-width: 130px;
-        padding: 18px;
+        min-width: 105px; /* Slightly smaller for mobile */
+        padding: 18px 12px;
+        width: calc(33.333% - 8px); /* Adjust for smaller gap */
+        max-width: 120px;
+    }
+    
+    .stat h3 {
+        font-size: 1rem;
+    }
+    
+    .stat p {
+        font-size: 0.75rem;
+    }
+    
+    .benefitsSection {
+        padding: 40px 15px;
+    }
+    
+    .bulletItem {
+        padding: 10px 0;
+    }
+    
+    .formContainer {
+        padding: 20px;
+    }
+    
+    .buttonGroup {
+        flex-direction: column;
+    }
+    
+    .backButton,
+    .nextButton,
+    .submitButton {
+        width: 100%;
+        flex: none;
+    }
+}
+
+/* Extra Small Screens (320px-480px) */
+@media (max-width: 480px) {
+    .statsRow {
+        gap: 10px;
+    }
+    
+    .stat {
+        min-width: 95px;
+        padding: 15px 10px;
+        width: calc(33.333% - 7px);
+    }
+    
+    .stat h3 {
+        font-size: 0.95rem;
+    }
+    
+    .stat p {
+        font-size: 0.7rem;
+    }
+}
+
+/* Very Small Screens (under 320px) */
+@media (max-width: 320px) {
+    .statsRow {
+        gap: 8px;
+    }
+    
+    .stat {
+        min-width: 85px;
+        padding: 12px 8px;
+        width: calc(33.333% - 6px);
+    }
+    
+    .stat h3 {
+        font-size: 0.9rem;
+    }
+    
+    .stat p {
+        font-size: 0.65rem;
+    }
+}
+
+/* Desktop Styles */
+@media (min-width: 769px) {
+    .heroHeading {
+        font-size: 2.5rem;
+    }
+    
+    .heroDescription {
+        font-size: 1.2rem;
+    }
+    
+    .statsRow {
+        gap: 25px; /* More space on desktop */
+        justify-content: center; /* Center on desktop */
+        overflow-x: visible; /* No scrolling needed */
+    }
+    
+    .stat {
+        padding: 25px 20px;
+        min-width: 130px; /* Larger on desktop */
+        width: auto; /* Auto width on desktop */
+        max-width: 150px;
     }
     
     .stat h3 {
         font-size: 1.3rem;
     }
     
-    .benefitsGrid,
-    .faqGrid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 25px;
+    .stat p {
+        font-size: 0.9rem;
     }
     
-    .benefitItem,
-    .faqItem {
-        padding: 22px 18px;
+    .bulletList {
+        max-width: 600px;
     }
     
-    .formContainer {
-        padding: 30px;
-    }
-}
-
-/* Desktop Styles */
-@media (min-width: 769px) {
-    .heroSection {
-        flex-direction: row;
-        padding: 60px 40px;
-    }
-    
-    .heroContent {
-        text-align: left;
-        flex: 1.2;
-    }
-    
-    .heroHeading {
-        font-size: 2.4rem;
-    }
-    
-    .heroDescription {
-        font-size: 1.2rem;
-        max-width: 500px;
-    }
-    
-    .heroStats {
-        justify-content: flex-start;
-    }
-    
-    .heroVisual {
-        flex: 0.8;
-        justify-content: flex-end;
-    }
-    
-    .benefitsGrid,
-    .faqGrid {
-        grid-template-columns: repeat(4, 1fr);
-        gap: 30px;
-    }
-    
-    .benefitItem,
-    .faqItem {
-        padding: 25px 20px;
-    }
-    
-    .scrollButton {
-        display: inline-flex;
+    .bulletItem p {
+        font-size: 1.1rem;
     }
 }
 
 /* Very Small Screens */
 @media (max-width: 380px) {
+    .heroSection {
+        padding: 30px 15px;
+    }
+    
     .heroHeading {
-        font-size: 1.8rem;
+        font-size: 1.6rem;
     }
     
     .heroDescription {
         font-size: 1rem;
     }
     
-    .heroStats {
-        flex-direction: column;
-        align-items: center;
+    .benefitsSection h2 {
+        font-size: 1.5rem;
     }
     
-    .stat {
-        width: 100%;
-        max-width: 200px;
-    }
-    
-    .benefitsGrid,
-    .faqGrid {
-        grid-template-columns: 1fr;
-    }
-    
-    .visualCard {
-        min-width: 100px;
+    .sectionHeader h2 {
+        font-size: 1.5rem;
     }
     
     .formContainer {
-        padding: 20px;
+        padding: 15px;
     }
 }

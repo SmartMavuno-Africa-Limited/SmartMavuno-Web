@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import { useState, useRef } from 'react';
 import Footer from '../Footer';
 import styles from './Loan.module.css';
 import { FaCheckCircle, FaArrowRight, FaArrowDown } from 'react-icons/fa';
