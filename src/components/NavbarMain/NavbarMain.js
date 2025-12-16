@@ -56,7 +56,6 @@ const NavbarMain = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Update active nav based on current route
   useEffect(() => {
     const path = location.pathname;
     let temp = [false, false, false, false, false];
@@ -96,7 +95,7 @@ const NavbarMain = () => {
               alt="smartmavuno Logo" 
               className={`${styles.navbarLogo} ${isMobile ? styles.mobileLogo : ''}`} 
             />
-            {!isMobile && <span className={styles.brandText}>SmartMavuno</span>}
+            {!isMobile && <span className={styles.brandText}></span>}
           </Navbar.Brand>
 
           <Navbar.Toggle aria-controls="basic-navbar-nav" className={styles.navbarTogglerCustom} />
