@@ -41,6 +41,14 @@
   display: none !important;
 }
 
+.content {
+  min-height: calc(100vh - 140px);
+}
+
+.no-bottom-nav .content {
+  padding-bottom: 0;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
