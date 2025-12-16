@@ -21,16 +21,22 @@
 /* Newsletter */
 .newsletter {
     background: linear-gradient(135deg, #4CAF50 0%, #2E7D32 100%);
-    padding: 20px;
+    padding: 25px 30px;
     border-radius: 12px;
-    margin-bottom: 30px;
+    margin-bottom: 40px;
     text-align: center;
 }
 
 .newsletter h3 {
-    font-size: 1.2rem;
-    margin-bottom: 15px;
+    font-size: 1.3rem;
+    margin-bottom: 8px;
     font-weight: 600;
+}
+
+.newsletter p {
+    font-size: 0.95rem;
+    opacity: 0.9;
+    margin-bottom: 20px;
 }
 
 .newsletterForm {
@@ -56,7 +62,7 @@
     background: #2c3e50;
     color: white;
     border: none;
-    padding: 12px 20px;
+    padding: 12px 25px;
     border-radius: 8px;
     font-weight: 600;
     cursor: pointer;
@@ -69,13 +75,13 @@
 
 /* Main Footer */
 .mainFooter {
-    padding: 30px 0;
+    padding: 40px 0;
 }
 
 .footerGrid {
     display: grid;
     grid-template-columns: 2fr 1fr 1fr;
-    gap: 40px;
+    gap: 50px;
 }
 
 .footerColumn {
@@ -91,14 +97,21 @@
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    margin-bottom: 15px;
+    margin-bottom: 10px;
+}
+
+.tagline {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 20px;
+    font-style: italic;
 }
 
 /* Social Links */
 .socialLinks {
     display: flex;
     gap: 15px;
-    margin-top: 10px;
+    margin-top: 15px;
 }
 
 .socialLinks a {
@@ -123,7 +136,7 @@
 .footerColumn h4 {
     font-size: 1.1rem;
     font-weight: 600;
-    margin-bottom: 15px;
+    margin-bottom: 20px;
     color: #4CAF50;
 }
 
@@ -135,7 +148,7 @@
 }
 
 .footerLinks li {
-    margin-bottom: 10px;
+    margin-bottom: 12px;
 }
 
 .footerLinks a {
@@ -153,7 +166,7 @@
 .contactInfo {
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: 15px;
 }
 
 .contactItem {
@@ -182,10 +195,35 @@
     color: rgba(255, 255, 255, 0.8);
 }
 
+/* Map Section */
+.mapSection {
+    margin: 40px 0;
+    padding: 25px 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.mapSection h4 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 15px;
+    color: #4CAF50;
+    text-align: center;
+}
+
+.mapWrapper {
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.map {
+    filter: grayscale(0.3) contrast(1.2);
+}
+
 /* Copyright */
 .copyright {
-    padding: 20px 0;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 25px 0;
     text-align: center;
     font-size: 0.9rem;
     color: rgba(255, 255, 255, 0.7);
@@ -198,15 +236,19 @@
 /* Desktop Specific Styles */
 @media (min-width: 769px) {
     .footer {
-        padding-top: 40px;
+        padding-top: 50px;
     }
     
     .newsletter {
-        padding: 25px;
+        padding: 30px;
     }
     
     .newsletter h3 {
-        font-size: 1.3rem;
+        font-size: 1.5rem;
+    }
+    
+    .newsletter p {
+        font-size: 1rem;
     }
     
     .newsletterForm {
@@ -219,15 +261,19 @@
     }
     
     .subscribeButton {
-        padding: 14px 25px;
+        padding: 14px 30px;
     }
     
     .footerGrid {
-        gap: 60px;
+        gap: 70px;
     }
     
     .logo {
-        font-size: 2rem;
+        font-size: 2.2rem;
+    }
+    
+    .tagline {
+        font-size: 1rem;
     }
     
     .socialLinks a {
@@ -237,5 +283,14 @@
     
     .socialLinks a svg {
         font-size: 1.1rem;
+    }
+    
+    .mapSection h4 {
+        font-size: 1.2rem;
+    }
+    
+    .mapWrapper {
+        max-width: 800px;
+        margin: 0 auto;
     }
 }
