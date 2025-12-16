@@ -1,263 +1,351 @@
 .container {
-  max-width: 1200px;
+  max-width: 100%;
   margin: 0 auto;
-  padding: 0 20px;
+  padding: 15px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 }
 
 /* Hero Section */
 .heroSection {
   text-align: center;
-  padding: 60px 20px;
+  padding: 30px 20px;
   background: linear-gradient(135deg, #f0fff4 0%, #e6fffa 100%);
-  border-radius: 20px;
-  margin: 20px 0;
+  border-radius: 16px;
+  margin: 10px 0 20px 0;
 }
 
 .heroContent h1 {
-  font-size: 2.5rem;
+  font-size: 1.8rem;
   color: #2d3748;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
+  font-weight: 700;
 }
 
 .heroContent p {
-  font-size: 1.2rem;
+  font-size: 1rem;
   color: #4a5568;
-  margin-bottom: 40px;
-  max-width: 600px;
-  margin-left: auto;
-  margin-right: auto;
+  margin-bottom: 25px;
 }
 
 .heroStats {
   display: flex;
   justify-content: center;
-  gap: 40px;
-  margin-top: 40px;
+  gap: 30px;
+  margin-top: 20px;
 }
 
 .stat {
   display: flex;
-  flex-direction: column;
   align-items: center;
+  gap: 8px;
+  background: white;
+  padding: 12px 15px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 }
 
 .stat svg {
-  font-size: 2.5rem;
+  font-size: 1.2rem;
   color: #25D366;
-  margin-bottom: 10px;
 }
 
-.stat h3 {
-  font-size: 1.8rem;
-  color: #2d3748;
-  margin-bottom: 5px;
-}
-
-.stat p {
-  color: #718096;
+.stat span {
   font-size: 0.9rem;
+  color: #2d3748;
+  font-weight: 600;
 }
 
-/* Combined Map & Regions Section */
-.combinedSection {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 40px;
-  padding: 60px 0;
-  align-items: start;
-}
-
-.mapSide, .regionsSide {
+/* Regions Section */
+.regionsSection {
   background: white;
-  padding: 30px;
-  border-radius: 15px;
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
-}
-
-.mapSide h2, .regionsSide h2 {
-  color: #2d3748;
-  margin-bottom: 25px;
-  text-align: center;
-  font-size: 1.5rem;
-}
-
-/* Map Container */
-.mapContainer {
-  position: relative;
-  border-radius: 10px;
-  overflow: hidden;
+  padding: 25px 20px;
+  border-radius: 16px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
   margin-bottom: 20px;
-  border: 2px solid #e9ecef;
 }
 
-.kenyaMap {
-  width: 100%;
-  height: 300px;
-  object-fit: cover;
-  display: block;
-}
-
-.mapOverlay {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background: rgba(0, 0, 0, 0.7);
-  color: white;
-  padding: 8px 15px;
-  text-align: center;
-  font-size: 0.9rem;
-}
-
-/* Legend */
-.legend h4 {
-  margin-bottom: 15px;
+.regionsSection h2 {
   color: #2d3748;
-  font-size: 1.1rem;
-}
-
-.legendItems {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 10px;
-}
-
-.legendItem {
+  margin-bottom: 20px;
+  font-size: 1.3rem;
   display: flex;
   align-items: center;
-  gap: 8px;
-  font-size: 0.9rem;
+  gap: 10px;
+  font-weight: 700;
 }
 
-.legendColor {
-  width: 16px;
-  height: 16px;
-  border-radius: 50%;
-  border: 2px solid white;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-}
-
-/* Regions List */
-.regionsList {
-  display: flex;
-  flex-direction: column;
+.regionsGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
   gap: 12px;
 }
 
 .regionButton {
   display: flex;
   align-items: center;
-  gap: 15px;
-  padding: 15px 20px;
+  justify-content: center;
+  gap: 10px;
+  padding: 14px 12px;
   background: #25D366;
   color: white;
   border: none;
   border-radius: 10px;
-  font-size: 1rem;
+  font-size: 0.95rem;
   font-weight: 600;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: all 0.2s ease;
+  text-align: center;
+  min-height: 50px;
 }
 
 .regionButton:hover {
   background: #128C7E;
-  transform: translateX(5px);
+  transform: translateY(-2px);
 }
 
-.regionButton svg {
-  font-size: 1.2rem;
+.whatsappIcon {
+  font-size: 1.1rem;
+}
+
+/* Map Section */
+.mapSection {
+  background: white;
+  padding: 25px 20px;
+  border-radius: 16px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  margin-bottom: 20px;
+}
+
+.mapSection h2 {
+  color: #2d3748;
+  margin-bottom: 20px;
+  font-size: 1.3rem;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 700;
+}
+
+.mapPlaceholder {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  margin-bottom: 15px;
+}
+
+.activeCounty {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 15px;
+  background: #f8f9fa;
+  border-radius: 10px;
+  border: 1px solid #e9ecef;
+}
+
+.countyDot {
+  width: 12px;
+  height: 12px;
+  background: #25D366;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.activeCounty span:last-child {
+  color: #2d3748;
+  font-weight: 500;
+  font-size: 0.95rem;
+}
+
+.mapNote {
+  color: #718096;
+  font-size: 0.85rem;
+  text-align: center;
+  margin-top: 10px;
+  font-style: italic;
 }
 
 /* Benefits Section */
 .benefitsSection {
-  padding: 60px 0;
-  text-align: center;
+  background: white;
+  padding: 25px 20px;
+  border-radius: 16px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  margin-bottom: 20px;
 }
 
 .benefitsSection h2 {
   color: #2d3748;
-  margin-bottom: 40px;
-  font-size: 2rem;
+  margin-bottom: 20px;
+  font-size: 1.3rem;
+  text-align: center;
+  font-weight: 700;
 }
 
-.benefitsGrid {
+.benefitsList {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 25px;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
 }
 
-.benefitCard {
-  background: white;
-  padding: 30px 20px;
-  border-radius: 15px;
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
-  transition: transform 0.3s ease;
+.benefitItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px 15px;
+  background: #f8f9fa;
+  border-radius: 12px;
+  text-align: center;
 }
 
-.benefitCard:hover {
-  transform: translateY(-5px);
-}
-
-.benefitCard svg {
-  font-size: 2.5rem;
+.benefitItem svg {
+  font-size: 1.8rem;
   color: #25D366;
-  margin-bottom: 15px;
-}
-
-.benefitCard h4 {
-  color: #2d3748;
   margin-bottom: 10px;
-  font-size: 1.2rem;
 }
 
-.benefitCard p {
-  color: #718096;
-  line-height: 1.5;
+.benefitItem p {
+  color: #2d3748;
+  font-size: 0.9rem;
+  font-weight: 500;
+  margin: 0;
+  line-height: 1.3;
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
-  .combinedSection {
-    grid-template-columns: 1fr;
-    gap: 30px;
-  }
-  
-  .heroStats {
-    flex-direction: column;
-    gap: 30px;
+/* Tablet Styles */
+@media (min-width: 481px) and (max-width: 768px) {
+  .container {
+    padding: 20px;
   }
   
   .heroContent h1 {
     font-size: 2rem;
   }
   
-  .legendItems {
+  .regionsGrid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+  }
+  
+  .regionButton {
+    padding: 16px 12px;
+    font-size: 1rem;
+  }
+  
+  .mapPlaceholder {
     grid-template-columns: repeat(3, 1fr);
   }
   
-  .benefitsGrid {
-    grid-template-columns: 1fr;
-  }
-  
-  .kenyaMap {
-    height: 250px;
+  .benefitsList {
+    grid-template-columns: repeat(4, 1fr);
   }
 }
 
-@media (max-width: 480px) {
+/* Desktop Styles */
+@media (min-width: 769px) {
   .container {
-    padding: 0 15px;
+    max-width: 1200px;
+    padding: 30px 20px;
   }
   
   .heroSection {
-    padding: 40px 20px;
+    padding: 50px 40px;
+    margin: 20px 0 30px 0;
   }
   
-  .mapSide, .regionsSide {
-    padding: 20px;
+  .heroContent h1 {
+    font-size: 2.2rem;
   }
   
-  .legendItems {
-    grid-template-columns: repeat(2, 1fr);
+  .heroContent p {
+    font-size: 1.1rem;
+  }
+  
+  .stat {
+    padding: 15px 20px;
+  }
+  
+  .stat svg {
+    font-size: 1.5rem;
+  }
+  
+  .stat span {
+    font-size: 1rem;
+  }
+  
+  .regionsSection,
+  .mapSection,
+  .benefitsSection {
+    padding: 30px 25px;
+    margin-bottom: 25px;
+  }
+  
+  .regionsSection h2,
+  .mapSection h2,
+  .benefitsSection h2 {
+    font-size: 1.5rem;
+  }
+  
+  .regionsGrid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+  }
+  
+  .regionButton {
+    padding: 18px 15px;
+    font-size: 1.05rem;
+  }
+  
+  .mapPlaceholder {
+    grid-template-columns: repeat(5, 1fr);
+    gap: 15px;
+  }
+  
+  .activeCounty {
+    padding: 15px 20px;
+  }
+  
+  .benefitsList {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+  }
+  
+  .benefitItem {
+    padding: 25px 20px;
+  }
+  
+  .benefitItem svg {
+    font-size: 2rem;
+  }
+  
+  .benefitItem p {
+    font-size: 1rem;
+  }
+}
+
+/* Small Mobile Adjustments */
+@media (max-width: 380px) {
+  .heroStats {
+    gap: 15px;
+  }
+  
+  .stat {
+    padding: 10px 12px;
+  }
+  
+  .regionsGrid {
+    grid-template-columns: 1fr;
+  }
+  
+  .mapPlaceholder {
+    grid-template-columns: 1fr;
+  }
+  
+  .benefitsList {
+    grid-template-columns: 1fr;
+  }
+  
+  .regionButton {
+    padding: 16px 12px;
   }
 }
