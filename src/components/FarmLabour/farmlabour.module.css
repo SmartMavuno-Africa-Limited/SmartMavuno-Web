@@ -1,324 +1,181 @@
 .container {
-  max-width: 1200px;
+  max-width: 100%;
   margin: 0 auto;
-  padding: 0 1rem;
-  font-family: 'Poppins', sans-serif;
-}
-
-/* Success Message */
-.successMessage {
-  background: linear-gradient(135deg, #4CAF50 0%, #2E7D32 100%);
-  color: white;
-  padding: 1.2rem 1.5rem;
-  border-radius: 12px;
-  margin: 1.5rem 0;
-  display: flex;
-  align-items: center;
-  gap: 0.8rem;
-  box-shadow: 0 5px 15px rgba(76, 175, 80, 0.3);
-}
-
-.successIcon {
-  font-size: 1.8rem;
+  padding: 15px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 }
 
 /* Hero Section */
 .heroSection {
-  background: linear-gradient(135deg, #f0f7f0 0%, #e0efe0 100%);
-  padding: 5rem 2rem;
+  background: #f0f7f0;
+  padding: 30px 20px;
   text-align: center;
-  border-radius: 20px;
-  margin: 2.5rem 0;
-  position: relative;
-  overflow: hidden;
-}
-
-.heroSection::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath fill='%234CAF50' fill-opacity='0.05' d='M50,0 C77.614,0 100,22.386 100,50 C100,77.614 77.614,100 50,100 C22.386,100 0,77.614 0,50 C0,22.386 22.386,0 50,0 Z'%3E%3C/path%3E%3C/svg%3E") repeat;
-}
-
-.heroContent {
-  max-width: 900px;
-  margin: 0 auto;
-  position: relative;
-  z-index: 2;
-}
-
-.heroHeading {
-  font-size: 3rem;
-  color: #182913;
-  margin-bottom: 1.5rem;
-  font-weight: 700;
-  line-height: 1.2;
-}
-
-.highlight {
-  color: #4CAF50;
-  position: relative;
-}
-
-.heroDescription {
-  font-size: 1.3rem;
-  color: #5a6b5c;
-  line-height: 1.7;
-  margin-bottom: 3rem;
-  max-width: 700px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.heroStats {
-  display: flex;
-  justify-content: center;
-  gap: 3rem;
-  margin-bottom: 3rem;
-  flex-wrap: wrap;
-}
-
-.statItem {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 1.5rem;
-  background: white;
   border-radius: 16px;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
-  min-width: 150px;
+  margin: 20px 0;
 }
 
-.statIcon {
-  font-size: 2.5rem;
-  color: #4CAF50;
-  margin-bottom: 1rem;
-}
-
-.statNumber {
-  font-size: 2.2rem;
-  font-weight: 700;
+.heroContent h1 {
+  font-size: 1.8rem;
   color: #182913;
-  margin-bottom: 0.5rem;
+  margin-bottom: 8px;
+  font-weight: 700;
 }
 
-.statLabel {
+.heroContent p {
   font-size: 1rem;
   color: #5a6b5c;
+  margin-bottom: 25px;
+}
+
+/* Stats Row - Always in one line */
+.statsRow {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 25px;
+  justify-content: center;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  padding: 10px 5px;
+  -webkit-overflow-scrolling: touch;
+}
+
+.statsRow::-webkit-scrollbar {
+  display: none;
+}
+
+.stat {
+  background: white;
+  padding: 18px 12px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
   text-align: center;
+  flex: 0 0 auto;
+  min-width: 100px;
+  max-width: 120px;
+}
+
+.stat span {
+  display: block;
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #4CAF50;
+  margin-bottom: 5px;
+}
+
+.stat p {
+  font-size: 0.85rem;
+  color: #5a6b5c;
+  margin: 0;
 }
 
 .heroButton {
-  background: linear-gradient(135deg, #4CAF50 0%, #2E7D32 100%);
+  background: #4CAF50;
   color: white;
   border: none;
-  padding: 1.2rem 2.5rem;
-  font-size: 1.2rem;
+  padding: 14px 28px;
+  font-size: 1rem;
   font-weight: 600;
   border-radius: 50px;
   cursor: pointer;
   transition: all 0.3s ease;
-  box-shadow: 0 5px 20px rgba(76, 175, 80, 0.3);
   display: inline-flex;
   align-items: center;
-  gap: 0.8rem;
+  gap: 10px;
 }
 
 .heroButton:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 8px 25px rgba(76, 175, 80, 0.4);
+  background: #2E7D32;
 }
 
-.buttonIcon {
-  font-size: 1rem;
-  transition: transform 0.3s ease;
-}
-
-.heroButton:hover .buttonIcon {
-  transform: translateX(5px);
-}
-
-/* Section Styles */
-.benefitsSection,
-.processSection,
-.labourSection {
-  padding: 5rem 0;
-}
-
-.sectionTitle {
+/* Benefits Section - Tick List */
+.benefitsSection {
+  padding: 30px 20px;
   text-align: center;
-  font-size: 2.5rem;
+}
+
+.benefitsSection h2 {
+  font-size: 1.8rem;
   color: #182913;
-  margin-bottom: 1.5rem;
+  margin-bottom: 25px;
   font-weight: 700;
 }
 
-.sectionSubtitle {
-  text-align: center;
-  font-size: 1.2rem;
-  color: #5a6b5c;
-  margin-bottom: 4rem;
-  max-width: 600px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-/* Benefits Section */
-.benefitsGrid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2.5rem;
-}
-
-.benefitCard {
-  background: white;
-  padding: 3rem 2rem;
-  border-radius: 20px;
-  text-align: center;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  position: relative;
-  overflow: hidden;
-}
-
-.benefitCard::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 5px;
-  background: linear-gradient(90deg, #4CAF50, #8BC34A);
-}
-
-.benefitCard:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
-}
-
-.benefitIconContainer {
-  width: 80px;
-  height: 80px;
-  background: rgba(76, 175, 80, 0.1);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 0 auto 1.5rem;
-}
-
-.benefitIcon {
-  font-size: 2.5rem;
-  color: #4CAF50;
-}
-
-.benefitCard h3 {
-  font-size: 1.5rem;
-  color: #182913;
-  margin-bottom: 1rem;
-  font-weight: 600;
-}
-
-.benefitCard p {
-  color: #5a6b5c;
-  line-height: 1.6;
-  font-size: 1.1rem;
-}
-
-/* Process Section */
-.processSection {
-  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-  border-radius: 20px;
-  margin: 2.5rem 0;
-}
-
-.processSteps {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 2.5rem;
-  max-width: 1000px;
+.tickList {
+  max-width: 400px;
   margin: 0 auto;
+  text-align: left;
 }
 
-.processStep {
-  text-align: center;
-  padding: 2.5rem 2rem;
-  background: white;
-  border-radius: 16px;
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.06);
-  position: relative;
-}
-
-.stepNumber {
-  width: 50px;
-  height: 50px;
-  background: linear-gradient(135deg, #4CAF50 0%, #8BC34A 100%);
-  color: white;
-  border-radius: 50%;
+.tickItem {
   display: flex;
   align-items: center;
-  justify-content: center;
-  font-size: 1.5rem;
-  font-weight: 700;
-  margin: 0 auto 1.5rem;
+  gap: 12px;
+  padding: 12px 0;
+  border-bottom: 1px solid #eee;
 }
 
-.processStep h3 {
-  font-size: 1.4rem;
+.tickItem:last-child {
+  border-bottom: none;
+}
+
+.tickIcon {
+  color: #4CAF50;
+  font-size: 1.2rem;
+  flex-shrink: 0;
+}
+
+.tickItem span {
   color: #182913;
-  margin-bottom: 1rem;
-  font-weight: 600;
-}
-
-.processStep p {
-  color: #5a6b5c;
-  line-height: 1.6;
+  font-size: 1rem;
+  font-weight: 500;
 }
 
 /* Labour Section */
-.tabContainer {
-  background: white;
-  border-radius: 20px;
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
-  overflow: hidden;
-  max-width: 900px;
-  margin: 0 auto;
+.labourSection {
+  padding: 30px 20px;
+  background: #f9faf9;
+  border-radius: 16px;
+  margin: 20px 0;
 }
 
+.labourSection h2 {
+  font-size: 1.8rem;
+  color: #182913;
+  margin-bottom: 25px;
+  text-align: center;
+  font-weight: 700;
+}
+
+/* Tab Buttons */
 .tabButtons {
   display: flex;
-  background: #f8f9fa;
-  border-bottom: 1px solid #e9ecef;
-  gap: 1rem;
-  margin-bottom: 2rem;
+  gap: 12px;
+  margin-bottom: 25px;
   flex-wrap: wrap;
+  justify-content: center;
 }
 
 .tabButton {
-  flex: 1;
-  padding: 1.5rem 2rem;
-  border: none;
-  background: none;
-  font-size: 1.1rem;
+  padding: 14px 20px;
+  background: white;
+  border: 2px solid #e9ecef;
+  border-radius: 10px;
+  font-size: 0.95rem;
   font-weight: 600;
   cursor: pointer;
   transition: all 0.3s ease;
   display: flex;
   align-items: center;
-  justify-content: center;
-  gap: 0.8rem;
+  gap: 8px;
   color: #5a6b5c;
-  border: 2px solid #e9ecef;
-  border-radius: 8px;
+  flex: 1;
+  min-width: 100px;
+  justify-content: center;
 }
 
 .tabButton:hover {
-  background: rgba(76, 175, 80, 0.05);
-  color: #4CAF50;
   border-color: #4CAF50;
+  color: #4CAF50;
 }
 
 .tabButton.activeTab {
@@ -327,252 +184,151 @@
   color: white;
 }
 
-.tabIcon {
-  font-size: 1.3rem;
-}
-
-.tabContent {
-  padding: 3rem;
-}
-
+/* Form Section */
 .formSection {
-  max-width: 800px;
-  margin: 0 auto;
   background: white;
-  padding: 2rem;
-  border-radius: 12px;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  padding: 25px 20px;
+  border-radius: 16px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
 }
 
-.formTitle {
-  font-size: 2rem;
+.formSection h3 {
+  font-size: 1.3rem;
   color: #182913;
-  margin-bottom: 2rem;
+  margin-bottom: 20px;
   text-align: center;
   font-weight: 600;
 }
 
 .form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.formInput {
   width: 100%;
-}
-
-.formGrid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 1.5rem;
-  margin-bottom: 2rem;
-}
-
-.formGroup {
-  margin-bottom: 1.5rem;
-}
-
-.formLabel {
-  display: block;
-  font-weight: 600;
-  color: #182913;
-  margin-bottom: 0.8rem;
-  font-size: 1.1rem;
-}
-
-.formInput, .formTextarea {
-  width: 100%;
-  padding: 1rem 1.2rem;
+  padding: 14px;
   border: 2px solid #e9ecef;
-  border-radius: 12px;
-  font-size: 1rem;
-  transition: all 0.3s ease;
-  font-family: 'Poppins', sans-serif;
+  border-radius: 10px;
+  font-size: 0.95rem;
+  font-family: inherit;
 }
 
-.formInput:focus, .formTextarea:focus {
+.formInput:focus {
   outline: none;
   border-color: #4CAF50;
-  box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.1);
 }
 
-.formTextarea {
-  min-height: 120px;
-  resize: vertical;
+select.formInput {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%235a6b5c' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  background-size: 16px;
+  padding-right: 40px;
 }
 
 .submitButton {
-  background: linear-gradient(135deg, #4CAF50 0%, #2E7D32 100%);
+  background: #4CAF50;
   color: white;
   border: none;
-  padding: 1.2rem 2.5rem;
-  font-size: 1.1rem;
+  padding: 16px;
+  font-size: 1rem;
   font-weight: 600;
-  border-radius: 12px;
+  border-radius: 10px;
   cursor: pointer;
   transition: all 0.3s ease;
-  width: 100%;
-  box-shadow: 0 5px 20px rgba(76, 175, 80, 0.3);
+  margin-top: 10px;
 }
 
 .submitButton:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(76, 175, 80, 0.4);
+  background: #2E7D32;
 }
 
-/* Error Styles */
-.errorInput {
-  border-color: #e74c3c !important;
-  box-shadow: 0 0 0 2px rgba(231, 76, 60, 0.2) !important;
-}
-
-.errorText {
-  color: #e74c3c;
-  font-size: 0.8rem;
-  margin-top: 0.3rem;
-  display: block;
-}
-
-/* Success Message Styles */
-.successMessage {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background: white;
-  padding: 2rem;
-  border-radius: 12px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-  text-align: center;
-  z-index: 1000;
-  max-width: 500px;
-  width: 90%;
-}
-
-.successIcon {
-  font-size: 3rem;
-  color: #27ae60;
-  margin-bottom: 1rem;
-}
-
-.successMessage h3 {
-  color: #2c3e50;
-  margin-bottom: 1rem;
-  font-size: 1.5rem;
-}
-
-.successMessage p {
-  color: #5a6c5d;
-  margin-bottom: 1rem;
-  line-height: 1.6;
-}
-
-.contactInfo {
-  font-style: italic;
-  color: #7f8c8d;
-  font-size: 0.9rem;
-  margin-top: 1rem;
-}
-
-/* Responsive Design */
-@media (max-width: 1024px) {
-  .heroHeading {
-    font-size: 2.5rem;
-  }
-  
-  .heroStats {
-    gap: 2rem;
-  }
-  
-  .statItem {
-    min-width: 130px;
-    padding: 1.2rem;
-  }
-  
-  .statNumber {
-    font-size: 1.8rem;
-  }
-}
-
+/* Responsive */
 @media (max-width: 768px) {
-  .container {
-    padding: 0 0.5rem;
+  .statsRow {
+    gap: 12px;
+    justify-content: flex-start;
+    padding: 5px 0 15px;
   }
   
-  .heroSection {
-    padding: 3rem 1.5rem;
+  .stat {
+    min-width: 95px;
+    padding: 15px 10px;
   }
   
-  .heroHeading {
-    font-size: 2rem;
+  .stat span {
+    font-size: 1.2rem;
   }
   
-  .heroDescription {
-    font-size: 1.1rem;
-  }
-  
-  .heroStats {
-    flex-direction: column;
-    gap: 1.5rem;
-  }
-  
-  .statItem {
-    width: 100%;
-    max-width: 250px;
-  }
-  
-  .sectionTitle {
-    font-size: 2rem;
-  }
-  
-  .benefitsGrid,
-  .processSteps {
-    grid-template-columns: 1fr;
+  .tickList {
+    max-width: 300px;
   }
   
   .tabButtons {
     flex-direction: column;
   }
   
-  .tabContent {
-    padding: 2rem 1.5rem;
-  }
-  
-  .formGrid {
-    grid-template-columns: 1fr;
-  }
-  
-  .successMessage {
-    padding: 1.5rem;
-  }
-  
-  .successIcon {
-    font-size: 2.5rem;
+  .tabButton {
+    width: 100%;
   }
 }
 
-@media (max-width: 576px) {
+@media (min-width: 769px) {
+  .container {
+    max-width: 800px;
+    padding: 30px 20px;
+  }
+  
+  .heroContent h1 {
+    font-size: 2rem;
+  }
+  
+  .statsRow {
+    gap: 20px;
+    justify-content: center;
+  }
+  
+  .stat {
+    min-width: 110px;
+    padding: 20px 15px;
+  }
+  
+  .stat span {
+    font-size: 1.4rem;
+  }
+  
+  .tickList {
+    max-width: 350px;
+  }
+  
+  .tabButtons {
+    flex-wrap: nowrap;
+  }
+  
+  .formSection {
+    max-width: 500px;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 380px) {
   .heroSection {
-    padding: 2.5rem 1rem;
+    padding: 25px 15px;
   }
   
-  .heroHeading {
-    font-size: 1.8rem;
-  }
-  
-  .heroButton {
-    padding: 1rem 2rem;
-    font-size: 1.1rem;
-  }
-  
-  .benefitCard {
-    padding: 2rem 1.5rem;
-  }
-  
-  .processStep {
-    padding: 2rem 1.5rem;
-  }
-  
-  .tabContent {
-    padding: 1.5rem 1rem;
-  }
-  
-  .formTitle {
+  .heroContent h1 {
     font-size: 1.6rem;
+  }
+  
+  .stat {
+    min-width: 85px;
+    padding: 12px 8px;
+  }
+  
+  .stat span {
+    font-size: 1.1rem;
   }
 }

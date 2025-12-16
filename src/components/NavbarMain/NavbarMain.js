@@ -62,7 +62,7 @@ const NavbarMain = () => {
     let temp = [false, false, false, false, false];
     
     if (path === "/") temp[0] = true;
-    else if (path === "/financing") temp[1] = true;
+    else if (path === "/loans") temp[1] = true;
     else if (path === "/community") temp[2] = true;
     else if (path === "/farmlabour") temp[3] = true;
     else if (["/aboutUs", "/contactUs", "/projectDetails"].includes(path)) temp[4] = true;
@@ -135,7 +135,7 @@ const NavbarMain = () => {
                   </NavDropdown.Item>
                   <NavDropdown.Item className={styles.dropdownItemCustom}>
                     <NavLink
-                      to="/financing"
+                      to="/loans"
                       onClick={() => handleActiveNav(1)}
                       className={styles.dropdownLinkCustom}
                     >
@@ -237,7 +237,7 @@ const NavbarMain = () => {
                       Farm Labour
                     </NavLink>
                     <NavLink
-                      to="/financing"
+                      to="/loans"
                       className={`${styles.mobileNavLink} ${styles.mobileDropdownLink} ${activeNav[1] ? styles.mobileActive : ""}`}
                       onClick={() => handleActiveNav(1)}
                     >
@@ -273,16 +273,9 @@ const NavbarMain = () => {
                     >
                       Contact Us
                     </NavLink>
-                    <NavLink
-                      to="/projectDetails"
-                      className={`${styles.mobileNavLink} ${styles.mobileDropdownLink} ${activeNav[4] ? styles.mobileActive : ""}`}
-                      onClick={() => handleActiveNav(4)}
-                    >
-                      Project Details
-                    </NavLink>
+                   
                   </div>
-                </div>
-                
+                </div>                
                 <Button
                   href="https://forms.gle/XQRnEyAVb5KuDiyj9"
                   target="_blank"
