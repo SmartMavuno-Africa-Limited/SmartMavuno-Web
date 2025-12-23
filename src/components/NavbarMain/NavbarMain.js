@@ -2,8 +2,10 @@ import React, { useState, useEffect } from "react";
 import { Nav, Navbar, Container, NavDropdown, Button } from "react-bootstrap";
 import styles from "./NavbarMain.module.css";
 import { NavLink, useLocation } from "react-router-dom";
-import logo from '../../assets/smart-mavuno-logo-zip-file/logo-color.png';
+import logo from '../../assets/logo/logo.png';
 import SmartMavunoBottomNav from '../UI/bottomNav';
+// Import icons from react-icons (install if needed: npm install react-icons)
+import { FaChevronDown, FaChevronUp, FaBars, FaTimes } from "react-icons/fa";
 
 const NavbarMain = () => {
   const [showServicesDropdown, setShowServicesDropdown] = useState(false);
@@ -16,9 +18,9 @@ const NavbarMain = () => {
   const [expand, setExpand] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
+  const [isClosing, setIsClosing] = useState(false);
   const location = useLocation();
 
-  // Check if mobile on mount and resize
   useEffect(() => {
     const checkMobile = () => {
       setIsMobile(window.innerWidth <= 768);
@@ -31,7 +33,11 @@ const NavbarMain = () => {
   }, []);
 
   const closeNav = () => {
-    setExpand(false);
+    setIsClosing(true);
+    setTimeout(() => {
+      setExpand(false);
+      setIsClosing(false);
+    }, 300);
   };
 
   const toggleMobileDropdown = (dropdownName) => {
@@ -40,6 +46,33 @@ const NavbarMain = () => {
       [dropdownName]: !prev[dropdownName]
     }));
   };
+
+  // Close mobile dropdowns when clicking outside (for better UX)
+  useEffect(() => {
+    if (!isMobile || !expand) return;
+
+    const handleClickOutside = (e) => {
+      const dropdownContainers = document.querySelectorAll(`.${styles.mobileDropdownContainer}`);
+      const isClickInsideDropdown = Array.from(dropdownContainers).some(container =>
+        container.contains(e.target)
+      );
+      
+      if (!isClickInsideDropdown) {
+        setMobileDropdowns({ resources: false, more: false });
+      }
+    };
+
+    document.addEventListener('click', handleClickOutside);
+    return () => document.removeEventListener('click', handleClickOutside);
+  }, [isMobile, expand]); // Fixed: Added expand dependency
+
+  // Close mobile dropdowns when route changes
+  useEffect(() => {
+    if (isMobile) {
+      setMobileDropdowns({ resources: false, more: false });
+      closeNav();
+    }
+  }, [location.pathname, isMobile]); // Fixed: Added isMobile dependency
 
   useEffect(() => {
     if (sessionStorage.getItem("NavbarMain") != null) {
@@ -81,12 +114,16 @@ const NavbarMain = () => {
   return (
     <>
       <Navbar
-        className={`${styles.customNavbar} ${scrolled ? styles.scrolled : ''} ${isMobile ? styles.mobileNavbar : ''}`}
+        className={`${styles.customNavbar} ${scrolled ? styles.scrolled : ''} ${isMobile ? styles.mobileNavbar : ''} ${isClosing ? styles.closing : ''}`}
         variant="light"
         expand="lg"
         fixed="top"
         expanded={expand}
-        onToggle={() => setExpand(!expand)}
+        onToggle={() => {
+          if (!isClosing) {
+            setExpand(!expand);
+          }
+        }}
       >
         <Container fluid={isMobile}>
           <Navbar.Brand href="/" className={`${styles.navbarBrandCustom} ${isMobile ? styles.mobileBrand : ''}`}>
@@ -94,11 +131,21 @@ const NavbarMain = () => {
               src={logo} 
               alt="smartmavuno Logo" 
               className={`${styles.navbarLogo} ${isMobile ? styles.mobileLogo : ''}`} 
+              style={{
+                transform: 'scale(1.2)',
+                transformOrigin: 'center'
+              }}
             />
             {!isMobile && <span className={styles.brandText}></span>}
           </Navbar.Brand>
 
-          <Navbar.Toggle aria-controls="basic-navbar-nav" className={styles.navbarTogglerCustom} />
+          <Navbar.Toggle 
+            aria-controls="basic-navbar-nav" 
+            className={styles.navbarTogglerCustom}
+          >
+            {expand ? <FaTimes /> : <FaBars />}
+          </Navbar.Toggle>
+          
           <Navbar.Collapse id="basic-navbar-nav">
             {!isMobile ? (
               // Desktop Navigation
@@ -119,23 +166,28 @@ const NavbarMain = () => {
                   title={
                     <span className={`${styles.navLinkCustom} ${activeNav[3] ? styles.active : ""}`}>
                       Resources
+                      <FaChevronDown className={styles.dropdownIcon} />
                     </span>
                   }
                   id="resources-dropdown"
                 >
-                  <NavDropdown.Item className={styles.dropdownItemCustom}>
+                  <NavDropdown.Item 
+                    className={styles.dropdownItemCustom}
+                    onClick={() => handleActiveNav(3)}
+                  >
                     <NavLink
                       to="/farmlabour"
-                      onClick={() => handleActiveNav(3)}
                       className={styles.dropdownLinkCustom}
                     >
                       Farm Labour 
                     </NavLink>
                   </NavDropdown.Item>
-                  <NavDropdown.Item className={styles.dropdownItemCustom}>
+                  <NavDropdown.Item 
+                    className={styles.dropdownItemCustom}
+                    onClick={() => handleActiveNav(1)}
+                  >
                     <NavLink
                       to="/loans"
-                      onClick={() => handleActiveNav(1)}
                       className={styles.dropdownLinkCustom}
                     >
                       Farm Loans 
@@ -156,32 +208,43 @@ const NavbarMain = () => {
                   onMouseEnter={() => setShowMoreInsightsDropdown(true)}
                   onMouseLeave={() => setShowMoreInsightsDropdown(false)}
                   className={styles.navDropdownCustom}
-                  title={<span className={`${styles.navLinkCustom} ${activeNav[4] ? styles.active : ""}`}>More</span>}
+                  title={
+                    <span className={`${styles.navLinkCustom} ${activeNav[4] ? styles.active : ""}`}>
+                      More
+                      <FaChevronDown className={styles.dropdownIcon} />
+                    </span>
+                  }
                   id="more-insights-dropdown"
                 >
-                  <NavDropdown.Item className={styles.dropdownItemCustom}>
+                  <NavDropdown.Item 
+                    className={styles.dropdownItemCustom}
+                    onClick={() => handleActiveNav(4)}
+                  >
                     <NavLink
                       to="/aboutUs"
                       className={styles.dropdownLinkCustom}
-                      onClick={() => handleActiveNav(4)}
                     >
                       About Us
                     </NavLink>
                   </NavDropdown.Item>
-                  <NavDropdown.Item className={styles.dropdownItemCustom}>
+                  <NavDropdown.Item 
+                    className={styles.dropdownItemCustom}
+                    onClick={() => handleActiveNav(4)}
+                  >
                     <NavLink
                       to="/contactUs"
                       className={styles.dropdownLinkCustom}
-                      onClick={() => handleActiveNav(4)}
                     >
                       Contact Us
                     </NavLink>
                   </NavDropdown.Item>
-                  <NavDropdown.Item className={styles.dropdownItemCustom}>
+                  <NavDropdown.Item 
+                    className={styles.dropdownItemCustom}
+                    onClick={() => handleActiveNav(4)}
+                  >
                     <NavLink
                       to="/projectDetails"
                       className={styles.dropdownLinkCustom}
-                      onClick={() => handleActiveNav(4)}
                     >
                       Project Details
                     </NavLink>
@@ -197,7 +260,7 @@ const NavbarMain = () => {
                 </Button>
               </Nav>
             ) : (
-              // Mobile Navigation with proper dropdowns
+              // Mobile Navigation with improved dropdowns
               <Nav className={styles.mobileNavContainer}>
                 <NavLink
                   to="/"
@@ -219,11 +282,14 @@ const NavbarMain = () => {
                 <div className={styles.mobileDropdownContainer}>
                   <button 
                     className={`${styles.mobileDropdownToggle} ${activeNav[1] || activeNav[3] ? styles.mobileDropdownActive : ""}`}
-                    onClick={() => toggleMobileDropdown('resources')}
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      toggleMobileDropdown('resources');
+                    }}
                   >
                     Resources
                     <span className={`${styles.dropdownArrow} ${mobileDropdowns.resources ? styles.dropdownArrowOpen : ""}`}>
-                      ▼
+                      {mobileDropdowns.resources ? <FaChevronUp /> : <FaChevronDown />}
                     </span>
                   </button>
                   
@@ -231,14 +297,20 @@ const NavbarMain = () => {
                     <NavLink
                       to="/farmlabour"
                       className={`${styles.mobileNavLink} ${styles.mobileDropdownLink} ${activeNav[3] ? styles.mobileActive : ""}`}
-                      onClick={() => handleActiveNav(3)}
+                      onClick={() => {
+                        handleActiveNav(3);
+                        setMobileDropdowns({ resources: false, more: false });
+                      }}
                     >
                       Farm Labour
                     </NavLink>
                     <NavLink
                       to="/loans"
                       className={`${styles.mobileNavLink} ${styles.mobileDropdownLink} ${activeNav[1] ? styles.mobileActive : ""}`}
-                      onClick={() => handleActiveNav(1)}
+                      onClick={() => {
+                        handleActiveNav(1);
+                        setMobileDropdowns({ resources: false, more: false });
+                      }}
                     >
                       Farm Loans
                     </NavLink>
@@ -249,11 +321,14 @@ const NavbarMain = () => {
                 <div className={styles.mobileDropdownContainer}>
                   <button 
                     className={`${styles.mobileDropdownToggle} ${activeNav[4] ? styles.mobileDropdownActive : ""}`}
-                    onClick={() => toggleMobileDropdown('more')}
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      toggleMobileDropdown('more');
+                    }}
                   >
                     More
                     <span className={`${styles.dropdownArrow} ${mobileDropdowns.more ? styles.dropdownArrowOpen : ""}`}>
-                      ▼
+                      {mobileDropdowns.more ? <FaChevronUp /> : <FaChevronDown />}
                     </span>
                   </button>
                   
@@ -261,18 +336,33 @@ const NavbarMain = () => {
                     <NavLink
                       to="/aboutUs"
                       className={`${styles.mobileNavLink} ${styles.mobileDropdownLink} ${activeNav[4] ? styles.mobileActive : ""}`}
-                      onClick={() => handleActiveNav(4)}
+                      onClick={() => {
+                        handleActiveNav(4);
+                        setMobileDropdowns({ resources: false, more: false });
+                      }}
                     >
                       About Us
                     </NavLink>
                     <NavLink
                       to="/contactUs"
                       className={`${styles.mobileNavLink} ${styles.mobileDropdownLink} ${activeNav[4] ? styles.mobileActive : ""}`}
-                      onClick={() => handleActiveNav(4)}
+                      onClick={() => {
+                        handleActiveNav(4);
+                        setMobileDropdowns({ resources: false, more: false });
+                      }}
                     >
                       Contact Us
                     </NavLink>
-                   
+                    <NavLink
+                      to="/projectDetails"
+                      className={`${styles.mobileNavLink} ${styles.mobileDropdownLink} ${activeNav[4] ? styles.mobileActive : ""}`}
+                      onClick={() => {
+                        handleActiveNav(4);
+                        setMobileDropdowns({ resources: false, more: false });
+                      }}
+                    >
+                      Project Details
+                    </NavLink>
                   </div>
                 </div>                
                 <Button

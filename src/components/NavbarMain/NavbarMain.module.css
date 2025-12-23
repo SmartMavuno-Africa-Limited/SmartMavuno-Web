@@ -1,17 +1,21 @@
-/* Desktop styles remain the same */
+/* NavbarMain.module.css */
+
 .customNavbar {
-  background-color: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(10px);
+  background-color: rgba(255, 255, 255, 0.98);
+  backdrop-filter: blur(12px);
   transition: all 0.3s ease;
   padding: 0.5rem 0;
-  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08);
+  border-bottom: 1px solid rgba(39, 174, 96, 0.1);
 }
 
 .customNavbar.scrolled {
   padding: 0.3rem 0;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12);
+  background-color: rgba(255, 255, 255, 0.98);
 }
 
+/* Logo and Brand Styles */
 .navbarBrandCustom {
   padding: 0;
   margin-right: 1rem;
@@ -21,54 +25,74 @@
 }
 
 .navbarLogo {
-  height: 50px;
+  height: 55px !important; /* Increased logo size */
   width: auto;
   transition: all 0.3s ease;
 }
 
 .brandText {
-  font-size: 1.3rem;
+  font-size: 1.4rem;
   font-weight: 700;
   color: #27ae60;
   letter-spacing: -0.5px;
 }
 
+.mobileLogo {
+  height: 45px !important; /* Slightly larger for mobile */
+}
+
+/* Toggle Button */
 .navbarTogglerCustom {
   border: none;
-  padding: 0.25rem 0.5rem;
-  font-size: 1.25rem;
+  padding: 0.5rem;
+  font-size: 1.5rem;
+  color: #27ae60;
+  transition: all 0.3s ease;
+  background: none;
 }
 
 .navbarTogglerCustom:focus {
   box-shadow: none;
+  outline: none;
 }
 
+.navbarTogglerCustom:hover {
+  color: #219653;
+  transform: scale(1.1);
+}
+
+/* Desktop Navigation */
 .navContainer {
   margin-left: auto;
   align-items: center;
+  gap: 0.5rem;
 }
 
 .navLinkCustom {
   color: #2c3e50 !important;
   font-weight: 500;
   font-size: 16px;
-  padding: 0.5rem 1rem !important;
+  padding: 0.6rem 1rem !important;
   margin: 0 0.2rem;
-  border-radius: 4px;
+  border-radius: 6px;
   transition: all 0.2s ease;
   position: relative;
   text-decoration: none;
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
 }
 
 .navLinkCustom:hover {
   color: #27ae60 !important;
-  background-color: rgba(39, 174, 96, 0.1);
+  background-color: rgba(39, 174, 96, 0.08);
+  transform: translateY(-1px);
 }
 
 .navLinkCustom.active {
   color: #27ae60 !important;
   font-weight: 600;
+  background-color: rgba(39, 174, 96, 0.1);
 }
 
 .navLinkCustom.active::after {
@@ -82,21 +106,37 @@
   border-radius: 2px;
 }
 
-.navDropdownCustom :global(.dropdown-toggle::after) {
-  margin-left: 0.5rem;
-  transition: transform 0.2s ease;
+/* Dropdown Icon */
+.dropdownIcon {
+  margin-left: 5px;
+  font-size: 12px;
+  transition: transform 0.3s ease;
 }
 
-.navDropdownCustom.show :global(.dropdown-toggle::after) {
+.navDropdownCustom:hover .dropdownIcon {
   transform: rotate(180deg);
 }
 
-:global(.dropdown-menu) {
+/* Dropdown Menu */
+.navDropdownCustom .dropdown-menu {
   border: none;
-  border-radius: 8px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  border-radius: 10px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
   padding: 0.5rem 0;
-  margin-top: 0.5rem;
+  margin-top: 0.8rem;
+  animation: fadeIn 0.2s ease;
+  border: 1px solid rgba(39, 174, 96, 0.1);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .dropdownItemCustom {
@@ -108,80 +148,49 @@
 
 .dropdownItemCustom:hover {
   background-color: rgba(39, 174, 96, 0.1);
+  transform: translateX(5px);
 }
 
 .dropdownLinkCustom {
   display: block;
-  padding: 0.5rem 1rem;
+  padding: 0.7rem 1rem;
   color: #2c3e50;
   text-decoration: none;
   font-weight: 500;
   transition: all 0.2s ease;
+  border-radius: 6px;
 }
 
 .dropdownLinkCustom:hover {
   color: #27ae60;
+  background-color: transparent;
 }
 
+/* CTA Button */
 .ctaButton {
   background: linear-gradient(135deg, #27ae60 0%, #219653 100%) !important;
   border: none !important;
-  border-radius: 6px !important;
-  padding: 0.5rem 1.5rem !important;
+  border-radius: 8px !important;
+  padding: 0.6rem 1.8rem !important;
   font-weight: 600 !important;
   margin-left: 1rem !important;
   transition: all 0.3s ease !important;
-  box-shadow: 0 4px 6px rgba(39, 174, 96, 0.2) !important;
+  box-shadow: 0 4px 8px rgba(39, 174, 96, 0.25) !important;
+  font-size: 15px !important;
 }
 
 .ctaButton:hover {
   background: linear-gradient(135deg, #219653 0%, #1e8449 100%) !important;
   transform: translateY(-2px) !important;
-  box-shadow: 0 6px 12px rgba(39, 174, 96, 0.3) !important;
+  box-shadow: 0 6px 15px rgba(39, 174, 96, 0.35) !important;
 }
 
-/* Tablet styles (768px - 992px) */
-@media (max-width: 992px) {
-  .navContainer :global(.navbar-collapse) {
-    padding: 1rem 0;
-    background-color: white;
-    border-radius: 0 0 10px 10px;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-    margin-top: 0.5rem;
-  }
-  
-  .navLinkCustom {
-    margin: 0.2rem 1rem;
-    text-align: left;
-    padding: 0.75rem 1rem !important;
-    border-radius: 6px;
-  }
-  
-  .navLinkCustom.active::after {
-    left: 1rem;
-    right: 1rem;
-  }
-  
-  :global(.dropdown-menu) {
-    text-align: left;
-    box-shadow: none;
-    border: 1px solid rgba(0, 0, 0, 0.08);
-    margin: 0.5rem 1rem;
-    background-color: #f9f9f9;
-  }
-  
-  .ctaButton {
-    margin: 1rem 1rem 0 1rem !important;
-    width: calc(100% - 2rem);
-    text-align: center;
-  }
-}
-
-/* Mobile styles (≤ 768px) */
+/* Mobile Navigation */
 @media (max-width: 768px) {
   .customNavbar.mobileNavbar {
     padding: 0.5rem 0;
-    height: 60px;
+    height: 65px;
+    background-color: white;
   }
   
   .customNavbar.mobileNavbar .navbarBrandCustom.mobileBrand {
@@ -190,24 +199,22 @@
   }
   
   .navbarLogo.mobileLogo {
-    height: 35px;
-    width: auto;
+    height: 40px !important;
+    transform: scale(1.1) !important;
   }
   
-  .brandText {
-    display: none;
-  }
-  
-  /* Mobile navigation container */
+  /* Mobile Navigation Container */
   .mobileNavContainer {
     padding: 0.5rem 0;
     background: white;
+    max-height: calc(100vh - 65px);
+    overflow-y: auto;
   }
   
-  /* Mobile nav links */
+  /* Mobile Nav Links */
   .mobileNavLink {
     display: block;
-    padding: 14px 20px;
+    padding: 15px 20px;
     color: #2c3e50;
     text-decoration: none;
     font-size: 16px;
@@ -217,6 +224,9 @@
     border: none;
     background: none;
     width: 100%;
+    border-radius: 0;
+    border-left: 4px solid transparent;
+    margin: 0;
   }
   
   .mobileNavLink:hover {
@@ -228,9 +238,10 @@
     background-color: #e8f5e9;
     color: #27ae60;
     border-left: 4px solid #27ae60;
+    font-weight: 600;
   }
   
-  /* Mobile dropdown containers */
+  /* Mobile Dropdown Containers */
   .mobileDropdownContainer {
     border-top: 1px solid #f0f0f0;
   }
@@ -240,7 +251,7 @@
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    padding: 14px 20px;
+    padding: 15px 20px;
     background: none;
     border: none;
     color: #2c3e50;
@@ -249,6 +260,7 @@
     text-align: left;
     cursor: pointer;
     transition: all 0.3s ease;
+    border-left: 4px solid transparent;
   }
   
   .mobileDropdownToggle:hover {
@@ -260,69 +272,121 @@
     background-color: #e8f5e9;
     color: #27ae60;
     border-left: 4px solid #27ae60;
+    font-weight: 600;
   }
   
   .dropdownArrow {
     font-size: 12px;
     transition: transform 0.3s ease;
     margin-left: 8px;
+    display: flex;
+    align-items: center;
   }
   
   .dropdownArrowOpen {
     transform: rotate(180deg);
   }
   
-  /* Mobile dropdown content */
+  /* Mobile Dropdown Content */
   .mobileDropdownContent {
     max-height: 0;
     overflow: hidden;
-    transition: max-height 0.4s ease;
+    transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease;
+    opacity: 0;
     background-color: #f9f9f9;
   }
   
   .mobileDropdownShow {
-    max-height: 300px; /* Adjust based on content */
+    max-height: 400px;
+    opacity: 1;
   }
   
   .mobileDropdownLink {
-    padding-left: 40px !important;
+    padding: 12px 20px 12px 40px !important;
     font-size: 15px;
     background-color: #f9f9f9;
+    border-left: 3px solid #e0e0e0;
+    margin-left: 20px;
+    transition: all 0.3s ease;
   }
   
   .mobileDropdownLink:hover {
     background-color: #f0f0f0;
+    border-left-color: #27ae60;
+    padding-left: 45px !important;
   }
   
-  /* Mobile CTA button */
+  .mobileDropdownLink.mobileActive {
+    background-color: #e8f5e9;
+    color: #27ae60;
+    border-left-color: #27ae60;
+    font-weight: 600;
+  }
+  
+  /* Mobile CTA Button */
   .mobileCtaButton {
     display: block;
     width: calc(100% - 40px);
-    margin: 20px 20px 10px;
-    padding: 14px;
+    margin: 25px 20px 15px;
+    padding: 15px;
     background: linear-gradient(135deg, #27ae60 0%, #219653 100%) !important;
     border: none !important;
-    border-radius: 8px !important;
+    border-radius: 10px !important;
     font-weight: 600 !important;
     font-size: 16px !important;
     text-align: center;
     color: white !important;
     text-decoration: none;
+    box-shadow: 0 4px 12px rgba(39, 174, 96, 0.25) !important;
+    transition: all 0.3s ease !important;
   }
   
-  /* Adjust container for mobile */
+  .mobileCtaButton:hover {
+    transform: translateY(-2px) !important;
+    box-shadow: 0 6px 18px rgba(39, 174, 96, 0.35) !important;
+  }
+  
   .customNavbar > .container-fluid {
     padding-left: 15px;
     padding-right: 15px;
   }
   
-  /* Ensure proper spacing for bottom nav */
-  .mobileNavContainer {
-    margin-bottom: 60px;
+  /* Smooth closing animation */
+  .closing .navbar-collapse {
+    animation: slideUp 0.3s ease forwards;
+  }
+  
+  @keyframes slideUp {
+    from {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    to {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
   }
 }
 
-/* Hide mobile navigation on desktop */
+/* Tablet Styles (769px - 992px) */
+@media (min-width: 769px) and (max-width: 992px) {
+  .navLinkCustom {
+    padding: 0.5rem 0.8rem !important;
+    font-size: 15px;
+  }
+  
+  .ctaButton {
+    padding: 0.5rem 1.2rem !important;
+    font-size: 14px !important;
+    margin-left: 0.5rem !important;
+  }
+  
+  .navbarLogo {
+    height: 50px !important;
+  }
+}
+
+/* Hide mobile elements on desktop */
 @media (min-width: 769px) {
   .mobileNavLink,
   .mobileDropdownContainer,
@@ -332,51 +396,52 @@
   }
 }
 
-/* Small mobile adjustments */
+/* Extra Small Mobile */
 @media (max-width: 576px) {
   .navbarLogo {
-    height: 40px;
+    height: 45px !important;
   }
   
   .navbarLogo.mobileLogo {
-    height: 30px;
+    height: 35px !important;
+    transform: scale(1) !important;
   }
   
   .customNavbar.mobileNavbar {
-    height: 55px;
+    height: 60px;
   }
   
   .mobileNavLink,
   .mobileDropdownToggle {
-    padding: 12px 15px;
+    padding: 14px 16px;
     font-size: 15px;
   }
   
   .mobileDropdownLink {
-    padding-left: 30px !important;
+    padding: 12px 20px 12px 35px !important;
     font-size: 14px;
   }
   
   .mobileCtaButton {
-    margin: 15px 15px 5px;
-    padding: 12px;
+    margin: 20px 15px 10px;
+    padding: 14px;
     font-size: 15px !important;
   }
 }
 
-/* Extra content padding for mobile with bottom nav */
-@media (max-width: 768px) {
-  :global(.content) {
-    padding-bottom: 70px !important;
-    min-height: calc(100vh - 60px) !important;
-  }
+/* Active state improvements */
+.mobileActive {
+  background-color: rgba(39, 174, 96, 0.1);
+  color: #27ae60 !important;
+  font-weight: 600;
 }
 
-/* Smooth transition for mobile menu */
-.navbarTogglerCustom {
-  transition: transform 0.3s ease;
+/* Dropdown item hover effects */
+.dropdownItemCustom:hover {
+  background-color: rgba(39, 174, 96, 0.1);
 }
 
-.navbarTogglerCustom[aria-expanded="true"] {
-  transform: rotate(90deg);
+/* Ensure smooth transitions */
+* {
+  transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
 }
