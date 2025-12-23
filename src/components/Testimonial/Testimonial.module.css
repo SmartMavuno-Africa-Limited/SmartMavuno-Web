@@ -1,114 +1,64 @@
+/* Testimonial.module.css */
 .testimonialSection {
-  padding: 100px 0;
-  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-  font-family: 'Poppins', sans-serif;
+  padding: 3rem 1rem;
+  background: #f8f9fa;
 }
 
 .container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 20px;
 }
 
 .header {
   text-align: center;
-  margin-bottom: 80px;
-}
-
-.subtitle {
-  font-size: 1.1rem;
-  font-weight: 600;
-  color: #4CAF50;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  margin-bottom: 16px;
+  margin-bottom: 2.5rem;
 }
 
 .title {
-  font-size: 2.8rem;
-  font-weight: 700;
+  font-size: 2rem;
   color: #182913;
-  margin-bottom: 20px;
-  line-height: 1.2;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
 }
 
 .description {
-  font-size: 1.2rem;
   color: #5a6b5c;
-  max-width: 600px;
-  margin: 0 auto;
-  line-height: 1.6;
+  font-size: 1rem;
 }
 
-/* Carousel Styles */
 .carouselContainer {
-  padding: 20px 0 60px;
-  position: relative;
+  padding: 1rem 0 3rem;
 }
 
 .carouselItem {
-  padding: 15px;
-  height: auto;
+  padding: 0.75rem;
 }
 
 .testimonialCard {
   background: white;
-  border-radius: 20px;
-  padding: 40px 30px;
-  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
   height: 100%;
-  position: relative;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
   display: flex;
   flex-direction: column;
-}
-
-.testimonialCard:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.12);
-}
-
-.quoteIcon {
-  position: absolute;
-  top: 25px;
-  right: 30px;
-  font-size: 3rem;
-  color: rgba(76, 175, 80, 0.1);
-}
-
-.rating {
-  display: flex;
-  gap: 5px;
-  margin-bottom: 25px;
-}
-
-.star {
-  color: #FFD700;
-  font-size: 1.1rem;
-}
-
-.message {
-  font-size: 1.1rem;
-  line-height: 1.7;
-  color: #5a6b5c;
-  margin-bottom: 30px;
-  flex-grow: 1;
+  border-left: 4px solid #4CAF50;
 }
 
 .clientInfo {
   display: flex;
   align-items: center;
-  gap: 15px;
-  margin-top: auto;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
 }
 
 .avatar {
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  border-radius: 10px;
   overflow: hidden;
   flex-shrink: 0;
-  border: 3px solid #4CAF50;
+  border: 2px solid #e9ecef;
 }
 
 .avatarImage {
@@ -118,177 +68,143 @@
 }
 
 .clientDetails h4 {
-  font-size: 1.2rem;
+  font-size: 1rem;
   font-weight: 600;
   color: #182913;
-  margin-bottom: 5px;
+  margin-bottom: 0.25rem;
+  line-height: 1.2;
 }
 
 .clientDetails p {
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   color: #5a6b5c;
   margin: 0;
 }
 
-/* Dot List Styles */
-.dotList {
-  bottom: -40px;
+.message {
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: #5a6b5c;
+  margin-bottom: 1.5rem;
+  flex-grow: 1;
 }
 
-.dotList li button {
-  border: none;
-  background: #ccc;
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  margin: 0 5px;
-  cursor: pointer;
-  transition: background 0.3s ease;
+.rating {
+  display: flex;
+  gap: 0.25rem;
+  margin-top: auto;
 }
 
-.dotList li button:hover {
-  background: #4CAF50;
+.star {
+  color: #FFD700;
+  font-size: 0.9rem;
 }
 
-.dotList li.react-multi-carousel-dot--active button {
-  background: #4CAF50;
-  width: 12px;
-  height: 12px;
+/* Carousel dots */
+.react-multi-carousel-dot > button {
+  background-color: #ddd;
+  border: 0;
+  width: 8px;
+  height: 8px;
 }
 
-/* Partners Logos */
-.partnersLogos {
-  margin-top: 100px;
-  text-align: center;
+.react-multi-carousel-dot--active > button {
+  background-color: #4CAF50 !important;
 }
 
-.partnersTitle {
-  font-size: 1.8rem;
-  font-weight: 600;
-  color: #182913;
-  margin-bottom: 40px;
-}
-
-.logosGrid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  gap: 40px;
-  align-items: center;
-  max-width: 900px;
-  margin: 0 auto;
-}
-
-.logoItem {
-  padding: 20px;
-  background: white;
-  border-radius: 12px;
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.06);
-  transition: transform 0.3s ease;
-}
-
-.logoItem:hover {
-  transform: scale(1.05);
-}
-
-.logoImage {
-  width: 100%;
-  height: 60px;
-  object-fit: contain;
-  filter: grayscale(100%);
-  opacity: 0.7;
-  transition: filter 0.3s ease, opacity 0.3s ease;
-}
-
-.logoItem:hover .logoImage {
-  filter: grayscale(0%);
-  opacity: 1;
-}
-
-/* Responsive Design */
-@media screen and (max-width: 1024px) {
+/* Tablet */
+@media (max-width: 1024px) {
   .title {
-    font-size: 2.3rem;
-  }
-  
-  .description {
-    font-size: 1.1rem;
+    font-size: 1.75rem;
   }
   
   .testimonialCard {
-    padding: 30px 25px;
+    padding: 1.25rem;
+  }
+  
+  .avatar {
+    width: 45px;
+    height: 45px;
   }
   
   .message {
-    font-size: 1rem;
+    font-size: 0.9rem;
   }
 }
 
-@media screen and (max-width: 768px) {
+/* Mobile */
+@media (max-width: 768px) {
   .testimonialSection {
-    padding: 80px 0;
-  }
-  
-  .header {
-    margin-bottom: 60px;
+    padding: 2rem 0.75rem;
   }
   
   .title {
-    font-size: 2rem;
-  }
-  
-  .subtitle {
-    font-size: 1rem;
-  }
-  
-  .logosGrid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 30px;
-  }
-  
-  .partnersLogos {
-    margin-top: 80px;
-  }
-}
-
-@media screen and (max-width: 576px) {
-  .container {
-    padding: 0 15px;
-  }
-  
-  .title {
-    font-size: 1.8rem;
+    font-size: 1.5rem;
   }
   
   .description {
-    font-size: 1rem;
+    font-size: 0.9rem;
+  }
+  
+  .carouselItem {
+    padding: 0.5rem;
   }
   
   .testimonialCard {
-    padding: 25px 20px;
-  }
-  
-  .quoteIcon {
-    font-size: 2.5rem;
-    top: 20px;
-    right: 20px;
+    padding: 1.25rem;
+    border-left: 3px solid #4CAF50;
   }
   
   .clientInfo {
-    flex-direction: column;
-    text-align: center;
-    gap: 10px;
+    margin-bottom: 1.25rem;
   }
   
-  .logosGrid {
-    grid-template-columns: 1fr;
-    gap: 25px;
+  .avatar {
+    width: 40px;
+    height: 40px;
   }
   
-  .logoItem {
-    padding: 15px;
+  .clientDetails h4 {
+    font-size: 0.9rem;
   }
   
-  .logoImage {
-    height: 50px;
+  .clientDetails p {
+    font-size: 0.8rem;
+  }
+  
+  .message {
+    font-size: 0.85rem;
+    margin-bottom: 1.25rem;
+  }
+  
+  .star {
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .title {
+    font-size: 1.25rem;
+  }
+  
+  .testimonialCard {
+    padding: 1rem;
+  }
+  
+  .avatar {
+    width: 35px;
+    height: 35px;
+  }
+  
+  .clientInfo {
+    gap: 0.75rem;
+  }
+  
+  .message {
+    font-size: 0.8rem;
+  }
+  
+  .star {
+    font-size: 0.75rem;
   }
 }

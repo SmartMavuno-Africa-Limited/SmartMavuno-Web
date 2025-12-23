@@ -21,7 +21,7 @@ const baseProducts = [
 ];
 
 const ProductShowcase = () => {
-  const [exchangeRate, setExchangeRate] = useState(160);
+  const [, setExchangeRate] = useState(160);
   const [products, setProducts] = useState([]);
   const [currentPage, setCurrentPage] = useState(0);
   const itemsPerPage = 3;
