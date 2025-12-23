@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { FaStar } from 'react-icons/fa';
+import { FaStar, FaArrowRight, FaArrowLeft } from 'react-icons/fa';
 import styles from './Productshowcase.module.css';
 
 import cassavaImage from '../../assets/products/Cassava.jpeg';
@@ -14,16 +14,17 @@ const baseProducts = [
   { id: 1, name: "Cassava", price: 10, unit: "kg", rating: 4.8, imageUrl: cassavaImage },
   { id: 2, name: "Green Beans", price: 12, unit: "kg", rating: 4.6, imageUrl: beansImage },
   { id: 3, name: "Tomatoes", price: 6, unit: "kg", rating: 4.7, imageUrl: tomatoesImage },
-  { id: 3, name: "Onins", price: 6, unit: "kg", rating: 4.7, imageUrl: onionsImage },
-  { id: 3, name: "Carrot", price: 6, unit: "kg", rating: 4.7, imageUrl: carrotsImage },
-  { id: 3, name: "Pumpkin", price: 6, unit: "kg", rating: 4.7, imageUrl: pumpkinImage },
-  { id: 3, name: "Cabbage", price: 6, unit: "kg", rating: 4.7, imageUrl: cabbageImage },
-
+  { id: 4, name: "Onions", price: 5, unit: "kg", rating: 4.2, imageUrl: onionsImage },
+  { id: 5, name: "Carrots", price: 7, unit: "kg", rating: 4.5, imageUrl: carrotsImage },
+  { id: 6, name: "Pumpkin", price: 8, unit: "kg", rating: 4.4, imageUrl: pumpkinImage },
+  { id: 7, name: "Cabbage", price: 4, unit: "kg", rating: 4.3, imageUrl: cabbageImage },
 ];
 
 const ProductShowcase = () => {
   const [exchangeRate, setExchangeRate] = useState(160);
   const [products, setProducts] = useState([]);
+  const [currentPage, setCurrentPage] = useState(0);
+  const itemsPerPage = 3;
 
   useEffect(() => {
     const fetchExchangeRate = async () => {
@@ -51,6 +52,29 @@ const ProductShowcase = () => {
     fetchExchangeRate();
   }, []);
 
+  const totalPages = Math.ceil(products.length / itemsPerPage);
+  
+  const currentProducts = products.slice(
+    currentPage * itemsPerPage,
+    (currentPage + 1) * itemsPerPage
+  );
+
+  const nextPage = () => {
+    if (currentPage < totalPages - 1) {
+      setCurrentPage(currentPage + 1);
+    }
+  };
+
+  const prevPage = () => {
+    if (currentPage > 0) {
+      setCurrentPage(currentPage - 1);
+    }
+  };
+
+  const goToPage = (pageIndex) => {
+    setCurrentPage(pageIndex);
+  };
+
   const formatKSH = (price) => {
     return `KSh ${price.toLocaleString()}`;
   };
@@ -68,7 +92,7 @@ const ProductShowcase = () => {
       </div>
 
       <div className={styles.productsGrid}>
-        {products.map((product) => (
+        {currentProducts.map((product) => (
           <div key={product.id} className={styles.productCard}>
             <div className={styles.imageContainer}>
               <img src={product.imageUrl} alt={product.name} className={styles.productImage} />
@@ -93,6 +117,34 @@ const ProductShowcase = () => {
             </div>
           </div>
         ))}
+      </div>
+
+      <div className={styles.pagination}>
+        <button
+          onClick={prevPage}
+          className={styles.pageButton}
+          disabled={currentPage === 0}
+        >
+          <FaArrowLeft />
+        </button>
+        
+        <div className={styles.pageDots}>
+          {Array.from({ length: totalPages }).map((_, index) => (
+            <button
+              key={index}
+              className={`${styles.pageDot} ${currentPage === index ? styles.active : ''}`}
+              onClick={() => goToPage(index)}
+            />
+          ))}
+        </div>
+        
+        <button
+          onClick={nextPage}
+          className={styles.pageButton}
+          disabled={currentPage === totalPages - 1}
+        >
+          <FaArrowRight />
+        </button>
       </div>
     </div>
   );
