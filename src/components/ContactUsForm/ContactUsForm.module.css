@@ -1,621 +1,310 @@
-@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css');
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
-
-/* Container Styles */
+/* ContactUsForm.module.css */
 .container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    padding: 40px 20px;
-    background: linear-gradient(135deg, #f0f9ff 0%, #e6f4ff 100%);
-    font-family: 'Poppins', sans-serif;
+  padding: 3rem 1rem;
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
 }
 
 .contactWrapper {
-    max-width: 1200px;
-    width: 100%;
-    background: white;
-    border-radius: 24px;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
-    overflow: hidden;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  max-width: 800px;
+  margin: 0 auto;
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
 }
 
-.contactWrapper:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.12);
-}
-
-/* Header Styles */
+/* Header */
 .header {
-    display: flex;
-    padding: 0;
-    background: linear-gradient(135deg, #28501C 0%, #4a7c59 100%);
-    color: white;
-    position: relative;
-    overflow: hidden;
-}
-
-.headerContent {
-    padding: 50px;
-    flex: 1;
-    z-index: 2;
-}
-
-.headerVisual {
-    flex: 0 0 40%;
-    position: relative;
-    overflow: hidden;
-}
-
-.visualElement {
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"><rect fill="none" width="200" height="200"/><path fill="rgba(255,255,255,0.05)" d="M100,0c27.6,0,50,22.4,50,50s-22.4,50-50,50s-50-22.4-50-50S72.4,0,100,0z"/><path fill="rgba(255,255,255,0.07)" d="M100,100c27.6,0,50,22.4,50,50s-22.4,50-50,50s-50-22.4-50-50S72.4,100,100,100z"/><path fill="rgba(255,255,255,0.1)" d="M0,100c0-27.6,22.4-50,50-50s50,22.4,50,50s-22.4,50-50,50S0,127.6,0,100z"/></svg>');
-    background-size: cover;
-    opacity: 0.7;
+  padding: 2.5rem 2rem;
+  background: linear-gradient(135deg, #182913 0%, #2e7d32 100%);
+  color: white;
+  text-align: center;
 }
 
 .heading {
-    font-size: 2.8rem;
-    font-weight: 700;
-    margin-bottom: 15px;
-    letter-spacing: -0.5px;
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
 }
 
 .subheading {
-    font-size: 1.2rem;
-    opacity: 0.9;
-    max-width: 500px;
-    line-height: 1.6;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 1rem;
 }
 
-/* Content Grid */
-.contentGrid {
-    display: grid;
-    grid-template-columns: 1fr 1.2fr;
-    gap: 0;
+/* Content Wrapper */
+.contentWrapper {
+  padding: 2.5rem 2rem;
 }
 
-/* Info Section */
-.infoSection {
-    padding: 50px 40px;
-    background: #f9faf9;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+/* Info Cards - 2 cards side by side */
+.infoCards {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  margin-bottom: 2.5rem;
 }
 
 .infoCard {
-    display: flex;
-    align-items: flex-start;
-    margin-bottom: 35px;
-    transition: transform 0.3s ease;
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 1.5rem;
+  background: #f8f9fa;
+  border-radius: 12px;
+  border-left: 4px solid #4CAF50;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .infoCard:hover {
-    transform: translateX(5px);
+  transform: translateY(-4px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
 }
 
-.infoIcon {
-    width: 60px;
-    height: 60px;
-    background: linear-gradient(135deg, #28501C 0%, #4a7c59 100%);
-    border-radius: 16px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-right: 20px;
-    color: white;
-    font-size: 1.5rem;
-    flex-shrink: 0;
-    box-shadow: 0 5px 15px rgba(40, 80, 28, 0.2);
+.cardIcon {
+  font-size: 1.5rem;
+  color: #4CAF50;
+  flex-shrink: 0;
 }
 
-.infoContent {
-    flex: 1;
+.cardContent {
+  flex: 1;
 }
 
-.infoTitle {
-    font-size: 1.3rem;
-    font-weight: 600;
-    color: #28501C;
-    margin-bottom: 10px;
+.cardTitle {
+  font-size: 1.1rem;
+  color: #182913;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
 }
 
-.infoText {
-    font-size: 1rem;
-    color: #5a6d5a;
-    margin-bottom: 8px;
-    line-height: 1.5;
+.cardText {
+  color: #5a6b5c;
+  font-size: 0.9rem;
+  line-height: 1.4;
+  margin: 0.25rem 0;
 }
 
-.socialSection {
-    margin-top: auto;
-    padding-top: 30px;
-    border-top: 1px solid rgba(40, 80, 28, 0.1);
-}
-
-.socialTitle {
-    font-size: 1.3rem;
-    font-weight: 600;
-    color: #28501C;
-    margin-bottom: 20px;
-}
-
-.socialIcons {
-    display: flex;
-    gap: 12px;
-}
-
-.socialLink {
-    width: 45px;
-    height: 45px;
-    background: linear-gradient(135deg, #28501C 0%, #4a7c59 100%);
-    border-radius: 12px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    text-decoration: none;
-    transition: all 0.3s ease;
-    box-shadow: 0 5px 15px rgba(40, 80, 28, 0.2);
-}
-
-.socialLink:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 8px 20px rgba(40, 80, 28, 0.3);
-}
-
-/* Form Section */
-.formSection {
-    padding: 50px 40px;
-    background: white;
-}
-
+/* Form Container */
 .formContainer {
-    max-width: 100%;
+  background: white;
+  border-radius: 12px;
+}
+
+.formHeader {
+  margin-bottom: 2rem;
 }
 
 .formTitle {
-    font-size: 1.8rem;
-    font-weight: 600;
-    color: #28501C;
-    margin-bottom: 30px;
-    position: relative;
-    padding-bottom: 15px;
+  font-size: 1.5rem;
+  color: #182913;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
 }
 
-.formTitle::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 50px;
-    height: 4px;
-    background: linear-gradient(135deg, #28501C 0%, #4a7c59 100%);
-    border-radius: 2px;
+.formSubtitle {
+  color: #5a6b5c;
+  font-size: 0.95rem;
 }
 
 .statusMessage {
-    padding: 15px 20px;
-    border-radius: 12px;
-    margin-bottom: 25px;
-    font-weight: 500;
-    display: flex;
-    align-items: center;
-    gap: 10px;
+  padding: 1rem;
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+  font-weight: 500;
+  font-size: 0.9rem;
+  text-align: center;
 }
 
 .statusMessage.success {
-    background: #f0f9f0;
-    color: #2e7d32;
-    border: 1px solid #c8e6c9;
+  background: #f0f9f0;
+  color: #2e7d32;
+  border: 1px solid #c8e6c9;
 }
 
 .statusMessage.error {
-    background: #fde8e8;
-    color: #c62828;
-    border: 1px solid #ffcdd2;
+  background: #fde8e8;
+  color: #c62828;
+  border: 1px solid #ffcdd2;
 }
 
+/* Form Styles */
 .form {
-    width: 100%;
+  width: 100%;
 }
 
 .formRow {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 20px;
-    margin-bottom: 20px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  margin-bottom: 1rem;
 }
 
 .inputGroup {
-    position: relative;
-    margin-bottom: 30px;
+  margin-bottom: 1.5rem;
 }
 
-.label {
-    position: absolute;
-    top: 18px;
-    left: 50px;
-    font-size: 1rem;
-    color: #7a8b7a;
-    pointer-events: none;
-    transition: all 0.3s ease;
-    transform-origin: left top;
+.input, .textarea {
+  width: 100%;
+  padding: 0.875rem 1rem;
+  border: 2px solid #e9ecef;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-family: inherit;
+  background: white;
+  color: #182913;
+  transition: all 0.3s ease;
 }
 
-.input {
-    width: 100%;
-    padding: 20px 20px 20px 50px;
-    border: 2px solid #e8efe8;
-    border-radius: 12px;
-    font-size: 1rem;
-    transition: all 0.3s ease;
-    background: #f9fbf9;
-    color: #28501C;
-    font-family: 'Poppins', sans-serif;
+.input:focus, .textarea:focus {
+  outline: none;
+  border-color: #4CAF50;
+  background: white;
+  box-shadow: 0 0 0 4px rgba(76, 175, 80, 0.1);
 }
 
-.input:focus {
-    outline: none;
-    border-color: #4a7c59;
-    background: white;
-    box-shadow: 0 5px 15px rgba(74, 124, 89, 0.1);
-}
-
-.input:focus + .label,
-.input:not(:placeholder-shown) + .label {
-    top: 6px;
-    left: 50px;
-    font-size: 0.8rem;
-    color: #4a7c59;
-    font-weight: 500;
+.input::placeholder, .textarea::placeholder {
+  color: #adb5bd;
 }
 
 .textarea {
-    resize: vertical;
-    min-height: 150px;
-    padding-top: 20px;
-}
-
-.inputIcon {
-    position: absolute;
-    left: 20px;
-    top: 50%;
-    transform: translateY(-50%);
-    color: #4a7c59;
-    font-size: 1.1rem;
-    transition: all 0.3s ease;
-}
-
-.input:focus ~ .inputIcon {
-    color: #28501C;
-}
-
-.textareaIcon {
-    top: 25px;
-    transform: none;
+  resize: vertical;
+  min-height: 120px;
+  line-height: 1.5;
 }
 
 .submitButton {
-    width: 100%;
-    padding: 18px;
-    background: linear-gradient(135deg, #28501C 0%, #4a7c59 100%);
-    color: white;
-    border: none;
-    border-radius: 12px;
-    font-size: 1.1rem;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    box-shadow: 0 5px 15px rgba(40, 80, 28, 0.3);
+  width: 100%;
+  padding: 1rem;
+  background: linear-gradient(135deg, #4CAF50 0%, #2e7d32 100%);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  letter-spacing: 0.5px;
 }
 
-.submitButton:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 8px 25px rgba(40, 8a0, 28, 0.4);
+.submitButton:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(76, 175, 80, 0.3);
 }
 
-.submitButton:active {
-    transform: translateY(0);
-    box-shadow: 0 3px 10px rgba(40, 80, 28, 0.3);
+.submitButton:active:not(:disabled) {
+  transform: translateY(0);
 }
 
 .submitButton:disabled {
-    opacity: 0.7;
-    cursor: not-allowed;
-    transform: none;
-    box-shadow: none;
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none !important;
 }
 
-/* Floating label animation */
-.input::placeholder {
-    color: transparent;
-}
-
-/* Add these to your existing CSS */
-
-/* Loading animation for submit button */
-.submitButton.loading {
-    position: relative;
-    color: transparent;
-}
-
-.submitButton.loading::after {
-    content: '';
-    position: absolute;
-    width: 20px;
-    height: 20px;
-    border: 2px solid transparent;
-    border-top: 2px solid white;
-    border-radius: 50%;
-    animation: spin 1s linear infinite;
-}
-
-@keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-}
-
-/* Error states for form validation */
-.input.error {
-    border-color: #c62828;
-    background: #fde8e8;
-}
-
-.input.error + .label {
-    color: #c62828;
-}
-
-.errorMessage {
-    color: #c62828;
-    font-size: 0.8rem;
-    margin-top: 5px;
-    display: block;
-}
-
-/* Success animation */
-@keyframes successPulse {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.05); }
-    100% { transform: scale(1); }
-}
-
-.statusMessage.success {
-    animation: successPulse 0.6s ease-in-out;
-}
-
-/* Dark mode support */
-@media (prefers-color-scheme: dark) {
-    .contactWrapper {
-        background: #1a1a1a;
-        color: white;
-    }
-    
-    .formSection {
-        background: #1a1a1a;
-    }
-    
-    .infoSection {
-        background: #2d2d2d;
-    }
-    
-    .input {
-        background: #2d2d2d;
-        border-color: #404040;
-        color: white;
-    }
-    
-    .input:focus {
-        background: #1a1a1a;
-    }
-}
-
-/* Print styles */
-@media print {
-    .contactWrapper {
-        box-shadow: none;
-        transform: none !important;
-    }
-    
-    .socialSection,
-    .submitButton {
-        display: none;
-    }
-}
-
-/* High contrast mode support */
-@media (prefers-contrast: high) {
-    .input {
-        border-width: 3px;
-    }
-    
-    .socialLink {
-        border: 2px solid white;
-    }
-}
-
-/* Reduced motion support */
-@media (prefers-reduced-motion: reduce) {
-    .contactWrapper,
-    .infoCard,
-    .socialLink,
-    .submitButton,
-    .input {
-        transition: none;
-        animation: none;
-    }
-    
-    .contactWrapper:hover {
-        transform: none;
-    }
-}
-
-/* Focus visible for better accessibility */
-.input:focus-visible,
-.submitButton:focus-visible,
-.socialLink:focus-visible {
-    outline: 3px solid #28501C;
-    outline-offset: 2px;
-}
-
-/* Selection color */
-::selection {
-    background: rgba(40, 80, 28, 0.3);
-    color: inherit;
-}
-
-/* Scrollbar styling for webkit browsers */
-::-webkit-scrollbar {
-    width: 8px;
-}
-
-::-webkit-scrollbar-track {
-    background: #f1f1f1;
-}
-
-::-webkit-scrollbar-thumb {
-    background: linear-gradient(135deg, #28501C 0%, #4a7c59 100%);
-    border-radius: 4px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-    background: linear-gradient(135deg, #1f3f15 0%, #3a6347 100%);
-}
-
-/* Additional utility classes you might need */
-.visually-hidden {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    padding: 0;
-    margin: -1px;
-    overflow: hidden;
-    clip: rect(0, 0, 0, 0);
-    white-space: nowrap;
-    border: 0;
-}
-
-.text-center {
-    text-align: center;
-}
-
-.mb-0 {
-    margin-bottom: 0 !important;
-}
-
-.mt-0 {
-    margin-top: 0 !important;
-}
-
-/* Responsive Design */
-@media (max-width: 992px) {
-    .contentGrid {
-        grid-template-columns: 1fr;
-    }
-    
-    .infoSection {
-        padding: 40px 30px;
-    }
-    
-    .formSection {
-        padding: 40px 30px;
-    }
-    
-    .header {
-        flex-direction: column;
-    }
-    
-    .headerVisual {
-        display: none;
-    }
-}
-
+/* Mobile Responsive */
 @media (max-width: 768px) {
-    .headerContent {
-        padding: 40px 30px;
-    }
-    
-    .heading {
-        font-size: 2.2rem;
-    }
-    
-    .formRow {
-        grid-template-columns: 1fr;
-        gap: 0;
-    }
-    
-    .infoSection, .formSection {
-        padding: 30px 25px;
-    }
-    
-    .infoCard {
-        flex-direction: column;
-        text-align: center;
-    }
-    
-    .infoIcon {
-        margin-right: 0;
-        margin-bottom: 15px;
-    }
-    
-    .socialIcons {
-        justify-content: center;
-    }
+  .container {
+    padding: 1.5rem;
+  }
+  
+  .header {
+    padding: 2rem 1.5rem;
+  }
+  
+  .heading {
+    font-size: 1.75rem;
+  }
+  
+  .contentWrapper {
+    padding: 1.5rem;
+  }
+  
+  /* 2 cards on mobile */
+  .infoCards {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+  
+  .infoCard {
+    padding: 1.25rem;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    border-left: none;
+    border-top: 3px solid #4CAF50;
+  }
+  
+  .cardIcon {
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .formRow {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+  
+  .input, .textarea {
+    padding: 0.75rem;
+    font-size: 0.9rem;
+  }
+  
+  .submitButton {
+    padding: 0.875rem;
+  }
 }
 
 @media (max-width: 480px) {
-    .container {
-        padding: 20px 15px;
-    }
-    
-    .heading {
-        font-size: 2rem;
-    }
-    
-    .subheading {
-        font-size: 1rem;
-    }
-    
-    .infoIcon {
-        width: 50px;
-        height: 50px;
-        font-size: 1.2rem;
-    }
-    
-    .infoTitle {
-        font-size: 1.2rem;
-    }
-    
-    .formTitle {
-        font-size: 1.5rem;
-    }
-    
-    .input {
-        padding: 16px 16px 16px 45px;
-    }
-    
-    .label {
-        left: 45px;
-    }
-    
-    .input:focus + .label,
-    .input:not(:placeholder-shown) + .label {
-        left: 45px;
-    }
-    
-    .inputIcon {
-        left: 16px;
-    }
+  .container {
+    padding: 1rem;
+  }
+  
+  .header {
+    padding: 1.5rem 1rem;
+  }
+  
+  .heading {
+    font-size: 1.5rem;
+  }
+  
+  .contentWrapper {
+    padding: 1.25rem;
+  }
+  
+  .infoCards {
+    gap: 0.75rem;
+  }
+  
+  .infoCard {
+    padding: 1rem;
+  }
+  
+  .cardTitle {
+    font-size: 1rem;
+  }
+  
+  .cardText {
+    font-size: 0.85rem;
+  }
+  
+  .formTitle {
+    font-size: 1.25rem;
+  }
+  
+  .formSubtitle {
+    font-size: 0.9rem;
+  }
+}
+
+/* Tablet */
+@media (max-width: 1024px) and (min-width: 769px) {
+  .contactWrapper {
+    max-width: 700px;
+  }
+  
+  .infoCards {
+    gap: 1.25rem;
+  }
 }
