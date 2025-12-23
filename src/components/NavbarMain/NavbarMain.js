@@ -4,7 +4,6 @@ import styles from "./NavbarMain.module.css";
 import { NavLink, useLocation } from "react-router-dom";
 import logo from '../../assets/logo/logo.png';
 import SmartMavunoBottomNav from '../UI/bottomNav';
-// Import icons from react-icons (install if needed: npm install react-icons)
 import { FaChevronDown, FaChevronUp, FaBars, FaTimes } from "react-icons/fa";
 
 const NavbarMain = () => {
@@ -47,7 +46,6 @@ const NavbarMain = () => {
     }));
   };
 
-  // Close mobile dropdowns when clicking outside (for better UX)
   useEffect(() => {
     if (!isMobile || !expand) return;
 
@@ -64,15 +62,14 @@ const NavbarMain = () => {
 
     document.addEventListener('click', handleClickOutside);
     return () => document.removeEventListener('click', handleClickOutside);
-  }, [isMobile, expand]); // Fixed: Added expand dependency
+  }, [isMobile, expand]); 
 
-  // Close mobile dropdowns when route changes
   useEffect(() => {
     if (isMobile) {
       setMobileDropdowns({ resources: false, more: false });
       closeNav();
     }
-  }, [location.pathname, isMobile]); // Fixed: Added isMobile dependency
+  }, [location.pathname, isMobile]); 
 
   useEffect(() => {
     if (sessionStorage.getItem("NavbarMain") != null) {
