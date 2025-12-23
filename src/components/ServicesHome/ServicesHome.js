@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import styles from "./ServicesHome.module.css";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -9,26 +9,26 @@ import {
   faStore 
 } from '@fortawesome/free-solid-svg-icons';
 
-// Service data - only Insured Financing and Digital Marketplace
+// Service data - now 3 services
 const servicesData = [
   {
     id: 1,
     heading: 'Insured Financing',
-    content: 'Collateral-free loans with flexible terms.',
+    content: 'Collateral-free loans',
     to: '/loans',
     icon: faShieldAlt
   },
   {
     id: 2,
     heading: 'Digital Marketplace',
-    content: 'Buy & sell farm products directly.',
+    content: 'Buy & sell products',
     to: 'https://marketplace.smartmavuno.com',
     icon: faStore
   },
   {
-    id: 2,
-    heading: 'Training & Mentorship',
-    content: 'Training and mentorship programs for farmers.',
+    id: 3,
+    heading: 'Training',
+    content: 'Mentorship programs',
     to: '/community',
     icon: faPeopleArrows
   }
@@ -59,7 +59,7 @@ const ServicesHome = () => {
         <div className={styles.header}>
           <h2 className={styles.mainHeading}>Our Services</h2>
           <p className={styles.subHeading}>
-            Modern tools for agricultural success
+            Tools for agricultural success
           </p>
         </div>
 
