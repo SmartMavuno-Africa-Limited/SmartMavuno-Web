@@ -3,10 +3,8 @@ import styles from './ContactUsForm.module.css';
 
 const ContactUsForm = () => {
     const [formContent, setFormContent] = useState({
-        firstName: '',
-        lastName: '',
+        name: '',
         email: '',
-        phone: '',
         subject: '',
         message: ''
     });
@@ -25,8 +23,8 @@ const ContactUsForm = () => {
         e.preventDefault();
         
         // Check all fields
-        const { firstName, lastName, email, phone, subject, message } = formContent;
-        if (!firstName || !lastName || !email || !phone || !subject || !message) {
+        const { name, email, subject, message } = formContent;
+        if (!name || !email || !subject || !message) {
             setSubmitStatus({ type: 'error', message: 'Please fill all fields' });
             return;
         }
@@ -36,9 +34,8 @@ const ContactUsForm = () => {
 
         // Construct email
         const emailBody = `
-Name: ${firstName} ${lastName}
+Name: ${name}
 Email: ${email}
-Phone: ${phone}
 Subject: ${subject}
 Message: ${message}
         `.trim();
@@ -54,10 +51,8 @@ Message: ${message}
             
             // Reset form
             setFormContent({
-                firstName: '',
-                lastName: '',
+                name: '',
                 email: '',
-                phone: '',
                 subject: '',
                 message: ''
             });
@@ -77,7 +72,6 @@ Message: ${message}
                     {/* Contact Info Cards */}
                     <div className={styles.infoCards}>
                         <div className={styles.infoCard}>
-                            <div className={styles.cardIcon}>📍</div>
                             <div className={styles.cardContent}>
                                 <h3 className={styles.cardTitle}>Location</h3>
                                 <p className={styles.cardText}>Ruiru, Kenya</p>
@@ -85,7 +79,6 @@ Message: ${message}
                         </div>
                         
                         <div className={styles.infoCard}>
-                            <div className={styles.cardIcon}>📞</div>
                             <div className={styles.cardContent}>
                                 <h3 className={styles.cardTitle}>Contact</h3>
                                 <p className={styles.cardText}>+254 707 687 930</p>
@@ -108,52 +101,26 @@ Message: ${message}
                         )}
                         
                         <form onSubmit={handleSubmit} className={styles.form}>
-                            <div className={styles.formRow}>
-                                <div className={styles.inputGroup}>
-                                    <input 
-                                        name="firstName" 
-                                        value={formContent.firstName} 
-                                        onChange={handleChange} 
-                                        className={styles.input} 
-                                        type="text"
-                                        placeholder="First Name"
-                                    />
-                                </div>
-                                
-                                <div className={styles.inputGroup}>
-                                    <input 
-                                        name="lastName" 
-                                        value={formContent.lastName} 
-                                        onChange={handleChange} 
-                                        className={styles.input} 
-                                        type="text"
-                                        placeholder="Last Name"
-                                    />
-                                </div>
+                            <div className={styles.inputGroup}>
+                                <input 
+                                    name="name" 
+                                    value={formContent.name} 
+                                    onChange={handleChange} 
+                                    className={styles.input} 
+                                    type="text"
+                                    placeholder="Full Name"
+                                />
                             </div>
 
-                            <div className={styles.formRow}>
-                                <div className={styles.inputGroup}>
-                                    <input 
-                                        name="email" 
-                                        value={formContent.email} 
-                                        onChange={handleChange} 
-                                        className={styles.input} 
-                                        type="email"
-                                        placeholder="Email Address"
-                                    />
-                                </div>
-                                
-                                <div className={styles.inputGroup}>
-                                    <input 
-                                        name="phone" 
-                                        value={formContent.phone} 
-                                        onChange={handleChange} 
-                                        className={styles.input} 
-                                        type="tel"
-                                        placeholder="Phone Number"
-                                    />
-                                </div>
+                            <div className={styles.inputGroup}>
+                                <input 
+                                    name="email" 
+                                    value={formContent.email} 
+                                    onChange={handleChange} 
+                                    className={styles.input} 
+                                    type="email"
+                                    placeholder="Email Address"
+                                />
                             </div>
 
                             <div className={styles.inputGroup}>
@@ -174,7 +141,7 @@ Message: ${message}
                                     onChange={handleChange} 
                                     className={styles.textarea} 
                                     placeholder="Your message here..."
-                                    rows="5"
+                                    rows="6"
                                 />
                             </div>
 
