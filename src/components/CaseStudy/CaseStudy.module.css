@@ -36,10 +36,7 @@
 }
 
 .filterBtn {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 0.5rem 1rem;
+  padding: 0.5rem 1.25rem;
   background: white;
   border: 1px solid #dee2e6;
   border-radius: 20px;
@@ -59,10 +56,6 @@
   background: #4CAF50;
   border-color: #4CAF50;
   color: white;
-}
-
-.filterIcon {
-  font-size: 1rem;
 }
 
 /* Cards grid - 3 in one line */
@@ -90,6 +83,7 @@
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
 }
 
+/* Web: Normal height */
 .cardImage {
   height: 160px;
   background-size: cover;
@@ -192,10 +186,6 @@
 }
 
 .weatherOptionBtn {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
   padding: 0.75rem;
   background: #f8f9fa;
   border: 1px solid #dee2e6;
@@ -211,10 +201,6 @@
   background: #3498db;
   color: white;
   border-color: #3498db;
-}
-
-.weatherOptionIcon {
-  font-size: 1rem;
 }
 
 .closeOptionsBtn {
@@ -237,10 +223,6 @@
     gap: 1rem;
   }
   
-  .cardImage {
-    height: 140px;
-  }
-  
   .cardContent {
     padding: 1rem;
   }
@@ -254,7 +236,7 @@
   }
 }
 
-/* Mobile - 3 in one line (compact) */
+/* Mobile - Reduced height */
 @media (max-width: 768px) {
   .caseStudySection {
     padding: 2rem 0.75rem;
@@ -273,8 +255,8 @@
   }
   
   .filterBtn {
-    padding: 0.4rem 0.8rem;
-    font-size: 0.8rem;
+    padding: 0.4rem 1rem;
+    font-size: 0.85rem;
   }
   
   /* 3 cards in one line on mobile */
@@ -287,13 +269,18 @@
     max-width: 100%;
   }
   
+  /* Reduced height for mobile */
   .cardImage {
-    height: 120px;
+    height: 100px; /* Reduced from 120px */
   }
   
   .cardBadge {
     font-size: 0.6rem;
     padding: 0.2rem 0.5rem;
+  }
+  
+  .cardContent {
+    padding: 0.75rem;
   }
   
   .designation {
@@ -307,11 +294,11 @@
   
   .cardDescription {
     font-size: 0.75rem;
-    margin-bottom: 1rem;
+    margin-bottom: 0.75rem; /* Reduced spacing */
   }
   
   .actionBtn {
-    font-size: 0.8rem;
+    font-size: 0.75rem;
   }
 }
 
@@ -320,35 +307,9 @@
     gap: 0.5rem;
   }
   
+  /* Further reduced height for very small screens */
   .cardImage {
-    height: 100px;
-  }
-  
-  .cardContent {
-    padding: 0.75rem;
-  }
-  
-  .cardTitle {
-    font-size: 0.85rem;
-  }
-  
-  .cardDescription {
-    font-size: 0.7rem;
-  }
-  
-  .filterContainer {
-    gap: 0.5rem;
-  }
-  
-  .filterBtn {
-    padding: 0.3rem 0.6rem;
-    font-size: 0.75rem;
-  }
-}
-
-@media (max-width: 360px) {
-  .cardImage {
-    height: 90px;
+    height: 80px; /* Further reduced */
   }
   
   .cardContent {
@@ -359,7 +320,35 @@
     font-size: 0.8rem;
   }
   
-  .cardDescription {  
+  .cardDescription {
+    font-size: 0.7rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .filterContainer {
+    gap: 0.5rem;
+  }
+  
+  .filterBtn {
+    padding: 0.3rem 0.8rem;
+    font-size: 0.75rem;
+  }
+}
+
+@media (max-width: 360px) {
+  .cardImage {
+    height: 70px; /* Minimum height */
+  }
+  
+  .cardContent {
+    padding: 0.4rem;
+  }
+  
+  .cardTitle {
+    font-size: 0.75rem;
+  }
+  
+  .cardDescription {
     font-size: 0.65rem;
   }
 }
