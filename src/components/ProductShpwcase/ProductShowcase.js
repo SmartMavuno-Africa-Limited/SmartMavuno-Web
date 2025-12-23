@@ -82,13 +82,7 @@ const ProductShowcase = () => {
   return (
     <div className={styles.container}>
       <div className={styles.header}>
-        <h2 className={styles.heading}>Fresh Farm Produce</h2>
-        <p className={styles.sub_text}>
-          Real-time pricing in Kenyan Shillings
-          <span className={styles.exchangeRate}>
-            Rate: 1 USD = {exchangeRate.toFixed(2)} KSH
-          </span>
-        </p>
+        <h2 className={styles.heading}>SmartMavuno Farm Fresh Shop</h2>
       </div>
 
       <div className={styles.productsGrid}>
