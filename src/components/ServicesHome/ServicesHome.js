@@ -4,6 +4,7 @@ import styles from "./ServicesHome.module.css";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { 
   faArrowRight, 
+  faPeopleArrows, 
   faShieldAlt, 
   faStore 
 } from '@fortawesome/free-solid-svg-icons';
@@ -23,31 +24,26 @@ const servicesData = [
     content: 'Buy & sell farm products directly.',
     to: 'https://marketplace.smartmavuno.com',
     icon: faStore
+  },
+  {
+    id: 2,
+    heading: 'Training & Mentorship',
+    content: 'Training and mentorship programs for farmers.',
+    to: '/community',
+    icon: faPeopleArrows
   }
 ];
 
-const ServiceHome = ({ heading, content, to, icon, index }) => {
-  const [isHovered, setIsHovered] = useState(false);
-
+const ServiceHome = ({ heading, content, to, icon }) => {
   return (
-    <div 
-      className={`${styles.serviceItem} ${index % 2 === 0 ? styles.serviceItemPrimary : styles.serviceItemSecondary}`}
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
-    >
+    <div className={styles.serviceItem}>
       <div className={styles.serviceContent}>
         <div className={styles.iconContainer}>
-          <FontAwesomeIcon 
-            icon={icon} 
-            className={styles.icon} 
-          />
+          <FontAwesomeIcon icon={icon} className={styles.icon} />
         </div>
         <h3 className={styles.heading}>{heading}</h3>
         <p className={styles.content}>{content}</p>
-        <Link 
-          to={to} 
-          className={styles.link}
-        >
+        <Link to={to} className={styles.link}>
           Explore
           <FontAwesomeIcon icon={faArrowRight} className={styles.arrowIcon} />
         </Link>
@@ -68,22 +64,15 @@ const ServicesHome = () => {
         </div>
 
         <div className={styles.servicesGrid}>
-          {servicesData.map((service, index) => (
+          {servicesData.map((service) => (
             <ServiceHome
               key={service.id}
               heading={service.heading}
               content={service.content}
               to={service.to}
               icon={service.icon}
-              index={index}
             />
           ))}
-        </div>
-
-        <div className={styles.ctaSection}>
-          <Link to="/contactUs" className={styles.ctaButton}>
-            Contact Team
-          </Link>
         </div>
       </div>
     </section>
