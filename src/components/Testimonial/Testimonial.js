@@ -2,47 +2,59 @@ import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import styles from "./Testimonial.module.css";
 
-import mazetu from '../../assets/home/mazetu.png';
-import mebiut from '../../assets/home/mebiut.png';
-import fspn from '../../assets/home/fspn.jpeg';
-import alx from '../../assets/home/alx.jpeg';
-import { FaStar } from 'react-icons/fa';
-
 const testimonials = [
     {
         id: 1,
-        img: mebiut,
-        name: 'Mebiut Limited',
-        profession: 'Sauce Company, Kenya',
-        message: "SmartMavuno has been a key partner in our growth. They supply fresh, quality ingredients for our sauces."
+        name: 'John Kamau',
+        profession: 'Maize & Beans Farmer',
+        location: 'Nakuru',
+        message: "SmartMavuno marketplace allowed me sell my farm-fresh beans directly to schools in Nairobi. I now earn 50% more by eliminating middlemen."
+    },
+    {
+        id: 2,
+        name: 'Mary Wanjiku',
+        profession: 'Dairy Farmer',
+        location: 'Kiambu',
+        message: "I received my insured financing from SmartMavuno to buy 10 dairy cows. The risk-free loan helped me triple my milk production in 8 months."
     },
     {
         id: 3,
-        img: alx,
-        name: 'ALX Founder Academy',
-        profession: 'ALX Ventures',
-        message: "We worked closely with SmartMavuno's team. Confident in their vision and positive impact in agriculture."
+        name: 'Peter Odhiambo',
+        profession: 'Vegetable Farmer',
+        location: 'Kisumu',
+        message: "I got equipped with modern irrigation techniques by SmartMavuno's agronomic team. My tomato yield increased by 120% using their drip system."
     },
     {
         id: 4,
-        img: mazetu,
-        name: 'Mazetu Africa',
-        profession: 'Storage Provider',
-        message: "SmartMavuno collaborates with us to provide storage solutions. We help farmers preserve their produce."
+        name: 'Grace Akinyi',
+        profession: 'Avocado Farmer',
+        location: 'Murang\'a',
+        message: "SmartMavuno marketplace connected me with European buyers. I now export my Hass avocados directly, earning 3 times more than before."
     },
     {
         id: 5,
-        img: fspn,
-        name: 'HD4A & FSPN',
-        profession: 'Agri-Business',
-        message: "We incubated SmartMavuno. Their technology is driving real change in agriculture."
+        name: 'Joseph Mwangi',
+        profession: 'Coffee Farmer',
+        location: 'Nyeri',
+        message: "I received insured financing from SmartMavuno to renovate my coffee factory. The collateral-free loan was processed in just 3 days."
     },
+    {
+        id: 6,
+        name: 'Sarah Auma',
+        profession: 'Poultry Farmer',
+        location: 'Kakamega',
+        message: "I got equipped with disease management skills by SmartMavuno trainers. My chicken mortality rate dropped from 30% to just 5%."
+    }
 ];
 
 function Testimonial() {
     const responsive = {
         desktop: {
-            breakpoint: { max: 3000, min: 768 },
+            breakpoint: { max: 3000, min: 1024 },
+            items: 3,
+        },
+        tablet: {
+            breakpoint: { max: 1024, min: 768 },
             items: 2,
         },
         mobile: {
@@ -55,9 +67,9 @@ function Testimonial() {
         <section className={styles.testimonialSection}>
             <div className={styles.container}>
                 <div className={styles.header}>
-                    <h2 className={styles.title}>Our Partners</h2>
+                    <h2 className={styles.title}>Farmer Success Stories</h2>
                     <p className={styles.description}>
-                        Trusted by leading organizations
+                        Real farmers sharing how our services transformed their farms
                     </p>
                 </div>
 
@@ -72,30 +84,20 @@ function Testimonial() {
                     keyBoardControl={true}
                     containerClass={styles.carouselContainer}
                     itemClass={styles.carouselItem}
+                    arrows={true}
+                    pauseOnHover={true}
                 >
                     {testimonials.map((testimonial) => (
                         <div className={styles.testimonialCard} key={testimonial.id}>
                             <div className={styles.clientInfo}>
-                                <div className={styles.avatar}>
-                                    <img
-                                        src={testimonial.img}
-                                        alt={testimonial.name}
-                                        className={styles.avatarImage}
-                                    />
-                                </div>
                                 <div className={styles.clientDetails}>
                                     <h4 className={styles.clientName}>{testimonial.name}</h4>
                                     <p className={styles.clientProfession}>{testimonial.profession}</p>
+                                    <p className={styles.clientLocation}>{testimonial.location}</p>
                                 </div>
                             </div>
                             
                             <p className={styles.message}>"{testimonial.message}"</p>
-                            
-                            <div className={styles.rating}>
-                                {[...Array(5)].map((_, i) => (
-                                    <FaStar key={i} className={styles.star} />
-                                ))}
-                            </div>
                         </div>
                     ))}
                 </Carousel>
