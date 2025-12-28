@@ -6,7 +6,7 @@ import Footer from "../../components/Footer";
 import AboutUsHome from "../../components/AboutUsHome";
 import Testimonial from "../../components/Testimonial";
 import Impact from "../../components/Impact";
-import Productshowcase from "../../components/ProductShpwcase";
+import Productshowcase from "../../components/ProductShowcase";
 
 
 const Home = () => {

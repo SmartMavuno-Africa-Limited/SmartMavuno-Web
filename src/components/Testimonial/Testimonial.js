@@ -1,4 +1,3 @@
-import React from "react";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import styles from "./Testimonial.module.css";
@@ -7,7 +6,6 @@ import mazetu from '../../assets/home/mazetu.png';
 import mebiut from '../../assets/home/mebiut.png';
 import fspn from '../../assets/home/fspn.jpeg';
 import alx from '../../assets/home/alx.jpeg';
-import CMETrust from '../../assets/home/cme.png';
 import { FaStar } from 'react-icons/fa';
 
 const testimonials = [
@@ -17,13 +15,6 @@ const testimonials = [
         name: 'Mebiut Limited',
         profession: 'Sauce Company, Kenya',
         message: "SmartMavuno has been a key partner in our growth. They supply fresh, quality ingredients for our sauces."
-    },
-    {
-        id: 2,
-        img: CMETrust,
-        name: 'Canada Mathare Education Trust',
-        profession: 'Scholarships',
-        message: "We've partnered with SmartMavuno through their founding team. Proud to see them transform agriculture."
     },
     {
         id: 3,

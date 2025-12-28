@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { Nav, Navbar, Container, NavDropdown, Button } from "react-bootstrap";
 import styles from "./NavbarMain.module.css";
 import { NavLink, useLocation } from "react-router-dom";
@@ -94,7 +94,7 @@ const NavbarMain = () => {
     else if (path === "/loans") temp[1] = true;
     else if (path === "/community") temp[2] = true;
     else if (path === "/farmlabour") temp[3] = true;
-    else if (["/aboutUs", "/contactUs", "/projectDetails"].includes(path)) temp[4] = true;
+    else if (["/aboutUs", "/contactUs"].includes(path)) temp[4] = true;
     
     setActiveNav(temp);
     sessionStorage.setItem("NavbarMain", JSON.stringify(temp));
@@ -239,12 +239,6 @@ const NavbarMain = () => {
                     className={styles.dropdownItemCustom}
                     onClick={() => handleActiveNav(4)}
                   >
-                    <NavLink
-                      to="/projectDetails"
-                      className={styles.dropdownLinkCustom}
-                    >
-                      Project Details
-                    </NavLink>
                   </NavDropdown.Item>
                 </NavDropdown>
                 
@@ -349,16 +343,6 @@ const NavbarMain = () => {
                       }}
                     >
                       Contact Us
-                    </NavLink>
-                    <NavLink
-                      to="/projectDetails"
-                      className={`${styles.mobileNavLink} ${styles.mobileDropdownLink} ${activeNav[4] ? styles.mobileActive : ""}`}
-                      onClick={() => {
-                        handleActiveNav(4);
-                        setMobileDropdowns({ resources: false, more: false });
-                      }}
-                    >
-                      Project Details
                     </NavLink>
                   </div>
                 </div>                
